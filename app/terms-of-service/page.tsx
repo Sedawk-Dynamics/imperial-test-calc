@@ -100,9 +100,11 @@ export default function TermsOfServicePage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Limitation of Liability</h2>
               <p className="text-gray-700 leading-relaxed">
-                Imperial Healthcare Systems provides Services to optimize healthcare yields; however, we do not
-                guarantee specific financial outcomes. To the maximum extent permitted by law, Imperial shall not be
-                liable for any indirect, incidental, or consequential damages arising from the use of our RCM platforms.
+                Imperial Healthcare Systems, including its affiliates, partners, and associates, provides revenue cycle management (RCM), analytics, benchmarking, and related technology services for operational support purposes only. Imperial does not guarantee any specific financial, reimbursement, revenue, profitability, or business outcomes from the use of its services or platforms.
+
+Any benchmarks, analytics, projections, performance metrics, or “optics” are generated using proprietary technologies and are tested under specific assumptions, configurations, and combinations of data fields. Actual results may vary based on provider type, business operations, data quality, payer mix, regulatory requirements, and user inputs, and may differ materially between providers, businesses, and users.
+
+To the maximum extent permitted by law, Imperial shall not be liable for any indirect, incidental, consequential, or special damages arising out of or related to the use of, or reliance on, its services, platforms, or outputs.
               </p>
             </section>
 
