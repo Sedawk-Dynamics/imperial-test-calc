@@ -111,43 +111,79 @@ export default function Chatbot() {
   return (
     <>
       {/* Floating Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg hover:scale-105 transition"
-      >
-        {isOpen ? (
-          <X className="text-white" />
-        ) : (
-          <MessageCircle className="text-white" />
-        )}
-      </button>
+<button
+  onClick={() => setIsOpen(!isOpen)}
+  className="
+    fixed bottom-6 right-6 z-50
+    flex h-14 w-14 items-center justify-center
+    rounded-full text-white
+    bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900
+    shadow-xl
+    hover:scale-105 hover:brightness-110
+    transition-all duration-200
+  "
+>
+  {isOpen ? (
+    <X className="text-white" />
+  ) : (
+    <MessageCircle className="text-white" />
+  )}
+</button>
 
       {/* Chat Window */}
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[95vw] rounded-2xl bg-white shadow-2xl overflow-hidden animate-in fade-in zoom-in">
           
           {/* Header */}
-          <div className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-  <span className="text-lg">🤖</span>
+          <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white">
+
+  {/* Torch Logo */}
+  <div className="h-15 w-15 object-contain drop-shadow-[0_0_6px_rgba(255,255,255,0.45)]"
+>
+    <img
+      src="/images/icon.png"
+      alt="Imperial Healthcare Systems"
+      className="h-15 w-15 object-contain"
+    />
+  </div>
+
+  {/* Brand Text */}
   <div className="leading-tight">
-    <div className="font-semibold">Imperia.AI</div>
+    <div className="font-semibold tracking-tight">Imperia.AI</div>
     <div className="text-xs opacity-80">Healthcare Business Assistant</div>
   </div>
 </div>
 
+
           {/* Messages */}
           <div className="h-[360px] overflow-y-auto p-4 space-y-3 bg-gray-50">
             {messages.map((msg, index) => (
-              <div
-                key={index}
-                className={`max-w-[85% rounded-xl px-4 py-2 text-sm leading-relaxed ${
-                  msg.role === "user"
-                    ? "ml-auto bg-blue-600 text-white"
-                    : "bg-white border shadow-sm"
-                }`}
-                dangerouslySetInnerHTML={{ __html: msg.content }}
-              />
-            ))}
+  <div key={index} className="space-y-1">
+    {/* Assistant label */}
+    {msg.role === "assistant" && (
+      <div className="flex items-center gap-2 text-xs text-gray-500 pl-1">
+        {/* Torch icon */}
+        <img
+          src="/images/icon.png"
+          alt="Imperia.ai"
+          className="w-10 h-10"
+        />
+        <span className="font-medium">Imperia.ai</span>
+      </div>
+    )}
+
+    {/* Message bubble */}
+    <div
+      className={`max-w-[85% rounded-xl px-4 py-2 text-sm leading-relaxed ${
+        msg.role === "user"
+          ? "ml-auto bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-900 text-white shadow-md"
+          : "bg-white border shadow-sm text-slate-700"
+      }`}
+      dangerouslySetInnerHTML={{ __html: msg.content }}
+    />
+  </div>
+))}
+
 
             {loading && (
               <div className="text-xs text-gray-400">Imperia.ai is typing...</div>
@@ -166,7 +202,9 @@ export default function Chatbot() {
 
             <button
               onClick={sendMessage}
-              className="rounded-lg bg-blue-600 p-2 text-white hover:bg-blue-700"
+              className="rounded-lg p-2 text-white
+    bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900
+    hover:brightness-110 transition-all active:scale-95"
             >
               <Send size={18} />
             </button>
