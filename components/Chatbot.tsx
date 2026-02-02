@@ -127,9 +127,13 @@ export default function Chatbot() {
         <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[95vw] rounded-2xl bg-white shadow-2xl overflow-hidden animate-in fade-in zoom-in">
           
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3 text-white font-semibold flex items-center gap-2">
-            🤖 Imperia.ai — AI Assistant
-          </div>
+          <div className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+  <span className="text-lg">🤖</span>
+  <div className="leading-tight">
+    <div className="font-semibold">Imperia.AI</div>
+    <div className="text-xs opacity-80">Healthcare Business Assistant</div>
+  </div>
+</div>
 
           {/* Messages */}
           <div className="h-[360px] overflow-y-auto p-4 space-y-3 bg-gray-50">

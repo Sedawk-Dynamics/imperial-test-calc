@@ -945,6 +945,7 @@ yPos += logoHeight + 12
           {/* SECTION 1: IRRF CORE CARDS */}
           <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-7xl mx-auto">
             {/* Card 1: THE CORE PROPOSITION */}
+            <div className="perspective-[1600px]">
             <Card className="relative bg-white rounded-[20px] border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] overflow-hidden group">
               {/* Pastel Corner Accent - Pink */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-200 to-purple-200 opacity-30 rounded-bl-full transition-opacity duration-300 group-hover:opacity-50" />
@@ -979,6 +980,7 @@ yPos += logoHeight + 12
                 </p>
               </CardContent>
             </Card>
+            </div>
 
             {/* Card 2: THE IHS INTELLIGENCE ENGINE */}
             <Card className="relative bg-white rounded-[20px] border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] overflow-hidden group">
@@ -2507,7 +2509,16 @@ yPos += logoHeight + 12
                 Get <span className="text-brand-orange">Started</span> Today
               </h2>
               {/* CHANGE: Replaced static text with animated component */}
-              <AnimatedCTAText />
+              <p className="mt-4 text-lg font-medium bg-gradient-to-r from-[#1E3A8A] to-[#14B8A6] bg-clip-text text-transparent">
+    Ready to transform your healthcare operations?
+  </p>
+
+  <p className="mt-2 text-lg text-gray-800">
+    Contact us for a{" "}
+    <span className="text-blue-700 font-semibold">
+      consultation
+    </span>
+  </p>
             </div>
 
             <Card className="border-2 border-brand-blue/30 shadow-2xl">
