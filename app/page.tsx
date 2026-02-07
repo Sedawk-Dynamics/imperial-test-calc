@@ -942,238 +942,328 @@ yPos += logoHeight + 12
             </h3>
           </div>
 
-          {/* SECTION 1: IRRF CORE CARDS */}
-          <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-7xl mx-auto">
-            {/* Card 1: THE CORE PROPOSITION */}
-            <div className="perspective-[1600px]">
-            <Card className="relative bg-white rounded-[20px] border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] overflow-hidden group">
-              {/* Pastel Corner Accent - Pink */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-200 to-purple-200 opacity-30 rounded-bl-full transition-opacity duration-300 group-hover:opacity-50" />
+{/* SECTION 1: IRRF CORE CARDS */}
+<div className="grid md:grid-cols-2 gap-8 mb-20 max-w-7xl mx-auto">
 
-              {/* Hover Gradient Overlay with Radial Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-50/0 via-purple-50/0 to-orange-50/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(236,72,153,0.08),transparent_60%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+  {/* ================= CARD 1 ================= */}
+  <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] group">
+    <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
 
-              <CardHeader className="relative space-y-4 p-8 transition-transform duration-300 group-hover:-translate-y-0.5">
-                {/* Vibrant Icon Container with Enhanced Hover */}
-                <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:shadow-[0_12px_32px_rgba(236,72,153,0.5)]">
-                  <Target className="w-8 h-8 text-white" strokeWidth={2.5} />
+      {/* FRONT */}
+      <Card
+        className="absolute inset-0 bg-white rounded-[20px]
+                   border-2 border-orange-400/70
+                   hover:border-orange-500
+                   shadow-md hover:shadow-orange-200/40
+                   transition-all duration-300
+                   flex flex-col items-center justify-center text-center p-8
+                   backface-hidden"
+      >
+        <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 flex items-center justify-center">
+          <Target className="w-7 h-7 text-white" strokeWidth={2.5} />
+        </div>
+
+        <h3 className="text-xl font-bold text-slate-800 mb-2">
+          THE CORE PROPOSITION
+        </h3>
+
+        <p className="text-base font-semibold text-brand-orange mb-2">
+          Where Algorithmic Precision Meets Human Advocacy
+        </p>
+
+        <p className="text-sm text-slate-500">
+          (Hover to learn more)
+        </p>
+      </Card>
+
+      {/* BACK */}
+      <Card
+        className="absolute inset-0 rounded-[20px]
+                   bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500
+                   text-white shadow-xl p-6
+                   flex flex-col justify-center
+                   rotate-x-180 backface-hidden"
+      >
+        <h3 className="text-xl font-bold mb-3">
+          THE CORE PROPOSITION
+        </h3>
+
+        <p className="text-sm leading-relaxed mb-3">
+          The Imperial Revenue Recovery Framework (IRRF) replaces reactive legacy
+          processes with a proactive intelligence layer.
+        </p>
+
+        <p className="text-sm leading-relaxed mb-4">
+          Our AI-enhanced architecture engineers revenue to secure the Clinical EBITDA
+          your practice deserves.
+        </p>
+      </Card>
+
+    </div>
+  </div>
+
+  {/* ================= CARD 2 ================= */}
+  <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] group">
+    <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+
+      {/* FRONT */}
+      <Card
+        className="absolute inset-0 bg-white rounded-[20px]
+                   border-2 border-orange-400/70
+                   hover:border-orange-500
+                   shadow-md hover:shadow-orange-200/40
+                   transition-all duration-300
+                   flex flex-col items-center justify-center text-center p-8
+                   backface-hidden"
+      >
+        <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+          <Network className="w-7 h-7 text-white" strokeWidth={2.5} />
+        </div>
+
+        <h3 className="text-xl font-bold text-slate-800 mb-2">
+          THE IHS INTELLIGENCE ENGINE
+        </h3>
+
+        <p className="text-base font-semibold text-brand-orange mb-2">
+          Engineering Enterprise Resilience
+        </p>
+
+        <p className="text-sm text-slate-500">
+          (Hover to learn more)
+        </p>
+      </Card>
+
+      {/* BACK */}
+      <Card
+        className="absolute inset-0 rounded-[20px]
+                   bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500
+                   text-white shadow-xl p-6
+                   flex flex-col justify-center
+                   rotate-x-180 backface-hidden"
+      >
+        <h3 className="text-xl font-bold mb-3">
+          THE IHS INTELLIGENCE ENGINE
+        </h3>
+
+        <p className="text-sm leading-relaxed mb-3">
+          IHS orchestrates high-velocity revenue cycles through a proprietary fusion
+          of specialized intelligence and AI-driven infrastructure.
+        </p>
+
+        <p className="text-sm leading-relaxed mb-4">
+          Technology serves as the sentry, while our Revenue Architects guide
+          high-value decisions.
+        </p>
+      </Card>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+{/* ================= SECTION: THE STRATEGIC INTELLIGENCE GRID ================= */}
+<div className="mb-20">
+
+  {/* Heading */}
+  <div className="text-center mb-10">
+    <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+      THE STRATEGIC INTELLIGENCE GRID
+    </h3>
+    <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
+      An architectural four-pillar system designed for zero-leakage.
+    </p>
+  </div>
+
+  <section className="py-24">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto place-items-center">
+
+      {[
+        {
+          title: "PREDICTIVE DENIAL INTELLIGENCE",
+          subtitle: "Pre-Submission Safeguarding",
+          icon: Radar,
+          desc: "Leverages historical payer data and AI-enhanced modeling to identify at-risk claims with 95% accuracy before submission.",
+          why: "Stops the denial cycle and accelerates cash velocity.",
+        },
+        {
+          title: "ALGORITHMIC ACCURACY SCRUBBING",
+          subtitle: "Integrity Engineering",
+          icon: ShieldCheck,
+          desc: "Performs real-time, multi-layer validation across thousands of payer-specific rules and ICD-10 crosswalks.",
+          why: "Replaces human error with coded precision.",
+        },
+        {
+          title: "INTELLIGENCE-DRIVEN AUTOMATION",
+          subtitle: "Operational Scalability",
+          icon: Zap,
+          desc: "Advanced automation reduces manual intervention and human error by up to 70%.",
+          why: "Drives up to 60% operating cost reduction.",
+        },
+        {
+          title: "REVENUE FORENSIC AUDIT",
+          subtitle: "Wealth Recovery",
+          icon: SearchIcon,
+          desc: "Continuous audit algorithms scanning historical revenue data to uncover hidden losses.",
+          why: "Turns lost revenue into realized enterprise value.",
+        },
+      ].map((card, i) => {
+
+        const Icon = card.icon
+
+        return (
+          <div
+            key={i}
+            className="relative h-[320px] w-full max-w-[320px] perspective-[1200px] group"
+          >
+
+            {/* FLIP CONTAINER */}
+            <div className="absolute inset-0 h-full w-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+
+              {/* ================= FRONT CARD ================= */}
+              <Card
+                className="
+                  absolute inset-0 h-full w-full
+                  rounded-[18px]
+                  bg-gradient-to-br from-[#0B1C3D] via-[#0A224F] to-[#081735]
+                  text-white
+                  border border-white/10
+                  shadow-[0_20px_50px_rgba(2,6,23,0.7)]
+                  flex flex-col items-center justify-center text-center
+                  p-6
+                  backface-hidden
+                  transition-all duration-500
+                  group-hover:-translate-y-1
+                "
+              >
+
+                {/* Navy sheen */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+
+                {/* ICON */}
+                <div className="
+                  relative z-10
+                  w-12 h-12 mb-4
+                  rounded-xl
+                  bg-white/10
+                  backdrop-blur-md
+                  flex items-center justify-center
+                  transition-all duration-500
+                ">
+                  <Icon
+                    className="
+                      w-6 h-6
+                      text-white
+                      transition-colors duration-500
+                      group-hover:text-[#C6A85A]
+                    "
+                    strokeWidth={2.5}
+                  />
                 </div>
-                <CardTitle className="text-2xl font-bold text-slate-800 transition-all duration-300 group-hover:text-slate-900">
-                  THE CORE PROPOSITION
-                </CardTitle>
-                <p className="text-lg font-semibold text-brand-orange">
-                  Where Algorithmic Precision Meets Human Advocacy
+
+                <h3 className="relative z-10 text-base font-bold mb-1 tracking-wide">
+                  {card.title}
+                </h3>
+
+                <p className="relative z-10 text-sm opacity-80">
+                  {card.subtitle}
                 </p>
-              </CardHeader>
-              <CardContent className="relative space-y-4 px-8 pb-8 pt-2">
-                <p className="text-base text-slate-600 leading-relaxed">
-                  The Imperial Revenue Recovery Framework (IRRF) represents a paradigm shift in financial management. We
-                  replace reactive legacy processes with a proactive intelligence layer. Our engine doesn&apos;t just
-                  manage your revenue; it engineers it—utilizing an advanced AI-enhanced architecture to secure the
-                  Clinical EBITDA your practice deserves.
+
+                <p className="relative z-10 text-xs opacity-60 mt-2">
+                  Hover to explore
                 </p>
-                <p className="text-base text-slate-600 leading-relaxed">
-                  At IHS, we don't just &apos;process&apos; claims; we exercise sovereign ownership over them. We have
-                  engineered a workflow where Advanced Technology identifies the path and Expert Human Labor ensures the
-                  arrival.
-                </p>
-              </CardContent>
-            </Card>
-            </div>
 
-            {/* Card 2: THE IHS INTELLIGENCE ENGINE */}
-            <Card className="relative bg-white rounded-[20px] border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] overflow-hidden group">
-              {/* Pastel Corner Accent - Purple */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-200 to-pink-200 opacity-30 rounded-bl-full transition-opacity duration-300 group-hover:opacity-50" />
+              </Card>
 
-              {/* Hover Gradient Overlay with Radial Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-50/0 via-pink-50/0 to-orange-50/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(168,85,247,0.08),transparent_60%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
 
-              <CardHeader className="relative space-y-4 p-8 transition-transform duration-300 group-hover:-translate-y-0.5">
-                {/* Vibrant Icon Container with Enhanced Hover */}
-                <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:shadow-[0_12px_32px_rgba(168,85,247,0.5)]">
-                  <Network className="w-8 h-8 text-white" strokeWidth={2.5} />
-                </div>
-                <CardTitle className="text-2xl font-bold text-slate-800 transition-all duration-300 group-hover:text-slate-900">
-                  THE IHS INTELLIGENCE ENGINE
-                </CardTitle>
-                <p className="text-lg font-semibold text-brand-orange">Engineering Enterprise Resilience</p>
-              </CardHeader>
-              <CardContent className="relative space-y-4 px-8 pb-8 pt-2">
-                <p className="text-base text-slate-600 leading-relaxed">
-                  IHS orchestrates high-velocity revenue cycles through a proprietary fusion of specialized intelligence
-                  and AI-driven infrastructure. By neutralizing the manual variances that compromise provider margins,
-                  we deliver a fortified tech stack engineered for institutional scalability.
-                </p>
-                <p className="text-base text-slate-600 leading-relaxed">
-                  The Sovereign Standard: At IHS, your data is a fortress; your growth is an algorithm. Technology
-                  serves as the sentry, but our experienced Revenue Architects hold the final stake in every high-value
-                  decision.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+              {/* ================= BACK CARD ================= */}
+              <Card
+                className="
+                  absolute inset-0 h-full w-full
+                  rounded-[18px]
+                  bg-gradient-to-br from-[#0D9488] via-[#14B8A6] to-[#5EEAD4]
+                  text-white
+                  shadow-[0_20px_60px_rgba(20,184,166,0.45)]
+                  flex flex-col justify-between
+                  p-6
+                  rotate-y-180
+                  backface-hidden
+                  overflow-hidden
+                "
+              >
 
-          {/* SECTION 2: THE STRATEGIC INTELLIGENCE GRID */}
-          <div className="mb-20">
-            <div className="text-center mb-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-3">THE STRATEGIC INTELLIGENCE GRID</h3>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
-                An architectural four-pillar system designed for zero-leakage.
-              </p>
-            </div>
+                {/* subtle animated wash */}
+                <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-white/20 via-transparent to-white/20 animate-pulse" />
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {/* Card A: PREDICTIVE DENIAL INTELLIGENCE */}
-              <Card className="relative bg-white rounded-[20px] border border-gray-100 shadow-lg transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-2xl overflow-hidden group">
-                {/* Corner accent - subtle pink/purple tint */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-200 to-purple-200 opacity-30 rounded-bl-[80px] pointer-events-none" />
+                {/* CONTENT */}
+                <div className="relative z-10">
 
-                {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/0 via-purple-500/0 to-orange-500/0 group-hover:from-pink-500/5 group-hover:via-purple-500/5 group-hover:to-orange-500/5 transition-all duration-500 pointer-events-none" />
-
-                {/* Radial glow on hover */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: "radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.15), transparent 70%)",
-                  }}
-                />
-
-                <CardHeader className="relative z-10 p-8 pb-4 space-y-4">
-                  <div className="w-14 h-14 rounded-[12px] bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:shadow-[0_10px_30px_rgba(236,72,153,0.45)]">
-                    <Radar className="w-7 h-7 text-white" strokeWidth={2.5} />
+                  {/* ICON */}
+                  <div className="
+                    w-12 h-12 mb-4
+                    rounded-xl
+                    bg-white/10
+                    backdrop-blur-md
+                    flex items-center justify-center
+                  ">
+                    <Icon
+                      className="
+                        w-6 h-6
+                        text-white
+                        transition-colors duration-500
+                        group-hover:text-[#C6A85A]
+                      "
+                      strokeWidth={2.5}
+                    />
                   </div>
-                  <CardTitle className="text-xl font-bold text-slate-900 transition-all duration-300 pt-2">
-                    PREDICTIVE DENIAL INTELLIGENCE
-                  </CardTitle>
-                  <p className="text-sm font-semibold text-brand-blue">
-                    Strategic Function: Pre-Submission Safeguarding
+
+                  <h3 className="text-lg font-bold mb-2">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-sm leading-relaxed mb-3 opacity-95">
+                    {card.desc}
                   </p>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4 px-8 pb-8">
-                  <div>
-                    <p className="text-sm font-semibold text-slate-700 mb-2">Capability:</p>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      Leverages historical payer data and AI-enhanced modeling to identify at-risk claims with 95%
-                      accuracy before submission.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-700 mb-2">The Why:</p>
-                    <p className="text-sm italic text-slate-600">
-                      Stops the Denial Cycle and accelerates Cash Velocity.
-                    </p>
-                  </div>
-                </CardContent>
+
+                  <p className="text-sm font-medium opacity-90">
+                    {card.why}
+                  </p>
+
+                </div>
+
+                {/* CTA */}
+                <button
+                  className="
+                    relative z-10
+                    mt-4
+                    bg-[#5EEAD4]
+                    text-[#0B1C3D]
+                    font-semibold
+                    text-sm
+                    px-4 py-2
+                    rounded-lg
+                    transition-all duration-300
+                    hover:bg-white
+                    hover:scale-105
+                  "
+                >
+                  Learn More
+                </button>
+
               </Card>
 
-              {/* Card B: ALGORITHMIC ACCURACY SCRUBBING */}
-              <Card className="relative bg-white rounded-[20px] border border-gray-100 shadow-lg transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-2xl overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-200 to-pink-200 opacity-30 rounded-bl-[80px] pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-orange-500/0 to-pink-500/0 group-hover:from-purple-500/5 group-hover:via-orange-500/5 group-hover:to-pink-500/5 transition-all duration-500 pointer-events-none" />
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: "radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.15), transparent 70%)",
-                  }}
-                />
-
-                <CardHeader className="relative z-10 p-8 pb-4 space-y-4">
-                  <div className="w-14 h-14 rounded-[12px] bg-gradient-to-br from-purple-500 via-orange-500 to-pink-500 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:shadow-[0_10px_30px_rgba(168,85,247,0.45)]">
-                    <ShieldCheck className="w-7 h-7 text-white" strokeWidth={2.5} />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-slate-900 transition-all duration-300 pt-2">
-                    ALGORITHMIC ACCURACY SCRUBBING
-                  </CardTitle>
-                  <p className="text-sm font-semibold text-brand-blue">Strategic Function: Integrity Engineering</p>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4 px-8 pb-8">
-                  <div>
-                    <p className="text-sm font-semibold text-slate-700 mb-2">Capability:</p>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      Performs real-time, multi-layer validation against thousands of payer-specific rules and ICD-10
-                      crosswalks.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-700 mb-2">The Why:</p>
-                    <p className="text-sm italic text-slate-600">Replaces human error with coded precision.</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Card C: INTELLIGENCE-DRIVEN AUTOMATION */}
-              <Card className="relative bg-white rounded-[20px] border border-gray-100 shadow-lg transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-2xl overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-200 to-pink-200 opacity-30 rounded-bl-[80px] pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-pink-500/0 to-purple-500/0 group-hover:from-orange-500/5 group-hover:via-pink-500/5 group-hover:to-purple-500/5 transition-all duration-500 pointer-events-none" />
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: "radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.15), transparent 70%)",
-                  }}
-                />
-
-                <CardHeader className="relative z-10 p-8 pb-4 space-y-4">
-                  <div className="w-14 h-14 rounded-[12px] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:shadow-[0_10px_30px_rgba(249,115,22,0.45)]">
-                    <Zap className="w-7 h-7 text-white" strokeWidth={2.5} />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-slate-900 transition-all duration-300 pt-2">
-                    INTELLIGENCE-DRIVEN AUTOMATION
-                  </CardTitle>
-                  <p className="text-sm font-semibold text-brand-blue">Strategic Function: Operational Scalability</p>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4 px-8 pb-8">
-                  <div>
-                    <p className="text-sm font-semibold text-slate-700 mb-2">Capability:</p>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      Advanced automation reduces manual intervention and human error by 70%.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-700 mb-2">The Why:</p>
-                    <p className="text-sm italic text-slate-600">Drives up to 60% operating cost reduction.</p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Card D: REVENUE FORENSIC AUDIT */}
-              <Card className="relative bg-white rounded-[20px] border border-gray-100 shadow-lg transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-2xl overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-200 to-purple-200 opacity-30 rounded-bl-[80px] pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/0 via-orange-500/0 to-purple-500/0 group-hover:from-pink-500/5 group-hover:via-orange-500/5 group-hover:to-purple-500/5 transition-all duration-500 pointer-events-none" />
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), transparent 70%)",
-                  }}
-                />
-
-                <CardHeader className="relative z-10 p-8 pb-4 space-y-4">
-                  <div className="w-14 h-14 rounded-[12px] bg-gradient-to-br from-pink-500 via-orange-500 to-purple-500 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:shadow-[0_10px_30px_rgba(236,72,153,0.45)]">
-                    <SearchIcon className="w-7 h-7 text-white" strokeWidth={2.5} />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-slate-900 transition-all duration-300 pt-2">
-                    REVENUE FORENSIC AUDIT
-                  </CardTitle>
-                  <p className="text-sm font-semibold text-brand-blue">Strategic Function: Wealth Recovery</p>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4 px-8 pb-8">
-                  <div>
-                    <p className="text-sm font-semibold text-slate-700 mb-2">Capability:</p>
-                    <p className="text-sm text-slate-600 leading-relaxed">
-                      Continuous audit algorithms scanning historical revenue data.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-700 mb-2">The Why:</p>
-                    <p className="text-sm italic text-slate-600">Turns lost revenue into realized enterprise value.</p>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
+        )
+      })}
+
+    </div>
+  </section>
+</div>
+
+
+
 
           {/* SECTION 2: IRRF THREE-PILLAR ARCHITECTURE */}
           <div>
