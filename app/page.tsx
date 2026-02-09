@@ -542,119 +542,147 @@ yPos += logoHeight + 12
       {/* Repositioning sections in the order: Hero, Core Values, Problem, Solution, IHS Advantage, Promise, Calculators, Why Choose Us, Services Carousel, IHS Standards, Pricing, Success Stories, Results, Industries, Technology & Security */}
 
       {/* 1. Hero Banner */}
-      <section
-        id="home"
-        className="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden"
-        style={{
-          background: `
-            radial-gradient(circle at 20% 40%, rgba(59, 130, 246, 0.08), transparent 45%),
-            radial-gradient(circle at 80% 60%, rgba(251, 146, 60, 0.10), transparent 45%),
-            linear-gradient(to bottom, #f8fafc, #ffffff)
-          `,
-        }}
-      >
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            {/* Badge */}
-            {/* Power Tag */}
-            <div className="animate-fade-in-up mb-8 flex justify-center">
-              <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-orange to-brand-orange/80 text-white text-sm font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                Think Excellence
-              </span>
-            </div>
-
-            <SequentialHeroAnimation />
-
-            <div className="flex justify-center mb-8 animate-fade-in-up animation-delay-200">
-              <p className="text-base font-medium text-slate-700 leading-relaxed max-w-4xl text-center px-4">
-                Imperial Healthcare Systems (IHS) replaces obsolete 'Volume-over-Value' models with the IRRF—a
-                proprietary intelligence architecture that re-engineers your unit economics to secure a 99.2% Net
-                Collection Rate.
-              </p>
-            </div>
-
-            <div className="flex justify-center mb-8 animate-fade-in-up animation-delay-300">
-              <p className="text-xl md:text-2xl font-semibold text-slate-900 text-center leading-snug px-4 md:whitespace-nowrap">
-                We don't just process claims, we optimize your{" "}
-                <span className="text-brand-orange">Clinical EBITDA</span>.
-              </p>
-            </div>
-
-            {/* CTAs */}
-            {/* CHANGE: Updated button to open ContactFormModal popup instead of RCM Audit modal */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-300 justify-center mb-16">
-              <Button
-                size="lg"
-                onClick={() => setContactModalOpen(true)}
-                className="px-10 py-6 text-lg bg-brand-blue hover:bg-brand-blue/90 text-white rounded-full hover:scale-105 transform transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-brand-blue/30 group cursor-pointer"
-                aria-label="Schedule a Free RCM Audit & EBITDA Analysis"
-              >
-                <span className="flex items-center gap-2">
-                  Schedule a Free RCM Audit & EBITDA Analysis
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Button>
-
-              {/* <Button
-                variant="outline"
-                className="px-6 py-3 border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white rounded-full hover:scale-105 transform transition-all duration-300 shadow-lg group bg-transparent"
-              >
-                <span className="flex items-center gap-2">
-                  Explore Our Specialty Solutions
-                  <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Button> */}
-            </div>
-
-            {/* Stats cards with new design */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto animate-fade-in-up animation-delay-400">
-              <div className="group text-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="text-5xl font-bold bg-gradient-to-br from-brand-blue to-blue-600 bg-clip-text text-transparent mb-2">
-                  99%
-                </div>
-                <div className="text-sm font-semibold text-gray-600">Clean Claim Rate</div>
-              </div>
-              <div className="group text-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-brand-orange/20 hover:border-brand-orange hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="text-5xl font-bold bg-gradient-to-br from-brand-orange to-orange-600 bg-clip-text text-transparent mb-2">
-                  60%
-                </div>
-                <div className="text-sm font-semibold text-gray-600">Cost Reduction</div>
-              </div>
-              <div className="group text-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-brand-orange/20 hover:border-brand-orange hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="text-5xl font-bold bg-gradient-to-br from-brand-orange to-orange-600 bg-clip-text text-transparent mb-2">
-                  26%
-                </div>
-                <div className="text-sm font-semibold text-gray-600">Increased Revenue</div>
-              </div>
-              <div className="group text-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="text-5xl font-bold bg-gradient-to-br from-brand-blue to-blue-600 bg-clip-text text-transparent mb-2">
-                  99.5%
-                </div>
-                <div className="text-sm font-semibold text-gray-600">Coding Accuracy</div>
-              </div>
-              <div className="group text-center p-8 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-brand-blue/20 hover:border-brand-blue hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="text-5xl font-bold bg-gradient-to-br from-brand-blue to-blue-600 bg-clip-text text-transparent mb-2">
-                  10+
-                </div>
-                <div className="text-sm font-semibold text-gray-600">Years Expertise</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* 🤖 AI Chatbot Animation */}
-<motion.div
-  className="absolute right-6 bottom-24 hidden lg:block w-[280px] pointer-events-none z-0"
-  animate={{ y: [0, -24, 0] }}
-  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+<section
+  id="home"
+  className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-white pt-[130px] pb-32"
 >
-  <div className="relative">
-    {/* Glow */}
-    <div className="absolute inset-0 bg-brand-blue/20 blur-3xl rounded-full" />
-    <Lottie animationData={chatbotAnim} loop />
+  {/* Background glow */}
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-400/10 blur-[140px] rounded-full pointer-events-none"></div>
+
+  <div className="container mx-auto px-6 relative z-10">
+
+    {/* HERO GRID */}
+    <div className="grid lg:grid-cols-2 gap-24 items-center">
+
+      {/* ================= LEFT CONTENT ================= */}
+      <div className="max-w-2xl">
+
+        {/* Badge */}
+        <div className="mb-8">
+          <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-orange-500 text-white text-sm font-semibold shadow-md">
+            <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            Think Excellence
+          </span>
+        </div>
+
+        {/* Heading */}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
+          <span className="text-orange-500">AI-Driven RCM:</span>
+          <br />
+          Eliminate Denials.
+          <br />
+          Guarantee Revenue Flow.
+        </h1>
+
+        {/* Description */}
+        <p className="text-lg text-slate-600 leading-relaxed mb-8">
+          Imperial Healthcare Systems replaces outdated billing models with our
+          proprietary intelligence architecture that increases efficiency,
+          eliminates revenue leakage, and delivers predictable financial performance.
+        </p>
+
+        {/* Subtitle */}
+        <p className="text-xl font-semibold text-slate-800 mb-10">
+          We optimize your{" "}
+          <span className="text-orange-500 font-bold">
+            Clinical EBITDA
+          </span>{" "}
+          with precision and automation.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-wrap gap-4">
+
+          <Button
+            size="lg"
+            onClick={() => setContactModalOpen(true)}
+            className="px-8 py-5 text-lg bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all"
+          >
+            Schedule Free Audit →
+          </Button>
+
+          <Button
+            variant="outline"
+            size="lg"
+            className="px-8 py-5 text-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-full transition-all"
+          >
+            Explore Solutions
+          </Button>
+
+        </div>
+
+      </div>
+
+
+      {/* ================= RIGHT IMAGE ================= */}
+      <div className="relative flex justify-center">
+
+        {/* glow */}
+        <div className="absolute -inset-10 bg-gradient-to-tr from-blue-400/20 to-cyan-300/20 blur-3xl rounded-full"></div>
+
+        {/* floating image card */}
+        <div className="relative">
+
+          <img
+            src="https://cdn.pixabay.com/photo/2024/05/18/07/49/robot-8769782_1280.jpg"
+            alt="Doctor"
+            className="w-[520px] rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.25)] border border-white"
+          />
+
+          {/* floating stats card
+          <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-5 border border-slate-100">
+            <div className="text-2xl font-bold text-blue-600">99%</div>
+            <div className="text-sm text-slate-600">Clean Claim Rate</div>
+          </div> */}
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    {/* ================= BOTTOM STATS ================= */}
+    <div className="mt-32 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+
+      {[
+        ["99%", "Clean Claim Rate"],
+        ["60%", "Cost Reduction"],
+        ["26%", "Revenue Increase"],
+        ["99.5%", "Coding Accuracy"],
+        ["10+", "Years Expertise"],
+      ].map(([value, label]) => (
+
+        <div
+          key={label}
+          className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 text-center hover:shadow-xl hover:-translate-y-1 transition"
+        >
+          <div className="text-3xl font-bold text-blue-600">{value}</div>
+          <div className="text-sm text-slate-600">{label}</div>
+        </div>
+
+      ))}
+
+    </div>
+
   </div>
-</motion.div>
-      </section>
+
+
+  {/* ================= CHATBOT ================= */}
+  <motion.div
+    className="absolute right-6 bottom-24 hidden lg:block w-[280px]"
+    animate={{ y: [0, -24, 0] }}
+    transition={{ duration: 4, repeat: Infinity }}
+  >
+    <div className="relative">
+      <div className="absolute inset-0 bg-blue-400/20 blur-3xl rounded-full"></div>
+      <Lottie animationData={chatbotAnim} loop />
+    </div>
+  </motion.div>
+
+</section>
+
+
 
       {/* 2. The Imperial Promise */}
       <ScrollReveal>
