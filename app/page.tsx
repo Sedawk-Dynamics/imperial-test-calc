@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 
 import { useState, useEffect, useRef } from "react"
 import {
@@ -1261,6 +1262,70 @@ yPos += logoHeight + 12
     </div>
   </section>
 </div>
+
+
+
+    <section className="w-full px-4 md:px-10 py-12">
+      <div
+        className="
+          relative 
+          max-w-7xl 
+          mx-auto 
+          rounded-2xl 
+          overflow-hidden 
+          min-h-[280px] md:min-h-[340px]
+          flex items-center
+        "
+      >
+        {/* Background Image */}
+        <img
+          src="https://cdn.pixabay.com/photo/2024/05/18/07/49/robot-8769782_1280.jpg" // put your image in public folder
+          alt="AI Robot"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30"></div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full flex justify-center md:justify-start">
+          <div className="text-center md:text-left md:ml-20 max-w-xl">
+            
+            {/* Heading */}
+            <h2 className="text-white text-3xl md:text-5xl font-light mb-4 tracking-wide">
+              Explore Imperial
+            </h2>
+
+            {/* Subtitle */}
+            <p className="text-white/90 text-sm md:text-lg mb-6">
+              Process Automation. Machine Learning. Artificial Intelligence.
+            </p>
+
+            {/* Button */}
+            <Link href="/solutions">
+              <button
+                className="
+                  bg-white 
+                  text-black 
+                  px-7 py-3 
+                  rounded-full 
+                  text-sm 
+                  font-medium 
+                  tracking-wider
+                  hover:bg-gray-200 
+                  transition
+                  shadow-lg
+                "
+              >
+                LEARN MORE
+              </button>
+            </Link>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 
 
