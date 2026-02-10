@@ -51,9 +51,7 @@ import { AnimatedCTAText } from "@/components/animated-cta-text"
 import { ServicesCarousel } from "@/components/services-carousel"
 import RCMAuditModal from "@/components/rcm-audit-modal"
 import ScrollReveal from "@/components/ui/ScrollReveal"
-import Lottie from "lottie-react"
-import chatbotAnim from "@/public/animations/live-chatbot.json"
-import doctorAnim from "@/public/animations/doctor.json"
+import CountUp from "@/components/ui/CountUp"
 import { motion } from "framer-motion"
 
 
@@ -545,128 +543,244 @@ yPos += logoHeight + 12
       {/* 1. Hero Banner */}
 <section
   id="home"
-  className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-white pt-[130px] pb-32"
+  className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/60 to-slate-50 pt-[130px] pb-24"
 >
-  {/* Background glow */}
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-400/10 blur-[140px] rounded-full pointer-events-none"></div>
+  {/* Soft ambient glows */}
+  <div className="absolute top-[-150px] right-[-100px] w-[600px] h-[600px] bg-blue-200/30 blur-[160px] rounded-full pointer-events-none"></div>
+  <div className="absolute bottom-[-100px] left-[-80px] w-[500px] h-[500px] bg-orange-200/20 blur-[140px] rounded-full pointer-events-none"></div>
+
+  {/* Subtle dot pattern */}
+  <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #1565c0 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
   <div className="container mx-auto px-6 relative z-10">
 
     {/* HERO GRID */}
-    <div className="grid lg:grid-cols-2 gap-24 items-center">
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
       {/* ================= LEFT CONTENT ================= */}
-      <div className="max-w-2xl">
+      <motion.div
+        className="max-w-2xl"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+      >
 
         {/* Badge */}
-        <div className="mb-8">
-          <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-orange-500 text-white text-sm font-semibold shadow-md">
-            <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+        <motion.div
+          className="mb-7"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-brand-blue/8 border border-brand-blue/15 text-brand-blue text-sm font-semibold">
+            <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
             Think Excellence
           </span>
+        </motion.div>
+
+        {/* Rotating Heading */}
+        <div className="min-h-[200px] md:min-h-[240px] flex items-center mb-6">
+          <SequentialHeroAnimation />
         </div>
 
-        {/* Heading */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-          <span className="text-orange-500">AI-Driven RCM:</span>
-          <br />
-          Eliminate Denials.
-          <br />
-          Guarantee Revenue Flow.
-        </h1>
-
         {/* Description */}
-        <p className="text-lg text-slate-600 leading-relaxed mb-8">
+        <motion.p
+          className="text-lg text-slate-600 leading-relaxed mb-7 max-w-xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+        >
           Imperial Healthcare Systems replaces outdated billing models with our
           proprietary intelligence architecture that increases efficiency,
           eliminates revenue leakage, and delivers predictable financial performance.
-        </p>
+        </motion.p>
 
         {/* Subtitle */}
-        <p className="text-xl font-semibold text-slate-800 mb-10">
+        <motion.p
+          className="text-xl font-semibold text-slate-800 mb-9"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
+        >
           We optimize your{" "}
-          <span className="text-orange-500 font-bold">
+          <span className="text-brand-orange font-bold">
             Clinical EBITDA
           </span>{" "}
           with precision and automation.
-        </p>
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4">
-
+        <motion.div
+          className="flex flex-wrap gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.7 }}
+        >
           <Button
             size="lg"
             onClick={() => setContactModalOpen(true)}
-            className="px-8 py-5 text-lg bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all"
+            className="px-8 py-5 text-base bg-brand-blue hover:bg-blue-700 text-white rounded-full shadow-lg shadow-blue-600/20 hover:shadow-blue-700/30 hover:scale-[1.03] transition-all duration-300"
           >
-            Schedule Free Audit →
+            Schedule Free Audit
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
 
-        
+          <Link href="/services">
+            <Button
+              variant="outline"
+              size="lg"
+              className="px-8 py-5 text-base border-2 border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-brand-blue rounded-full transition-all duration-300"
+            >
+              Explore Services
+            </Button>
+          </Link>
+        </motion.div>
 
-<Link href="/services">
-  <Button
-    variant="outline"
-    size="lg"
-    className="px-8 py-5 text-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-full transition-all"
-  >
-    Explore Services
-  </Button>
-</Link>
+        {/* Trusted by strip */}
+        <motion.div
+          className="mt-10 flex items-center gap-5 flex-wrap"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          <span className="text-xs text-slate-400 uppercase tracking-widest font-medium">Trusted by</span>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1.5 text-slate-500">
+              <Building2 className="w-4 h-4" />
+              <span className="text-xs font-medium">Clinics</span>
+            </div>
+            <div className="w-px h-4 bg-slate-200"></div>
+            <div className="flex items-center gap-1.5 text-slate-500">
+              <Building2 className="w-4 h-4" />
+              <span className="text-xs font-medium">Hospitals</span>
+            </div>
+            <div className="w-px h-4 bg-slate-200"></div>
+            <div className="flex items-center gap-1.5 text-slate-500">
+              <Users className="w-4 h-4" />
+              <span className="text-xs font-medium">ASCs</span>
+            </div>
+          </div>
+        </motion.div>
+
+      </motion.div>
 
 
+      {/* ================= RIGHT: IMAGE COMPOSITION ================= */}
+      <motion.div
+        className="relative hidden lg:block"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.3 }}
+      >
+        <div className="relative w-full max-w-[560px] mx-auto">
+
+          {/* Main hero image - Doctor with technology */}
+          <motion.div
+            className="relative z-10 rounded-2xl overflow-hidden shadow-2xl shadow-slate-300/50"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <img
+              src="/hero-doctor-technology.jpg"
+              alt="Doctor using AI-powered healthcare technology - Imperial Healthcare Systems"
+              className="w-full h-[340px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent"></div>
+          </motion.div>
+
+          {/* Secondary image - Data analytics dashboard */}
+          <motion.div
+            className="absolute -bottom-6 -right-4 z-20 w-[220px] rounded-xl overflow-hidden shadow-xl shadow-slate-300/40 border-4 border-white"
+            initial={{ opacity: 0, x: 20, y: 20 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8 }}
+          >
+            <img
+              src="/hero-data-analytics.jpg"
+              alt="Revenue data analytics dashboard"
+              className="w-full h-[150px] object-cover"
+            />
+          </motion.div>
+
+          {/* Tertiary image - Medical team */}
+          <motion.div
+            className="absolute -top-4 -left-4 z-20 w-[190px] rounded-xl overflow-hidden shadow-xl shadow-slate-300/40 border-4 border-white"
+            initial={{ opacity: 0, x: -20, y: -20 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.9 }}
+          >
+            <img
+              src="/hero-medical-team.jpg"
+              alt="Expert medical billing team"
+              className="w-full h-[120px] object-cover"
+            />
+          </motion.div>
+
+          {/* Floating stats card - bottom left */}
+          <motion.div
+            className="absolute -bottom-2 -left-8 z-30 bg-white rounded-xl shadow-lg shadow-slate-200/60 p-4 border border-slate-100"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-brand-blue to-blue-700 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="text-xl font-bold text-slate-900"><CountUp end={99} suffix="%" duration={1800} /></div>
+                <div className="text-xs text-slate-500">Clean Claim Rate</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Floating AI badge - top right */}
+          <motion.div
+            className="absolute top-6 -right-2 z-30 bg-gradient-to-br from-brand-orange to-orange-600 rounded-xl shadow-lg shadow-orange-400/20 px-4 py-3 text-white"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 1.2 }}
+          >
+            <div className="flex items-center gap-2">
+              <Brain className="w-5 h-5" />
+              <div>
+                <div className="text-xs font-bold leading-tight">AI-Powered</div>
+                <div className="text-[10px] opacity-80">Intelligence Engine</div>
+              </div>
+            </div>
+          </motion.div>
 
         </div>
-
-      </div>
-
-
-      {/* ================= RIGHT IMAGE ================= */}
-      <div className="relative flex justify-center">
-
-        {/* glow */}
-        <div className="absolute -inset-10 bg-gradient-to-tr from-blue-400/20 to-cyan-300/20 blur-3xl rounded-full"></div>
-
-        {/* floating image card */}
-        <div className="relative">
-
-          <img
-            src="https://cdn.pixabay.com/photo/2024/05/18/07/49/robot-8769782_1280.jpg"
-            alt="Doctor"
-            className="w-[520px] rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.25)] border border-white"
-          />
-
-          {/* floating stats card
-          <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-5 border border-slate-100">
-            <div className="text-2xl font-bold text-blue-600">99%</div>
-            <div className="text-sm text-slate-600">Clean Claim Rate</div>
-          </div> */}
-
-        </div>
-
-      </div>
+      </motion.div>
 
     </div>
 
 
     {/* ================= BOTTOM STATS ================= */}
-    <div className="mt-32 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+    <div className="mt-20 lg:mt-24 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
 
       {[
-        ["99%", "Clean Claim Rate"],
-        ["60%", "Cost Reduction"],
-        ["26%", "Revenue Increase"],
-        ["99.5%", "Coding Accuracy"],
-        ["10+", "Years Expertise"],
-      ].map(([value, label]) => (
+        { end: 99, suffix: "%", label: "Clean Claim Rate", decimals: 0 },
+        { end: 60, suffix: "%", label: "Cost Reduction", decimals: 0 },
+        { end: 26, suffix: "%", label: "Revenue Increase", decimals: 0 },
+        { end: 99.5, suffix: "%", label: "Coding Accuracy", decimals: 1 },
+        { end: 10, suffix: "+", label: "Years Expertise", decimals: 0 },
+      ].map((stat, i) => (
 
-        <div
-          key={label}
-          className="bg-white rounded-2xl shadow-md border border-slate-100 p-6 text-center hover:shadow-xl hover:-translate-y-1 transition"
+        <motion.div
+          key={stat.label}
+          className="bg-white rounded-xl border border-slate-100 shadow-sm p-5 text-center hover:shadow-md hover:border-brand-blue/20 hover:-translate-y-0.5 transition-all duration-300 group"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: i * 0.08 }}
         >
-          <div className="text-3xl font-bold text-blue-600">{value}</div>
-          <div className="text-sm text-slate-600">{label}</div>
-        </div>
+          <div className="text-2xl md:text-3xl font-bold text-brand-blue group-hover:text-brand-orange transition-colors duration-300">
+            <CountUp end={stat.end} suffix={stat.suffix} decimals={stat.decimals} duration={2000} />
+          </div>
+          <div className="text-xs text-slate-500 mt-1">{stat.label}</div>
+        </motion.div>
 
       ))}
 
@@ -674,27 +788,45 @@ yPos += logoHeight + 12
 
   </div>
 
-
-  {/* ================= CHATBOT =================
-  <motion.div
-    className="absolute right-6 bottom-24 hidden lg:block w-[280px]"
-    animate={{ y: [0, -24, 0] }}
-    transition={{ duration: 4, repeat: Infinity }}
-  >
-    <div className="relative">
-      <div className="absolute inset-0 bg-blue-400/20 blur-3xl rounded-full"></div>
-      <Lottie animationData={chatbotAnim} loop />
-    </div>
-  </motion.div> */}
-
 </section>
+
+{/* Smooth section transition */}
+<div className="h-px bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent"></div>
 
 
 
       {/* 2. The Imperial Promise */}
       <ScrollReveal>
-      <section className="py-24 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-blue/80 text-white">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-blue/80 text-white relative overflow-hidden">
+        {/* Subtle ambient glows */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/8 rounded-full blur-[160px] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-400/6 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Section image banner - dual layout */}
+          <motion.div
+            className="max-w-5xl mx-auto mb-12 grid md:grid-cols-2 gap-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="rounded-2xl overflow-hidden shadow-2xl group">
+              <img
+                src="/section-team-office.jpg"
+                alt="Dedicated healthcare operations team at Imperial Healthcare Systems"
+                className="w-full h-[240px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl group">
+              <img
+                src="/hero-medical-team.jpg"
+                alt="Expert medical professionals driving precision healthcare"
+                className="w-full h-[240px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </motion.div>
+
           <div className="max-w-6xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               The <span className="text-brand-orange">Imperial</span> Promise
@@ -781,10 +913,50 @@ yPos += logoHeight + 12
       </section>
       </ScrollReveal>
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-brand-orange/30 to-transparent"></div>
+
       {/* THE PROBLEM Section */}
       <ScrollReveal>
-      <section className="py-24 bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background image */}
+        <img src="/bg-digital-network.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/95 via-gray-50/93 to-slate-100/95"></div>
+        <div className="absolute inset-0 pointer-events-none opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle, #0a2540 1px, transparent 1px)', backgroundSize: '48px 48px' }}></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Section images - side by side */}
+          <motion.div
+            className="max-w-5xl mx-auto mb-12 grid md:grid-cols-2 gap-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="rounded-2xl overflow-hidden shadow-lg relative group">
+              <img
+                src="/section-medical-billing.jpg"
+                alt="Medical billing challenges and revenue leakage in healthcare"
+                className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-5 text-white">
+                <p className="text-sm font-semibold">Revenue Leakage Analysis</p>
+              </div>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg relative group">
+              <img
+                src="/hero-dashboard-screen.jpg"
+                alt="Healthcare analytics dashboard showing revenue metrics"
+                className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-5 text-white">
+                <p className="text-sm font-semibold">Data-Driven Insights</p>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Section Headline */}
           <div className="text-center mb-6">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-foreground">
@@ -796,7 +968,7 @@ yPos += logoHeight + 12
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground max-w-4xl mx-auto leading-tight">
               <span className="text-brand-orange">The Invisible Tax</span>: Why US Healthcare Providers Lose Up to
-              <span className="text-brand-orange font-bold"> 30%</span> of Contracted Revenue.
+              <span className="text-brand-orange font-bold"> <CountUp end={30} suffix="%" duration={2000} /></span> of Contracted Revenue.
             </h3>
           </div>
 
@@ -958,12 +1130,44 @@ yPos += logoHeight + 12
       </section>
       </ScrollReveal>
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* 3. The Solution Section */}
 
       {/* 4. THE SOLUTION (IRRF) */}
       <ScrollReveal>
-      <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-slate-50">
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-slate-50 relative overflow-hidden">
+        {/* Subtle ambient glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-400/5 rounded-full blur-[160px] pointer-events-none"></div>
+
         <div className="container mx-auto px-4">
+          {/* Solution section banner image */}
+          <motion.div
+            className="max-w-6xl mx-auto mb-12 grid md:grid-cols-2 gap-6 items-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="rounded-2xl overflow-hidden shadow-xl group relative">
+              <img
+                src="/hero-ai-brain.jpg"
+                alt="AI-powered intelligence engine for healthcare revenue optimization"
+                className="w-full h-[260px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-xl group relative">
+              <img
+                src="/section-medical-tech.jpg"
+                alt="Advanced medical technology driving revenue recovery"
+                className="w-full h-[260px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-orange/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+          </motion.div>
+
           {/* Headline */}
           <div className="text-center mb-6">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-foreground lg:whitespace-nowrap">
@@ -1301,26 +1505,30 @@ yPos += logoHeight + 12
 
 
     <section className="w-full px-4 md:px-10 py-12">
-      <div
+      <motion.div
         className="
-          relative 
-          max-w-7xl 
-          mx-auto 
-          rounded-2xl 
-          overflow-hidden 
+          relative
+          max-w-7xl
+          mx-auto
+          rounded-2xl
+          overflow-hidden
           min-h-[280px] md:min-h-[340px]
           flex items-center
         "
+        initial={{ opacity: 0, scale: 0.98 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
       >
         {/* Background Image */}
         <img
-          src="https://cdn.pixabay.com/photo/2024/05/18/07/49/robot-8769782_1280.jpg" // put your image in public folder
-          alt="AI Robot"
+          src="/hero-ai-brain.jpg"
+          alt="AI-powered healthcare intelligence - Imperial Healthcare Systems"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540]/85 via-[#0a2540]/50 to-transparent"></div>
 
         {/* Content */}
         <div className="relative z-10 w-full flex justify-center md:justify-start">
@@ -1358,7 +1566,7 @@ yPos += logoHeight + 12
 
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
 
 
@@ -1416,7 +1624,7 @@ yPos += logoHeight + 12
                   </div>
                   <div>
                     <p className="text-sm font-bold text-brand-orange mb-2">• Strategic Outcome:</p>
-                    <p className="text-sm font-bold text-brand-blue">99% First-Pass Clean Claim Rate.</p>
+                    <p className="text-sm font-bold text-brand-blue"><CountUp end={99} suffix="%" duration={2000} /> First-Pass Clean Claim Rate.</p>
                   </div>
                 </CardContent>
               </Card>
@@ -1496,7 +1704,7 @@ yPos += logoHeight + 12
                   </div>
                   <div>
                     <p className="text-sm font-bold text-brand-orange mb-2">• Strategic Outcome:</p>
-                    <p className="text-sm font-bold text-brand-blue">Up to 30% Revenue Lift.</p>
+                    <p className="text-sm font-bold text-brand-blue">Up to <CountUp end={30} suffix="%" duration={2000} /> Revenue Lift.</p>
                   </div>
                 </CardContent>
               </Card>
@@ -1598,13 +1806,45 @@ yPos += logoHeight + 12
         </div>
       </section> */}
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* 6. THE IHS ADVANTAGE */}
       <ScrollReveal>
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background image */}
+        <img src="/bg-abstract-light.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50/95 to-white/93"></div>
+        {/* Subtle ambient light */}
+        <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-orange-400/4 rounded-full blur-[160px] pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
-            {/* Header */}
+            {/* Header with dual images */}
             <div className="text-center mb-16">
+              <motion.div
+                className="max-w-4xl mx-auto mb-10 grid grid-cols-2 gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="rounded-2xl overflow-hidden shadow-xl group">
+                  <img
+                    src="/section-handshake-partnership.jpg"
+                    alt="Healthcare partnership and collaboration at Imperial Healthcare Systems"
+                    className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-xl group">
+                  <img
+                    src="/section-team-office.jpg"
+                    alt="Dedicated RCM operations team"
+                    className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </motion.div>
+
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 The <span className="text-brand-orange">IHS</span> Advantage
               </h2>
@@ -1713,9 +1953,14 @@ yPos += logoHeight + 12
       </section>
       </ScrollReveal>
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* 7. Revenue Leakage Calculator */}
       <ScrollReveal>
-      <section id="calculator" className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-orange-50/20">
+      <section id="calculator" className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-orange-50/20 relative overflow-hidden">
+        {/* Subtle ambient glow */}
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-400/4 rounded-full blur-[140px] pointer-events-none"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-3 text-balance">
@@ -2072,12 +2317,40 @@ yPos += logoHeight + 12
 
       <ServicesCarousel />
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* 15. The Performance Ledger */}
       <ScrollReveal>
-      <section className="py-24 bg-gradient-to-b from-muted/30 to-background">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background image */}
+        <img src="/bg-geometric-blue.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/93 to-slate-50/95"></div>
+        {/* Subtle ambient glow */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-orange-400/4 rounded-full blur-[160px] pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-7xl mx-auto">
-            {/* Header */}
+            {/* Header with image */}
+            <motion.div
+              className="max-w-4xl mx-auto mb-8 rounded-2xl overflow-hidden shadow-lg relative group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img
+                src="/section-success-growth.jpg"
+                alt="Revenue growth and performance analytics dashboard"
+                className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/60 to-transparent flex items-center">
+                <div className="pl-8 text-white">
+                  <p className="text-xl font-bold">Performance Analytics</p>
+                  <p className="text-sm opacity-80">Benchmarked against industry standards</p>
+                </div>
+              </div>
+            </motion.div>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance uppercase">
                 The Performance <span className="text-brand-orange">Ledger</span>
@@ -2190,11 +2463,32 @@ yPos += logoHeight + 12
         </div>
       </section> */}
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* 9. IHS Standards vs Traditional RCM Providers */}
       <ScrollReveal>
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Subtle ambient */}
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/3 rounded-full blur-[160px] pointer-events-none"></div>
+
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
+            {/* Banner image */}
+            <motion.div
+              className="mb-12 rounded-2xl overflow-hidden shadow-lg group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img
+                src="/section-team-office.jpg"
+                alt="Healthcare virtual staffing operations at Imperial Healthcare Systems"
+                className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </motion.div>
+
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
                 IHS Standards vs <span className="text-brand-orange">Traditional</span> RCM Providers
@@ -2218,18 +2512,22 @@ yPos += logoHeight + 12
                   </thead>
                   <tbody>
                     {[
-                      { feature: "Cost Savings", ihs: "Up to 60%", others: "20-30%" },
-                      { feature: "Clean Claim Rate", ihs: "99%", others: "85-90%" },
-                      { feature: "Advanced Analytics", ihs: "✓ Included", others: "✗ Extra Cost" },
-                      { feature: "US RCM Expertise", ihs: "10+ Years", others: "Varies" },
-                      { feature: "Real-Time Dashboards", ihs: "✓ Standard", others: "✗ Limited" },
-                      { feature: "HIPAA Compliance", ihs: "✓ SOC2 Ready", others: "✓ Basic" },
-                      { feature: "Transparent Pricing", ihs: "✓ Upfront", others: "✗ Hidden Fees" },
-                      { feature: "Dedicated Support", ihs: "✓ 24/7", others: "Business Hours" },
+                      { feature: "Cost Savings", ihs: "Up to 60%", ihsNum: 60, ihsSuffix: "%", ihsPrefix: "Up to ", others: "20-30%" },
+                      { feature: "Clean Claim Rate", ihs: "99%", ihsNum: 99, ihsSuffix: "%", ihsPrefix: "", others: "85-90%" },
+                      { feature: "Advanced Analytics", ihs: "✓ Included", ihsNum: null, others: "✗ Extra Cost" },
+                      { feature: "US RCM Expertise", ihs: "10+ Years", ihsNum: 10, ihsSuffix: "+ Years", ihsPrefix: "", others: "Varies" },
+                      { feature: "Real-Time Dashboards", ihs: "✓ Standard", ihsNum: null, others: "✗ Limited" },
+                      { feature: "HIPAA Compliance", ihs: "✓ SOC2 Ready", ihsNum: null, others: "✓ Basic" },
+                      { feature: "Transparent Pricing", ihs: "✓ Upfront", ihsNum: null, others: "✗ Hidden Fees" },
+                      { feature: "Dedicated Support", ihs: "✓ 24/7", ihsNum: null, others: "Business Hours" },
                     ].map((row, idx) => (
                       <tr key={idx} className="border-b border-gray-200 hover:bg-white/50 transition-colors">
                         <td className="p-4 font-medium">{row.feature}</td>
-                        <td className="p-4 text-center font-semibold text-brand-blue">{row.ihs}</td>
+                        <td className="p-4 text-center font-semibold text-brand-blue">
+                          {row.ihsNum !== null && row.ihsNum !== undefined ? (
+                            <><CountUp end={row.ihsNum} prefix={row.ihsPrefix || ""} suffix={row.ihsSuffix || ""} duration={2000} /></>
+                          ) : row.ihs}
+                        </td>
                         <td className="p-4 text-center text-muted-foreground">{row.others}</td>
                       </tr>
                     ))}
@@ -2242,11 +2540,40 @@ yPos += logoHeight + 12
       </section>
       </ScrollReveal>
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* 13. Industries We Serve */}
       <ScrollReveal>
-      <section className="py-24 bg-gradient-to-br from-brand-blue/5 to-brand-orange/5">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background image */}
+        <img src="/bg-abstract-blue-wave.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/92 via-blue-50/90 to-orange-50/92"></div>
+        {/* Subtle ambient glows */}
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-blue-400/4 rounded-full blur-[160px] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-orange-400/3 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
+            {/* Section image collage - improved with hover effects */}
+            <motion.div
+              className="grid grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="rounded-xl overflow-hidden shadow-md h-[180px] group">
+                <img src="/hero-modern-hospital.jpg" alt="Modern hospital facility served by Imperial Healthcare Systems" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-md h-[180px] group">
+                <img src="/section-medical-research.jpg" alt="Medical research and innovation in healthcare" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-md h-[180px] group">
+                <img src="/hero-doctor-technology.jpg" alt="Doctor leveraging technology for patient care" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              </div>
+            </motion.div>
+
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
                 Industries We <span className="text-brand-orange">Serve</span>
@@ -2270,9 +2597,15 @@ yPos += logoHeight + 12
                 { name: "Multi-Specialty", icon: "🏨", desc: "Comprehensive practices" },
                 { name: "Solo Physicians", icon: "👨‍⚕️", desc: "Independent practitioners" },
               ].map((industry, idx) => (
-                <Card
+                <motion.div
                   key={idx}
-                  className="border-2 border-brand-blue/10 hover:border-brand-blue/30 transition-all duration-300 hover:scale-105 text-center group"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                >
+                <Card
+                  className="border-2 border-brand-blue/10 hover:border-brand-blue/30 transition-all duration-300 hover:scale-105 text-center group h-full"
                 >
                   <CardContent className="pt-6">
                     <div className="text-5xl mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -2282,6 +2615,7 @@ yPos += logoHeight + 12
                     <p className="text-xs text-muted-foreground">{industry.desc}</p>
                   </CardContent>
                 </Card>
+                </motion.div>
               ))}
             </div>
 
@@ -2300,11 +2634,55 @@ yPos += logoHeight + 12
       </section>
       </ScrollReveal>
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* 11. Proven Success Stories */}
       <ScrollReveal>
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background image */}
+        <img src="/bg-gradient-mesh.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-white/93"></div>
+        {/* Subtle ambient light */}
+        <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-green-400/3 rounded-full blur-[160px] pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
+            {/* Success stories header - dual image layout */}
+            <motion.div
+              className="mb-12 grid md:grid-cols-3 gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="md:col-span-2 rounded-2xl overflow-hidden shadow-lg relative group">
+                <img
+                  src="/section-success-growth.jpg"
+                  alt="Healthcare revenue cycle success - Imperial Healthcare Systems results"
+                  className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-transparent flex items-center">
+                  <div className="pl-8 md:pl-12 text-white">
+                    <p className="text-2xl md:text-3xl font-bold">$<CountUp end={2.1} decimals={1} duration={2200} suffix="M+" /> Revenue Recovered</p>
+                    <p className="text-lg opacity-90">Across our partner practices</p>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg relative group hidden md:block">
+                <img
+                  src="/section-medical-research.jpg"
+                  alt="Medical research and innovation powering revenue recovery"
+                  className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent flex items-end">
+                  <div className="p-5 text-white">
+                    <p className="text-sm font-semibold">Powered by AI</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
                 Proven <span className="text-brand-orange">Success Stories</span>
@@ -2379,9 +2757,15 @@ yPos += logoHeight + 12
                   pdfUrl: "/case-studies/Ambulatory-Surgery-Center-ASC-Revenue-Optimization-San-Diego-CA.pdf", // Added PDF URL
                 },
               ].map((study, idx) => (
-                <Card
+                <motion.div
                   key={idx}
-                  className="border-2 border-brand-blue/20 hover:border-brand-orange/40 transition-all duration-300 hover:scale-[1.02] flex flex-col"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                >
+                <Card
+                  className="border-2 border-brand-blue/20 hover:border-brand-orange/40 transition-all duration-300 hover:scale-[1.02] flex flex-col h-full"
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between mb-2">
@@ -2393,7 +2777,9 @@ yPos += logoHeight + 12
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-brand-orange">{study.savings}</div>
+                        <div className="text-2xl font-bold text-brand-orange">
+                          $<CountUp end={parseInt(study.savings.replace(/[$,]/g, "")) / 1000} suffix=",000" duration={2000} />
+                        </div>
                         <div className="text-xs text-muted-foreground">{study.period}</div>
                       </div>
                     </div>
@@ -2428,6 +2814,7 @@ yPos += logoHeight + 12
                     </div>
                   </CardContent>
                 </Card>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -2435,11 +2822,38 @@ yPos += logoHeight + 12
       </section>
       </ScrollReveal>
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* 14. Technology & Security */}
       <ScrollReveal>
-      <section id="footer1" className="py-24 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="footer1" className="py-24 bg-white relative overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle, #1565c0 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
+            {/* Security banner - full width with overlay */}
+            <motion.div
+              className="mb-12 rounded-2xl overflow-hidden shadow-xl relative group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img
+                src="/section-cybersecurity.jpg"
+                alt="Enterprise-grade cybersecurity and data protection at Imperial Healthcare Systems"
+                className="w-full h-[260px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/70 via-[#0a2540]/30 to-transparent flex items-end">
+                <div className="p-6 md:p-8 text-white">
+                  <p className="text-xl md:text-2xl font-bold">Enterprise-Grade Security Infrastructure</p>
+                  <p className="text-sm opacity-80">HIPAA Compliant | ISO 27001 | 256-bit Encryption</p>
+                </div>
+              </div>
+            </motion.div>
+
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
                 Technology & <span className="text-brand-orange">Security</span>
@@ -2500,13 +2914,43 @@ yPos += logoHeight + 12
       </section>
       </ScrollReveal>
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* THE IMPERIAL TRANSITION FRAMEWORK */}
       <ScrollReveal>
-      <section className="py-24 bg-gradient-to-b from-muted/30 to-background">
+      <section className="py-24 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
+        {/* Subtle ambient glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-orange-400/4 rounded-full blur-[160px] pointer-events-none"></div>
+
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Header */}
             <div className="text-center mb-16">
+              {/* Transition image - side by side */}
+              <motion.div
+                className="max-w-4xl mx-auto mb-10 grid md:grid-cols-2 gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="rounded-2xl overflow-hidden shadow-lg group">
+                  <img
+                    src="/hero-data-analytics.jpg"
+                    alt="Data analytics powering the Imperial transition framework"
+                    className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-lg group">
+                  <img
+                    src="/hero-modern-hospital.jpg"
+                    alt="Modern hospital facility transitioning to advanced RCM"
+                    className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </motion.div>
+
               <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase">
                 THE <span className="text-brand-orange">IMPERIAL TRANSITION FRAMEWORK</span>
               </h2>
@@ -2523,10 +2967,45 @@ yPos += logoHeight + 12
       </section>
       </ScrollReveal>
 
+      {/* CTA banner before pricing */}
+      <section className="relative h-[300px] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/hero-modern-hospital.jpg"
+            alt="Modern healthcare facility - transform your revenue cycle"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540]/85 via-brand-blue/70 to-brand-orange/50"></div>
+        </div>
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+          <motion.h2
+            className="text-3xl md:text-5xl font-bold text-white mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            Ready to Transform Your Revenue Cycle?
+          </motion.h2>
+          <motion.p
+            className="text-lg md:text-xl text-white/90 max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Choose the plan that fits your practice and start recovering revenue today.
+          </motion.p>
+        </div>
+      </section>
+
       {/* 10. Flexible Pricing Plans */}
       <ScrollReveal>
-      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background image */}
+        <img src="/bg-purple-gradient.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50/94 via-white/93 to-blue-50/94"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
@@ -2663,13 +3142,43 @@ yPos += logoHeight + 12
 
       {/* 12. Results you have never seen before! */}
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* THE IMPERIAL JOURNEY */}
       <ScrollReveal>
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background image */}
+        <img src="/bg-mountain-peaks.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/94 to-slate-50/95"></div>
+        {/* Subtle background */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle, #ff6f00 0.5px, transparent 0.5px)', backgroundSize: '48px 48px' }}></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-16">
+              {/* Journey header image - enhanced */}
+              <motion.div
+                className="max-w-4xl mx-auto mb-10 rounded-2xl overflow-hidden shadow-lg relative group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+              >
+                <img
+                  src="/images/collage-finance-banner-concept.jpg"
+                  alt="Imperial Healthcare Systems journey - financial transformation"
+                  className="w-full h-[240px] object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540]/50 to-transparent flex items-center">
+                  <div className="pl-8 text-white">
+                    <p className="text-2xl font-bold">Your Financial Transformation</p>
+                    <p className="text-sm opacity-80">From assessment to sovereign revenue</p>
+                  </div>
+                </div>
+              </motion.div>
+
               <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase">
                 THE <span className="text-brand-orange">IMPERIAL JOURNEY</span>
               </h2>
@@ -2689,11 +3198,38 @@ yPos += logoHeight + 12
       </section>
       </ScrollReveal>
 
+      {/* Smooth section transition */}
+      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
       {/* comprehensive Contact section */}
       <ScrollReveal>
-      <section id="contact" className="py-24 bg-white">
+      <section id="contact" className="py-24 bg-white relative overflow-hidden">
+        {/* Subtle ambient glow */}
+        <div className="absolute bottom-0 left-0 w-[500px] h-[400px] bg-blue-400/4 rounded-full blur-[160px] pointer-events-none"></div>
+
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
+            {/* Contact header - image with overlay */}
+            <motion.div
+              className="mb-10 rounded-2xl overflow-hidden shadow-lg relative group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <img
+                src="/section-handshake-partnership.jpg"
+                alt="Partner with Imperial Healthcare Systems for revenue optimization"
+                className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/60 to-brand-orange/30 flex items-center justify-center">
+                <div className="text-center text-white">
+                  <p className="text-2xl font-bold">Let&apos;s Partner Together</p>
+                  <p className="text-sm opacity-80 mt-1">Transform your revenue cycle today</p>
+                </div>
+              </div>
+            </motion.div>
+
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
                 Get <span className="text-brand-orange">Started</span> Today
@@ -2862,6 +3398,13 @@ yPos += logoHeight + 12
         </div>
       </section>
       </ScrollReveal>
+
+      {/* Wave divider before footer */}
+      <div className="relative">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px] md:h-[80px]" fill="none">
+          <path d="M0,60 C200,20 400,100 600,60 C800,20 1000,100 1200,60 L1200,120 L0,120 Z" fill="#0a2540" />
+        </svg>
+      </div>
 
       <SiteFooter />
 

@@ -66,6 +66,7 @@ export function ServicesCarousel() {
         { name: "Denial Management", icon: XCircle },
       ],
       color: "bg-gradient-to-br from-blue-500 to-blue-600",
+      blendColor: "#3b82f6",
       image: "/modern-healthcare-revenue-cycle-management-dashboa.jpg",
     },
     {
@@ -78,6 +79,7 @@ export function ServicesCarousel() {
         { name: "Credentialing", icon: ShieldCheck },
       ],
       color: "bg-gradient-to-br from-orange-400 to-amber-500",
+      blendColor: "#fb923c",
       image: "/professional-healthcare-team-working-on-computers.jpg",
     },
     {
@@ -90,6 +92,7 @@ export function ServicesCarousel() {
         { name: "Real-time Dashboard", icon: Activity },
       ],
       color: "bg-gradient-to-br from-cyan-500 to-cyan-600",
+      blendColor: "#06b6d4",
       image: "/artificial-intelligence-healthcare-technology-abst.jpg",
     },
     {
@@ -100,6 +103,7 @@ export function ServicesCarousel() {
         { name: "Fax & Intake Operations", icon: Mail },
       ],
       color: "bg-gradient-to-br from-green-500 to-green-600",
+      blendColor: "#22c55e",
       image: "/healthcare-data-security-encryption-technology.jpg",
     },
   ]
@@ -141,37 +145,37 @@ export function ServicesCarousel() {
           {[...services, ...services, ...services].map((service, index) => (
             <motion.div key={index} className="flex-shrink-0 w-[480px] group transform-gpu">
               <div
-                className={`relative h-[520px] rounded-3xl overflow-hidden 
+                className={`relative h-[520px] rounded-3xl overflow-hidden
                 ${service.color}
                 transition-all duration-500 ease-out
                 group-hover:scale-[1.03] group-hover:-translate-y-3
                 group-hover:shadow-2xl group-hover:shadow-[#F49446]/20`}
                 style={{ transformStyle: "preserve-3d" }}
               >
-                {/* Text content container with proper height constraints */}
-                <div className="relative z-10 h-[240px] p-8 pb-6 flex flex-col">
-                  <h3 className="text-3xl font-bold mb-6 text-white flex-shrink-0">{service.title}</h3>
-                  {/* Services list with scroll if needed (though shouldn't happen with current content) */}
-                  <div className="space-y-3 overflow-y-auto flex-1">
+                {/* Text content */}
+                <div className="relative z-10 p-8 pb-0">
+                  <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
+                  <div className="space-y-2.5">
                     {service.services.map((item, idx) => {
                       const Icon = item.icon
                       return (
                         <div key={idx} className="flex items-center gap-3 text-white">
                           <Icon className="w-5 h-5 flex-shrink-0" />
-                          <span className="text-base font-medium">{item.name}</span>
+                          <span className="text-sm font-medium">{item.name}</span>
                         </div>
                       )
                     })}
                   </div>
                 </div>
 
-                {/* Image container - fixed height at bottom, separate from text */}
-                <div className="absolute bottom-0 left-0 right-0 h-[280px] z-0 overflow-hidden">
+                {/* Image at bottom with smooth gradient blend */}
+                <div className="absolute -bottom-px left-0 right-0 h-[282px] z-0 overflow-hidden">
                   <img
                     src={service.image || "/placeholder.svg"}
                     alt={service.title}
-                    className="w-full h-full object-cover object-bottom transition-all duration-700 ease-out group-hover:opacity-80 group-hover:scale-105"
+                    className="w-full h-full object-cover object-bottom transition-all duration-700 ease-out group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: `linear-gradient(to bottom, ${service.blendColor} 0%, transparent 40%)` }} />
                 </div>
               </div>
             </motion.div>

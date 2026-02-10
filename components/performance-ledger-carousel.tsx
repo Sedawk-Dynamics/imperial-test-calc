@@ -23,6 +23,21 @@ export function PerformanceLedgerCarousel() {
     })
   }, [api])
 
+  // Auto-scroll every 5 seconds
+  React.useEffect(() => {
+    if (!api) return
+
+    const interval = setInterval(() => {
+      if (api.canScrollNext()) {
+        api.scrollNext()
+      } else {
+        api.scrollTo(0)
+      }
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [api])
+
   const slides = [
     {
       title: "I. Institutional Benchmarking: Setting the New Industry Ceiling",
@@ -70,7 +85,7 @@ export function PerformanceLedgerCarousel() {
     <div className="relative">
       {/* Carousel Container */}
       <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-        <Carousel setApi={setApi} opts={{ loop: false }} className="w-full">
+        <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
           <CarouselContent>
             {slides.map((slide, index) => (
               <CarouselItem key={index}>
