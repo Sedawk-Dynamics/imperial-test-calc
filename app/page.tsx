@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+//  import { Link } from "react-router-dom";
 
 import { useState, useEffect, useRef } from "react"
 import {
@@ -455,10 +456,10 @@ yPos += logoHeight + 12
       doc.setFont(undefined, "normal")
       doc.setTextColor(60)
       doc.text(
-        "Email: info@imperialhealthsystems.com  |  Phone: US +1-XXX-XXX-XXXX  •  India +91-XXXXXXXXXX",
+        "Email: info@imperialhealthsystems.com  |  Phone: US +1-(859) 978-8780  •  India +91-99537 48055",
         pageWidth / 2,
         y,
-        { align: "center" },
+        { align: "center" }, 
       )
 
       y += 8
@@ -601,13 +602,19 @@ yPos += logoHeight + 12
             Schedule Free Audit →
           </Button>
 
-          <Button
-            variant="outline"
-            size="lg"
-            className="px-8 py-5 text-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-full transition-all"
-          >
-            Explore Solutions
-          </Button>
+        
+
+<Link href="/services">
+  <Button
+    variant="outline"
+    size="lg"
+    className="px-8 py-5 text-lg border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-full transition-all"
+  >
+    Explore Services
+  </Button>
+</Link>
+
+
 
         </div>
 
@@ -668,7 +675,7 @@ yPos += logoHeight + 12
   </div>
 
 
-  {/* ================= CHATBOT ================= */}
+  {/* ================= CHATBOT =================
   <motion.div
     className="absolute right-6 bottom-24 hidden lg:block w-[280px]"
     animate={{ y: [0, -24, 0] }}
@@ -678,7 +685,7 @@ yPos += logoHeight + 12
       <div className="absolute inset-0 bg-blue-400/20 blur-3xl rounded-full"></div>
       <Lottie animationData={chatbotAnim} loop />
     </div>
-  </motion.div>
+  </motion.div> */}
 
 </section>
 
@@ -2727,8 +2734,8 @@ yPos += logoHeight + 12
                       </div>
                       <div>
                         <h3 className="font-semibold mb-1">Phone</h3>
-                        <p className="text-muted-foreground">US: +1-XXX-XXX-XXXX</p>
-                        <p className="text-muted-foreground">India: +91-XXXXXXXXXX</p>
+                        <p className="text-muted-foreground">US: +1-(859) 978-8780</p>
+                        <p className="text-muted-foreground">India: +91-99537 48055</p>
                       </div>
                     </div>
 

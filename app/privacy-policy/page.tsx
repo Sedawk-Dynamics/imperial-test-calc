@@ -6,6 +6,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
+
         <Link href="/">
           <Button variant="ghost" className="mb-8 hover:bg-gray-100">
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -14,177 +15,310 @@ export default function PrivacyPolicyPage() {
         </Link>
 
         <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
-          <p className="text-gray-600 mb-8">Imperial Healthcare Systems</p>
-          <p className="text-sm text-gray-500 mb-8">
-            <strong>Effective Date:</strong> 6 Jan 2026 | <strong>Last Updated:</strong> 6 Jan 2026
+
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            Privacy Policy
+          </h1>
+
+          <p className="text-gray-600 mb-8">
+            Imperial Healthcare Systems
           </p>
 
-          <div className="prose prose-gray max-w-none space-y-6">
+          <p className="text-sm text-gray-500 mb-8">
+            <strong>Effective Date:</strong> 6 January 2026 |{" "}
+            <strong>Last Updated:</strong> 6 January 2026
+          </p>
+
+
+          <div className="prose prose-gray max-w-none space-y-8">
+
+
+            {/* 1 Introduction */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introduction and Scope</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                1. Introduction and Scope
+              </h2>
+
               <p className="text-gray-700 leading-relaxed">
-                Imperial Healthcare Systems ("Imperial," "the Company," "we," "us," or "our") is a provider of Revenue
-                Cycle Management (RCM) and technology-enabled healthcare services. This Privacy Policy outlines the
-                framework governing the collection, use, disclosure, and protection of Personal Information and
-                Protected Health Information ("PHI") in accordance with the Health Insurance Portability and
-                Accountability Act of 1996 ("HIPAA"), the Health Information Technology for Economic and Clinical Health
-                Act ("HITECH"), and other applicable federal and state privacy regulations.
+                Imperial Healthcare Systems (“Imperial,” “Company,” “we,” “us,” or “our”)
+                values the privacy of its visitors, clients, and users. This Privacy Policy
+                explains how we collect, use, disclose, and protect information when you
+                access or use our websites, platforms, systems, and services, including{" "}
+                <a
+                  href="https://www.imperialhealthsystems.com"
+                  target="_blank"
+                  className="text-brand-blue hover:underline"
+                >
+                  www.imperialhealthsystems.com
+                </a>{" "}
+                and related domains.
               </p>
+
               <p className="text-gray-700 leading-relaxed mt-3">
-                This Policy applies to information processed through our websites, platforms, systems, and service
-                delivery operations.
+                This Privacy Policy applies only to online activities and information collected
+                through our websites and services. It does not apply to information collected
+                offline or through channels other than this website.
               </p>
+
+              <p className="text-gray-700 leading-relaxed mt-3">
+                This Policy is designed to comply with HIPAA, HITECH, and other applicable
+                federal and state privacy and data protection regulations.
+              </p>
+
             </section>
 
+
+            {/* 2 Business Associate */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Our Role as a Business Associate</h2>
-              <p className="text-gray-700 leading-relaxed">
-                When providing services to healthcare providers ("Clients" or "Covered Entities"), Imperial Healthcare
-                Systems operates as a Business Associate as defined under HIPAA.
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                2. Our Role as a Business Associate
+              </h2>
+
+              <p className="text-gray-700 mb-3">
+                When providing services to healthcare providers (“Clients” or “Covered Entities”),
+                Imperial Healthcare Systems operates as a Business Associate under HIPAA.
               </p>
-              <p className="text-gray-700 leading-relaxed mt-3">In this capacity:</p>
+
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
+
                 <li>
-                  PHI is accessed, used, and disclosed strictly in accordance with the applicable Business Associate
-                  Agreement (BAA) executed with each Client.
+                  PHI is accessed, used, and disclosed strictly in accordance with executed
+                  Business Associate Agreements (BAAs).
                 </li>
+
                 <li>
-                  Administrative, physical, and technical safeguards are implemented to preserve the confidentiality,
-                  integrity, and availability of electronic PHI ("ePHI").
+                  Administrative, physical, and technical safeguards protect the confidentiality,
+                  integrity, and availability of ePHI.
                 </li>
+
                 <li>
-                  All data handling activities adhere to the Minimum Necessary Standard, limiting access solely to
-                  information required to fulfill contractual and operational obligations.
+                  Access is limited to the minimum necessary information required to perform services.
                 </li>
+
               </ul>
+
             </section>
 
+
+            {/* 3 Information We Collect */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Information We Collect</h2>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Imperial Healthcare Systems collects and processes information across the following categories:
+
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                3. Information We Collect
+              </h2>
+
+              <h3 className="text-xl font-semibold mb-2">
+                a. Professional and Client Information
+              </h3>
+
+              <p className="text-gray-700 mb-4">
+                Names, job titles, practice names, NPI numbers, business emails,
+                and phone numbers submitted during onboarding or inquiries.
               </p>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">a. Professional and Client Information</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Includes names, job titles, organization or practice names, National Provider Identifiers (NPI),
-                business email addresses, and business telephone numbers provided during inquiries, onboarding, or
-                account administration.
+
+              <h3 className="text-xl font-semibold mb-2">
+                b. Protected Health Information (PHI)
+              </h3>
+
+              <p className="text-gray-700 mb-4">
+                PHI is processed solely on behalf of Clients for Revenue Cycle Management,
+                including patient demographics, insurance information, billing data, and payment records.
               </p>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">b. Protected Health Information (PHI)</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Processed exclusively on behalf of Clients for RCM operations, including patient demographics, insurance
-                data, diagnosis and procedure codes, billing records, and payment information.
+
+              <h3 className="text-xl font-semibold mb-2">
+                c. Technical and Usage Data
+              </h3>
+
+              <p className="text-gray-700">
+                Includes IP address, browser type, device identifiers, cookies,
+                and analytics to improve system performance and security.
               </p>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">c. Technical and Usage Data</h3>
-              <p className="text-gray-700 leading-relaxed">
-                Includes IP addresses, browser types, device identifiers, and usage analytics collected via cookies or
-                similar technologies to enhance platform performance, security, and reliability.
-              </p>
             </section>
 
+
+            {/* 4 Use of Information */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Use of Information</h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Collected information is used for the following institutional purposes:
-              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                4. Use of Information
+              </h2>
+
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
+
                 <li>
-                  Execution of end-to-end Revenue Cycle Management functions, including claims submission, denial
-                  resolution, and payment reconciliation.
+                  Performing RCM services including claims submission, denial management,
+                  and reconciliation.
                 </li>
-                <li>Delivery of analytics, reporting, and yield-optimization insights to Clients.</li>
-                <li>Compliance with contractual, legal, regulatory, and audit obligations.</li>
+
                 <li>
-                  Continuous improvement of internal systems, automation, and AI-enabled workflows using de-identified
-                  data in compliance with HIPAA Safe Harbor standards.
+                  Providing analytics, reporting, and operational insights.
                 </li>
+
+                <li>
+                  Maintaining legal, contractual, and regulatory compliance.
+                </li>
+
+                <li>
+                  Improving systems using de-identified data under HIPAA Safe Harbor standards.
+                </li>
+
               </ul>
+
             </section>
 
+
+            {/* 5 Communications */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Security and Institutional Safeguards</h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Imperial Healthcare Systems operates under an enterprise-grade security framework designed to meet or
-                exceed industry benchmarks, including:
+
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                5. Communications, Messaging, and Opt-Out
+              </h2>
+
+              <h3 className="font-semibold">Types of Messages</h3>
+
+              <p className="text-gray-700 mb-3">
+                You may receive healthcare-related operational communications including
+                appointment scheduling, confirmations, and service notifications.
               </p>
+
+              <h3 className="font-semibold">Message Frequency</h3>
+
+              <p className="text-gray-700 mb-3">
+                Message frequency may vary depending on service interactions.
+              </p>
+
+              <h3 className="font-semibold">Opt-Out Instructions</h3>
+
+              <p className="text-gray-700 mb-3">
+                You may opt out at any time by replying STOP or using unsubscribe options.
+              </p>
+
+              <h3 className="font-semibold">Message and Data Rates</h3>
+
+              <p className="text-gray-700">
+                Standard messaging rates may apply based on your mobile provider.
+              </p>
+
+            </section>
+
+
+            {/* 6 Security */}
+            <section>
+
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                6. Data Security and Safeguards
+              </h2>
+
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>
-                  <strong>Encryption:</strong> AES-256 encryption for data at rest and TLS 1.3 for data in transit.
-                </li>
-                <li>
-                  <strong>Access Controls:</strong> Role-Based Access Control (RBAC) and Multi-Factor Authentication
-                  (MFA) enforced across all systems.
-                </li>
-                <li>
-                  <strong>Audit & Monitoring:</strong> Comprehensive audit logging and access monitoring for all PHI
-                  interactions.
-                </li>
-                <li>
-                  <strong>Workforce Governance:</strong> Mandatory annual HIPAA, data privacy, and cybersecurity
-                  training for all personnel and authorized contractors.
-                </li>
+
+                <li>AES-256 encryption at rest and TLS 1.3 encryption in transit</li>
+
+                <li>Role-Based Access Control (RBAC) and Multi-Factor Authentication (MFA)</li>
+
+                <li>Continuous audit logging and system monitoring</li>
+
+                <li>Mandatory HIPAA and cybersecurity workforce training</li>
+
               </ul>
+
             </section>
 
+
+            {/* 7 Data Sharing */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Data Sharing and Disclosure</h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Imperial Healthcare Systems does not sell, rent, or commercialize personal or health information.
+
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                7. Data Sharing and Disclosure
+              </h2>
+
+              <p className="text-gray-700 mb-3">
+                Imperial Healthcare Systems does not sell or share personal or health information
+                for marketing purposes.
               </p>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Information may be disclosed solely under the following circumstances:
-              </p>
+
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>
-                  <strong>Authorized Payers and Clearinghouses:</strong> For claims processing and reimbursement
-                  activities.
-                </li>
-                <li>
-                  <strong>Approved Sub-Processors:</strong> Limited to vendors that have executed a BAA and satisfy
-                  Imperial's security and compliance standards.
-                </li>
-                <li>
-                  <strong>Legal and Regulatory Obligations:</strong> When required by law, court order, subpoena, or
-                  government authority.
-                </li>
+
+                <li>Authorized payers and clearinghouses for claims processing</li>
+
+                <li>Approved sub-processors with executed BAA agreements</li>
+
+                <li>When required by law or regulatory authority</li>
+
               </ul>
+
             </section>
 
+
+            {/* 8 Individual Rights */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Individual Rights</h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Under HIPAA and applicable state privacy laws (including, where relevant, the California Consumer
-                Privacy Act), individuals may have rights to access, amend, or request an accounting of disclosures of
-                their information.
+
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                8. Individual Rights
+              </h2>
+
+              <p className="text-gray-700">
+                Individuals may have rights to access or amend their information.
+                Requests should be directed to the applicable healthcare provider,
+                which is responsible for responding to HIPAA rights requests.
               </p>
-              <p className="text-gray-700 leading-relaxed">
-                As Imperial Healthcare Systems functions as a Business Associate, such requests should generally be
-                directed to the applicable healthcare provider (the Covered Entity), who maintains primary
-                responsibility for responding to patient rights requests.
-              </p>
+
             </section>
 
+
+            {/* 9 Third Party */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Contact Information – Privacy & Compliance</h2>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                For questions, concerns, or compliance-related inquiries regarding this Privacy Policy or our data
-                protection practices, please contact:
+
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                9. Third-Party Privacy Policies
+              </h2>
+
+              <p className="text-gray-700">
+                This Privacy Policy does not apply to third-party websites.
+                Please review their privacy policies separately.
               </p>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="font-semibold text-gray-900">Imperial Healthcare Systems</p>
-                <p className="text-gray-700">Attn: Data Privacy & Security Office</p>
-                <p className="text-gray-700">
+
+            </section>
+
+
+            {/* 10 Contact */}
+            <section>
+
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                10. Contact Us – Privacy & Support
+              </h2>
+
+              <div className="bg-gray-50 p-5 rounded-lg border">
+
+                <p className="font-semibold">
+                  Imperial Healthcare Systems
+                </p>
+
+                <p>
+                  Attn: Data Privacy & Security Office
+                </p>
+
+                <p>
                   Email:{" "}
-                  <a href="mailto:info@imperialhealthsystems.com" className="text-brand-blue hover:underline">
+                  <a
+                    href="mailto:info@imperialhealthsystems.com"
+                    className="text-brand-blue hover:underline"
+                  >
                     info@imperialhealthsystems.com
                   </a>
                 </p>
+
+                <p className="mt-2 text-gray-600">
+                  24/7 Support Available
+                </p>
+
               </div>
+
             </section>
+
+
           </div>
         </div>
       </div>
