@@ -175,7 +175,7 @@ export function ServicesCarousel() {
                     alt={service.title}
                     className="w-full h-full object-cover object-bottom transition-all duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 pointer-events-none" style={{ background: `linear-gradient(to bottom, ${service.blendColor} 0%, transparent 40%)` }} />
+                  <div className="absolute inset-0 pointer-events-none" style={{ background: `linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 40%)` }} />
                 </div>
               </div>
             </motion.div>
