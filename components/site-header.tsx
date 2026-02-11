@@ -43,9 +43,16 @@ export function SiteHeader() {
 
   return (
     <>
+      {/* Super Header */}
+      <div className="fixed top-0 left-0 right-0 z-[51] bg-gradient-to-r from-brand-blue via-[#1a3a6e] to-brand-orange text-white text-center py-2 px-4">
+        <p className="text-xs sm:text-sm font-semibold tracking-wide">
+          360° AI-Powered Revenue Cycle Ecosystems—Driven by our Proprietary IRRF™ Technology.
+        </p>
+      </div>
+
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          "fixed top-[36px] left-0 right-0 z-50 transition-all duration-500",
           isScrolled
             ? "bg-background/90 backdrop-blur-xl shadow-lg border-b border-brand-blue/20"
             : "bg-background/50 backdrop-blur-sm",

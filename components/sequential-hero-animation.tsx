@@ -45,7 +45,7 @@ export function SequentialHeroAnimation() {
   }
 
   return (
-    <div className="min-h-[300px] md:min-h-[350px] flex items-center justify-center px-4">
+    <div className="min-h-[160px] md:min-h-[200px] flex items-center">
       <AnimatePresence mode="wait">
         <motion.h1
           key={index}
@@ -53,7 +53,7 @@ export function SequentialHeroAnimation() {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 text-center leading-tight text-balance max-w-6xl"
+          className="text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-slate-900 leading-[1.1] text-balance"
         >
           {HEADLINES[index]}
         </motion.h1>
