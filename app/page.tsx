@@ -1733,124 +1733,130 @@ export default function Home() {
 
               <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 {/* Pillar 1 */}
-                <Card className="relative bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40 transition-all duration-300 group-hover:opacity-60 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/[0.02] group-hover:via-purple-500/[0.02] group-hover:to-pink-500/[0.02] transition-all duration-300 pointer-events-none rounded-[20px]" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-radial from-blue-400/10 via-transparent to-transparent blur-2xl" />
+                <div className="relative h-[420px] perspective-[500px] group">
+                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                    {/* FRONT */}
+                    <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40" />
+                      <CardHeader className="relative p-8 pb-4 space-y-5">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 w-fit">
+                          <span className="text-xs font-bold text-brand-blue tracking-wider">PILLAR 1</span>
+                        </div>
+                        <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg">
+                          <Shield className="w-8 h-8 text-white" strokeWidth={2.5} />
+                        </div>
+                        <CardTitle className="text-lg font-bold text-slate-800 leading-tight">
+                          THE PREDICTIVE DEFENSE LAYER (THE AI SHIELD)
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="relative px-8 pb-8">
+                        <p className="text-sm text-slate-600 leading-relaxed">AI-enhanced pre-submission forensic scanning with 99% First-Pass Clean Claim Rate.</p>
+                      </CardContent>
+                    </Card>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
+                      <h3 className="text-lg font-bold mb-5">THE PREDICTIVE DEFENSE LAYER</h3>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-sm font-bold mb-1">• Technology:</p>
+                          <p className="text-sm leading-relaxed opacity-90">AI-enhanced pre-submission forensic scanning across millions of payer denial patterns.</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold mb-1">• Human Edge:</p>
+                          <p className="text-sm leading-relaxed opacity-90">Senior Coding Auditors recalibrate logic weekly.</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold mb-1">• Strategic Outcome:</p>
+                          <p className="text-sm font-bold"><CountUp end={99} suffix="%" duration={2000} /> First-Pass Clean Claim Rate.</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-
-                  <CardHeader className="relative p-8 pb-4 space-y-5">
-                    {/* Pillar Badge */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 w-fit">
-                      <span className="text-xs font-bold text-brand-blue tracking-wider">PILLAR 1</span>
-                    </div>
-                    <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:shadow-[0_16px_40px_rgba(59,130,246,0.5)]">
-                      <Shield className="w-8 h-8 text-white" strokeWidth={2.5} />
-                    </div>
-                    <CardTitle className="text-lg font-bold text-slate-800 leading-tight transition-all duration-300 group-hover:text-slate-900">
-                      THE PREDICTIVE DEFENSE LAYER (THE AI SHIELD)
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="relative space-y-5 px-8 pb-8">
-                    <div>
-                      <p className="text-sm font-bold text-brand-orange mb-2">• Technology:</p>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        AI-enhanced pre-submission forensic scanning across millions of payer denial patterns.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-brand-orange mb-2">• Human Edge:</p>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        Senior Coding Auditors recalibrate logic weekly.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-brand-orange mb-2">• Strategic Outcome:</p>
-                      <p className="text-sm font-bold text-brand-blue"><CountUp end={99} suffix="%" duration={2000} /> First-Pass Clean Claim Rate.</p>
-                    </div>
-                  </CardContent>
-                </Card>
+                </div>
 
                 {/* Pillar 2 */}
-                <Card className="relative bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/30 via-pink-400/30 to-purple-400/30 rounded-bl-[80px] opacity-40 transition-all duration-300 group-hover:opacity-60 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-pink-500/0 to-purple-500/0 group-hover:from-orange-500/[0.02] group-hover:via-pink-500/[0.02] group-hover:to-purple-500/[0.02] transition-all duration-300 pointer-events-none rounded-[20px]" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-radial from-orange-400/10 via-transparent to-transparent blur-2xl" />
+                <div className="relative h-[420px] perspective-[500px] group">
+                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                    {/* FRONT */}
+                    <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/30 via-pink-400/30 to-purple-400/30 rounded-bl-[80px] opacity-40" />
+                      <CardHeader className="relative p-8 pb-4 space-y-5">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-orange/15 border border-brand-orange/30 w-fit">
+                          <span className="text-xs font-bold text-brand-orange tracking-wider">PILLAR 2</span>
+                        </div>
+                        <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
+                          <Crosshair className="w-8 h-8 text-white" strokeWidth={2.5} />
+                        </div>
+                        <CardTitle className="text-lg font-bold text-slate-800 leading-tight">
+                          THE TACTICAL RESOLUTION WAR ROOM (THE HUMAN STRIKE FORCE)
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="relative px-8 pb-8">
+                        <p className="text-sm text-slate-600 leading-relaxed">AI-driven work-queue prioritization with Zero Blind Write-Off Policy.</p>
+                      </CardContent>
+                    </Card>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
+                      <h3 className="text-lg font-bold mb-5">THE TACTICAL RESOLUTION WAR ROOM</h3>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-sm font-bold mb-1">• Technology:</p>
+                          <p className="text-sm leading-relaxed opacity-90">AI-driven work-queue prioritization by recovery velocity.</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold mb-1">• Human Edge:</p>
+                          <p className="text-sm leading-relaxed opacity-90">Elite Human Advocates manage appeals and negotiations.</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold mb-1">• Strategic Outcome:</p>
+                          <p className="text-sm font-bold">Zero Blind Write-Off Policy.</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-
-                  <CardHeader className="relative p-8 pb-4 space-y-5">
-                    {/* Pillar Badge */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-orange/15 border border-brand-orange/30 w-fit">
-                      <span className="text-xs font-bold text-brand-orange tracking-wider">PILLAR 2</span>
-                    </div>
-                    <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:shadow-[0_16px_40px_rgba(249,115,22,0.5)]">
-                      <Crosshair className="w-8 h-8 text-white" strokeWidth={2.5} />
-                    </div>
-                    <CardTitle className="text-lg font-bold text-slate-800 leading-tight transition-all duration-300 group-hover:text-slate-900">
-                      THE TACTICAL RESOLUTION WAR ROOM (THE HUMAN STRIKE FORCE)
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="relative space-y-5 px-8 pb-8">
-                    <div>
-                      <p className="text-sm font-bold text-brand-orange mb-2">• Technology:</p>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        AI-driven work-queue prioritization by recovery velocity.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-brand-orange mb-2">• Human Edge:</p>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        Elite Human Advocates manage appeals and negotiations.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-brand-orange mb-2">• Strategic Outcome:</p>
-                      <p className="text-sm font-bold text-brand-blue">Zero Blind Write-Off Policy.</p>
-                    </div>
-                  </CardContent>
-                </Card>
+                </div>
 
                 {/* Pillar 3 */}
-                <Card className="relative bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-400/30 via-blue-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40 transition-all duration-300 group-hover:opacity-60 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-blue-500/0 to-pink-500/0 group-hover:from-purple-500/[0.02] group-hover:via-blue-500/[0.02] group-hover:to-pink-500/[0.02] transition-all duration-300 pointer-events-none rounded-[20px]" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-radial from-purple-400/10 via-transparent to-transparent blur-2xl" />
+                <div className="relative h-[420px] perspective-[500px] group">
+                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                    {/* FRONT */}
+                    <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-400/30 via-blue-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40" />
+                      <CardHeader className="relative p-8 pb-4 space-y-5">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 w-fit">
+                          <span className="text-xs font-bold text-brand-blue tracking-wider">PILLAR 3</span>
+                        </div>
+                        <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 flex items-center justify-center shadow-lg">
+                          <RotateCw className="w-8 h-8 text-white" strokeWidth={2.5} />
+                        </div>
+                        <CardTitle className="text-lg font-bold text-slate-800 leading-tight">
+                          THE FORENSIC WEALTH RECOVERY LOOP (THE INTELLIGENCE CYCLE)
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="relative px-8 pb-8">
+                        <p className="text-sm text-slate-600 leading-relaxed">Continuous audit algorithms with up to 30% Revenue Lift.</p>
+                      </CardContent>
+                    </Card>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
+                      <h3 className="text-lg font-bold mb-5">THE FORENSIC WEALTH RECOVERY LOOP</h3>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-sm font-bold mb-1">• Technology:</p>
+                          <p className="text-sm leading-relaxed opacity-90">Continuous audit algorithms scanning historical revenue data.</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold mb-1">• Human Edge:</p>
+                          <p className="text-sm leading-relaxed opacity-90">Forensic audit teams conduct deep clinical reviews.</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold mb-1">• Strategic Outcome:</p>
+                          <p className="text-sm font-bold">Up to <CountUp end={30} suffix="%" duration={2000} /> Revenue Lift.</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-
-                  <CardHeader className="relative p-8 pb-4 space-y-5">
-                    {/* Pillar Badge */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 w-fit">
-                      <span className="text-xs font-bold text-brand-blue tracking-wider">PILLAR 3</span>
-                    </div>
-                    <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-[5deg] group-hover:shadow-[0_16px_40px_rgba(168,85,247,0.5)]">
-                      <RotateCw className="w-8 h-8 text-white" strokeWidth={2.5} />
-                    </div>
-                    <CardTitle className="text-lg font-bold text-slate-800 leading-tight transition-all duration-300 group-hover:text-slate-900">
-                      THE FORENSIC WEALTH RECOVERY LOOP (THE INTELLIGENCE CYCLE)
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="relative space-y-5 px-8 pb-8">
-                    <div>
-                      <p className="text-sm font-bold text-brand-orange mb-2">• Technology:</p>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        Continuous audit algorithms scanning historical revenue data.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-brand-orange mb-2">• Human Edge:</p>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        Forensic audit teams conduct deep clinical reviews.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-brand-orange mb-2">• Strategic Outcome:</p>
-                      <p className="text-sm font-bold text-brand-blue">Up to <CountUp end={30} suffix="%" duration={2000} /> Revenue Lift.</p>
-                    </div>
-                  </CardContent>
-                </Card>
+                </div>
               </div>
             </div>
           </div>
@@ -2002,82 +2008,84 @@ export default function Home() {
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
                 {/* Card 1: Full-Stake Accountability */}
-                <div
-                  className="relative bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col h-full border-2 border-transparent"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(white, white), linear-gradient(to bottom right, rgb(249, 115, 22), rgb(251, 146, 60), rgb(249, 115, 22))",
-                    backgroundOrigin: "border-box",
-                    backgroundClip: "padding-box, border-box",
-                  }}
-                >
-                  {/* Icon Container */}
-                  <div className="mb-6">
-                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
-                      <ShieldCheck className="w-7 h-7 text-white" />
+                <div className="relative h-[320px] perspective-[500px] group">
+                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                    {/* FRONT */}
+                    <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flex flex-col justify-center p-8"
+                      style={{
+                        backgroundImage: "linear-gradient(white, white), linear-gradient(to bottom right, rgb(249, 115, 22), rgb(251, 146, 60), rgb(249, 115, 22))",
+                        backgroundOrigin: "border-box",
+                        backgroundClip: "padding-box, border-box",
+                      }}
+                    >
+                      <div className="mb-4">
+                        <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
+                          <ShieldCheck className="w-7 h-7 text-white" />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">FULL-STAKE ACCOUNTABILITY</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">We take ownership of the &apos;Lost Claim&apos; — denials are challenges, not stopping points.</p>
+                    </div>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-orange via-orange-500 to-amber-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
+                      <h3 className="text-xl font-bold mb-4">FULL-STAKE ACCOUNTABILITY</h3>
+                      <p className="text-sm leading-relaxed">
+                        Unlike our competitors, our staff is trained to see a denial not as a stopping point, but as a challenge. We apply Human Verification at every stage, ensuring no claim is ever abandoned to the Timely Filing clock.
+                      </p>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-4">
-                    FULL-STAKE ACCOUNTABILITY
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    We take ownership of the{" "}
-                    <span className="text-brand-orange font-semibold">&apos;Lost Claim.&apos;</span> Unlike our
-                    competitors, our staff is trained to see a denial not as a stopping point, but as a challenge. We
-                    apply Human Verification at every stage, ensuring no claim is ever abandoned to the Timely Filing
-                    clock.
-                  </p>
                 </div>
 
                 {/* Card 2: Efficiency Re-Invested in People */}
-                <div className="relative bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col h-full">
-                  {/* Icon Container */}
-                  <div className="mb-6">
-                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
-                      <Users className="w-7 h-7 text-white" />
+                <div className="relative h-[320px] perspective-[500px] group">
+                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                    {/* FRONT */}
+                    <div className="absolute inset-0 bg-white rounded-xl border border-gray-200 shadow-md backface-hidden flex flex-col justify-center p-8">
+                      <div className="mb-4">
+                        <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
+                          <Users className="w-7 h-7 text-white" />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">Advanced technology eliminates noise — recovered time is reinvested into deeper human expertise.</p>
+                    </div>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-blue via-blue-600 to-cyan-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
+                      <h3 className="text-xl font-bold mb-4">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
+                      <p className="text-sm leading-relaxed">
+                        We use advanced technology to eliminate operational noise—but we never reduce staff. Instead, we reinvest that recovered time into deeper human expertise across your AR. This allows us to scale without ever diluting quality for existing providers.
+                      </p>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-4">
-                    EFFICIENCY RE-INVESTED IN PEOPLE
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    We use advanced technology to eliminate operational noise—but we never reduce staff. Instead, we
-                    reinvest that recovered time into deeper human expertise across your AR. This allows us to scale
-                    without ever diluting quality for existing providers.
-                  </p>
                 </div>
 
                 {/* Card 3: Resolution-Driven Follow-Up */}
-                <div
-                  className="relative bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 flex flex-col h-full border-2 border-transparent"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(white, white), linear-gradient(to bottom right, rgb(37, 99, 235), rgb(59, 130, 246), rgb(37, 99, 235))",
-                    backgroundOrigin: "border-box",
-                    backgroundClip: "padding-box, border-box",
-                  }}
-                >
-                  {/* Icon Container */}
-                  <div className="mb-6">
-                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
-                      <RefreshCw className="w-7 h-7 text-white" />
+                <div className="relative h-[320px] perspective-[500px] group">
+                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                    {/* FRONT */}
+                    <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flex flex-col justify-center p-8"
+                      style={{
+                        backgroundImage: "linear-gradient(white, white), linear-gradient(to bottom right, rgb(37, 99, 235), rgb(59, 130, 246), rgb(37, 99, 235))",
+                        backgroundOrigin: "border-box",
+                        backgroundClip: "padding-box, border-box",
+                      }}
+                    >
+                      <div className="mb-4">
+                        <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
+                          <RefreshCw className="w-7 h-7 text-white" />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">RESOLUTION-DRIVEN FOLLOW-UP</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">We optimize for <span className="text-brand-orange font-semibold">Net Collection Rate</span>, not vanity metrics.</p>
+                    </div>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-600 via-brand-blue to-cyan-600 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
+                      <h3 className="text-xl font-bold mb-4">RESOLUTION-DRIVEN FOLLOW-UP</h3>
+                      <p className="text-sm leading-relaxed">
+                        While the industry celebrates &apos;First Pass Rate&apos; as a vanity metric, we optimize for Net Collection Rate. Our experienced human specialists actively challenge payer denials—often knowing payer policy nuances better than the payers themselves.
+                      </p>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-4">
-                    RESOLUTION-DRIVEN FOLLOW-UP
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    While the industry celebrates &apos;First Pass Rate&apos; as a vanity metric, we optimize for{" "}
-                    <span className="text-brand-orange font-semibold">Net Collection Rate</span>. Our experienced human
-                    specialists actively challenge payer denials—often knowing payer policy nuances better than the payers
-                    themselves.
-                  </p>
                 </div>
               </div>
               <div className="mt-16 text-center">
