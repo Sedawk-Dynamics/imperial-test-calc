@@ -91,6 +91,10 @@ export default function Home() {
   const [testimonialDirection, setTestimonialDirection] = useState(-1)
 
   const [journeyExpanded, setJourneyExpanded] = useState(false)
+  const [ledgerExpanded, setLedgerExpanded] = useState(false)
+  const [successStoriesExpanded, setSuccessStoriesExpanded] = useState(false)
+  const [techSecurityExpanded, setTechSecurityExpanded] = useState(false)
+  const [ihsAdvantageExpanded, setIhsAdvantageExpanded] = useState(false)
 
   // Added contact modal state for pricing buttons
   const [contactModalOpen, setContactModalOpen] = useState(false)
@@ -2006,6 +2010,14 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: ihsAdvantageExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
                 {/* Card 1: Full-Stake Accountability */}
                 <div className="relative h-[320px] perspective-[500px] group">
@@ -2098,6 +2110,21 @@ export default function Home() {
                   <span className="text-brand-orange text-2xl">→</span>
                   <span className="text-lg font-semibold text-brand-orange">Enterprise Valuation Impact</span>
                 </div>
+              </div>
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!ihsAdvantageExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setIhsAdvantageExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -2515,7 +2542,30 @@ export default function Home() {
                 </p>
               </div>
 
-              <PerformanceLedgerCarousel />
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: ledgerExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
+                  <PerformanceLedgerCarousel />
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!ledgerExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setLedgerExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -2829,6 +2879,14 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: successStoriesExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
               <div className="grid md:grid-cols-2 gap-8">
                 {[
                   {
@@ -2953,6 +3011,21 @@ export default function Home() {
                   </motion.div>
                 ))}
               </div>
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!successStoriesExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setSuccessStoriesExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -2999,51 +3072,74 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
-                <Card className="border-2 border-brand-blue/20 hover:border-brand-blue/40 transition-all duration-300">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-blue/80 rounded-lg flex items-center justify-center mb-4">
-                      <Brain className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-2xl">Advanced Capabilities</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    {[
-                      "Predictive Denial Analytics: Identify at-risk claims before submission",
-                      "Automated Claim Accuracy Checker: Real-time validation against payer rules",
-                      "Smart Workflow Automation: Reduce manual tasks by 70%",
-                      "Revenue Leakage Detection: Our expert team flags missed charges and underpayments",
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: techSecurityExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
+                  <div className="grid md:grid-cols-2 gap-8 mb-12">
+                    <Card className="border-2 border-brand-blue/20 hover:border-brand-blue/40 transition-all duration-300">
+                      <CardHeader>
+                        <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-blue/80 rounded-lg flex items-center justify-center mb-4">
+                          <Brain className="w-6 h-6 text-white" />
+                        </div>
+                        <CardTitle className="text-2xl">Advanced Capabilities</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-3">
+                        {[
+                          "Predictive Denial Analytics: Identify at-risk claims before submission",
+                          "Automated Claim Accuracy Checker: Real-time validation against payer rules",
+                          "Smart Workflow Automation: Reduce manual tasks by 70%",
+                          "Revenue Leakage Detection: Our expert team flags missed charges and underpayments",
+                        ].map((item, idx) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{item}</span>
+                          </div>
+                        ))}
+                      </CardContent>
+                    </Card>
 
-                <Card className="border-2 border-brand-orange/20 hover:border-brand-orange/40 transition-all duration-300">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-orange/80 rounded-lg flex items-center justify-center mb-4">
-                      <ShieldCheck className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-2xl">Security & Compliance</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    {[
-                      "HIPAA Compliant Infrastructure",
-                      "ISO 27001",
-                      "256-bit End-to-End Encryption",
-                      "Multi-Factor Authentication (MFA)",
-                      "Regular Third-Party Security Audits",
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
+                    <Card className="border-2 border-brand-orange/20 hover:border-brand-orange/40 transition-all duration-300">
+                      <CardHeader>
+                        <div className="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-orange/80 rounded-lg flex items-center justify-center mb-4">
+                          <ShieldCheck className="w-6 h-6 text-white" />
+                        </div>
+                        <CardTitle className="text-2xl">Security & Compliance</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-3">
+                        {[
+                          "HIPAA Compliant Infrastructure",
+                          "ISO 27001",
+                          "256-bit End-to-End Encryption",
+                          "Multi-Factor Authentication (MFA)",
+                          "Regular Third-Party Security Audits",
+                        ].map((item, idx) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{item}</span>
+                          </div>
+                        ))}
+                      </CardContent>
+                    </Card>
+                  </div>
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!techSecurityExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setTechSecurityExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
