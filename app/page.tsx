@@ -5,6 +5,9 @@ import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import {
   ArrowRight,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   DollarSign,
   TrendingDown,
   TrendingUp,
@@ -77,6 +80,17 @@ export default function Home() {
   })
 
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+  const [heroSlide, setHeroSlide] = useState(0)
+  const heroImages = [
+    { src: "/images2/ai-robot-healthcare.jpg", alt: "AI-Powered Healthcare Intelligence" },
+    { src: "/images2/doctor-presenting-digital-healthcare-network-futuristic-medical-technology-concept.jpg", alt: "Digital Healthcare Network and Futuristic Medical Technology" },
+    { src: "/images2/upgrading-concept-always-keep-system-up-date-developing-ai.jpg", alt: "Advanced AI System for Healthcare Revenue Optimization" },
+  ]
+
+  const [testimonialSlide, setTestimonialSlide] = useState(5)
+  const [testimonialDirection, setTestimonialDirection] = useState(-1)
+
+  const [journeyExpanded, setJourneyExpanded] = useState(false)
 
   // Added contact modal state for pricing buttons
   const [contactModalOpen, setContactModalOpen] = useState(false)
@@ -140,6 +154,27 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Hero image carousel auto-play
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % heroImages.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [heroImages.length])
+
+  // Testimonial carousel auto-play (ping-pong)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTestimonialSlide((prev) => {
+        const next = prev + testimonialDirection
+        if (next >= 5) setTestimonialDirection(-1)
+        if (next <= 0) setTestimonialDirection(1)
+        return next
+      })
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [testimonialDirection])
 
   const isCalculatorComplete = () => {
     return (
@@ -672,11 +707,47 @@ export default function Home() {
               {/* Ambience Glow behind image - matching user's reference */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-400/15 blur-[120px] rounded-full -z-10 pointer-events-none" />
 
-              <img
-                src="https://cdn.pixabay.com/photo/2024/05/18/07/49/robot-8769782_1280.jpg"
-                alt="AI-Powered Healthcare Intelligence"
-                className="relative z-10 w-[520px] rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.25)] border border-white"
-              />
+              {/* Hero Image Carousel */}
+              <div className="relative w-[520px] h-[380px] group/carousel">
+                {/* Outer hover glow */}
+                <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-brand-blue/0 via-brand-orange/0 to-brand-blue/0 group-hover/carousel:from-brand-blue/30 group-hover/carousel:via-brand-orange/20 group-hover/carousel:to-brand-blue/30 blur-2xl transition-all duration-700 pointer-events-none" />
+                <div className="absolute -inset-2 rounded-[1.75rem] border-2 border-white/0 group-hover/carousel:border-white/20 transition-all duration-500 pointer-events-none" />
+
+                <div className="relative z-10 w-full h-full rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.25)] border border-white group-hover/carousel:shadow-[0_40px_100px_-10px_rgba(59,130,246,0.35)] transition-shadow duration-700 overflow-hidden">
+                {heroImages.map((image, index) => (
+                  <motion.img
+                    key={index}
+                    src={image.src}
+                    alt={image.alt}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    initial={false}
+                    animate={{
+                      opacity: heroSlide === index ? 1 : 0,
+                      scale: heroSlide === index ? 1 : 1.05,
+                    }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  />
+                ))}
+
+                {/* Hover overlay glow */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/40 via-brand-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+
+                {/* Dot Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                  {heroImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setHeroSlide(index)}
+                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        heroSlide === index
+                          ? "bg-white scale-110 shadow-lg"
+                          : "bg-white/40 hover:bg-white/60"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+              </div>
 
               {/* EHR & Practice Management Cards */}
               <div className="relative z-10 mt-6 w-[520px] grid grid-cols-2 gap-4">
@@ -685,24 +756,43 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.8 }}
+                  className="relative h-[220px] perspective-[500px] group"
                 >
-                  <div className="relative rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-orange/5" />
-                    <div className="relative p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange shadow-lg">
-                          <Brain className="w-4 h-4 text-white" />
+                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                    {/* FRONT */}
+                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden p-4">
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-orange/5" />
+                      <div className="relative">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange shadow-lg">
+                            <Brain className="w-4 h-4 text-white" />
+                          </div>
+                          <h3 className="text-sm font-bold text-slate-900">AI-Powered EHR</h3>
                         </div>
-                        <h3 className="text-sm font-bold text-slate-900">AI-Powered EHR</h3>
+                        <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                          Intelligent electronic health records with automated documentation and real-time clinical analytics.
+                        </p>
+                        <div className="space-y-1.5">
+                          {["Smart Scheduling", "Auto-Coding", "Real-Time Dashboards"].map((feature) => (
+                            <div key={feature} className="flex items-center gap-1.5">
+                              <CheckCircle className="w-3.5 h-3.5 text-brand-blue flex-shrink-0" />
+                              <span className="text-[11px] font-medium text-slate-700">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <p className="text-xs text-slate-600 leading-relaxed mb-3">
-                        Intelligent electronic health records with automated documentation and real-time clinical analytics.
+                    </div>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-600 to-brand-orange text-white shadow-xl overflow-hidden rotate-x-180 backface-hidden flex flex-col justify-center p-5">
+                      <h3 className="text-sm font-bold mb-2">AI-Powered EHR</h3>
+                      <p className="text-xs leading-relaxed mb-3 opacity-90">
+                        Our AI engine automates clinical documentation, predicts scheduling conflicts, and delivers real-time analytics — so your team spends less time on paperwork and more time on patients.
                       </p>
                       <div className="space-y-1.5">
-                        {["Smart Scheduling", "Auto-Coding", "Real-Time Dashboards"].map((feature) => (
+                        {["95% documentation time saved", "Predictive scheduling optimization", "Live performance dashboards"].map((feature) => (
                           <div key={feature} className="flex items-center gap-1.5">
-                            <CheckCircle className="w-3.5 h-3.5 text-brand-blue flex-shrink-0" />
-                            <span className="text-[11px] font-medium text-slate-700">{feature}</span>
+                            <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
+                            <span className="text-[11px] font-medium">{feature}</span>
                           </div>
                         ))}
                       </div>
@@ -715,24 +805,43 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 1.0 }}
+                  className="relative h-[220px] perspective-[500px] group"
                 >
-                  <div className="relative rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 via-transparent to-brand-blue/5" />
-                    <div className="relative p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-orange to-brand-blue shadow-lg">
-                          <Settings className="w-4 h-4 text-white" />
+                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                    {/* FRONT */}
+                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden p-4">
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 via-transparent to-brand-blue/5" />
+                      <div className="relative">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-orange to-brand-blue shadow-lg">
+                            <Settings className="w-4 h-4 text-white" />
+                          </div>
+                          <h3 className="text-sm font-bold text-slate-900">Practice Management</h3>
                         </div>
-                        <h3 className="text-sm font-bold text-slate-900">Practice Management</h3>
+                        <p className="text-xs text-slate-600 leading-relaxed mb-3">
+                          End-to-end practice operations powered by AI — from patient intake to revenue optimization.
+                        </p>
+                        <div className="space-y-1.5">
+                          {["Patient Intake Automation", "Billing & Collections", "Seamless RCM Integration"].map((feature) => (
+                            <div key={feature} className="flex items-center gap-1.5">
+                              <CheckCircle className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />
+                              <span className="text-[11px] font-medium text-slate-700">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <p className="text-xs text-slate-600 leading-relaxed mb-3">
-                        End-to-end practice operations powered by AI — from patient intake to revenue optimization.
+                    </div>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-orange via-orange-500 to-brand-blue text-white shadow-xl overflow-hidden rotate-x-180 backface-hidden flex flex-col justify-center p-5">
+                      <h3 className="text-sm font-bold mb-2">Practice Management</h3>
+                      <p className="text-xs leading-relaxed mb-3 opacity-90">
+                        From the moment a patient walks in to the final payment posting, our platform automates every administrative touchpoint — eliminating bottlenecks and maximizing revenue capture.
                       </p>
                       <div className="space-y-1.5">
-                        {["Patient Intake Automation", "Billing & Collections", "Seamless RCM Integration"].map((feature) => (
+                        {["70% reduction in manual tasks", "Automated eligibility verification", "End-to-end revenue tracking"].map((feature) => (
                           <div key={feature} className="flex items-center gap-1.5">
-                            <CheckCircle className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />
-                            <span className="text-[11px] font-medium text-slate-700">{feature}</span>
+                            <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
+                            <span className="text-[11px] font-medium">{feature}</span>
                           </div>
                         ))}
                       </div>
@@ -816,6 +925,11 @@ export default function Home() {
             </motion.div>
 
             <div className="max-w-6xl mx-auto text-center mb-16">
+              <img
+                src="/images/imperial-logo-horizontal-removebg-preview.png"
+                alt="Imperial Healthcare Systems"
+                className="mx-auto h-40 w-auto object-contain brightness-0 invert -my-10"
+              />
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 The <span className="text-brand-orange">Imperial</span> Promise
               </h2>
@@ -824,69 +938,105 @@ export default function Home() {
 
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Pillar 1 */}
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:bg-white/15 transition">
-                <div className="w-14 h-14 bg-brand-orange/20 rounded-full flex items-center justify-center mb-6">
-                  <Award className="w-8 h-8 text-brand-orange" />
+              <div className="relative h-[320px] perspective-[500px] group">
+                <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                  {/* FRONT */}
+                  <Card className="absolute inset-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-md flex flex-col justify-center p-8 backface-hidden">
+                    <div className="w-14 h-14 mb-4 bg-brand-orange/20 rounded-full flex items-center justify-center">
+                      <Award className="w-8 h-8 text-brand-orange" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3 text-brand-orange">Precision & Quality</h3>
+                    <p className="text-sm text-white/70 leading-relaxed">
+                      Zero-compromise quality with multi-layer QC validation and expert-driven execution across every workflow.
+                    </p>
+                  </Card>
+                  {/* BACK */}
+                  <Card className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-orange via-orange-500 to-amber-500 text-white shadow-xl p-6 flex flex-col justify-center rotate-x-180 backface-hidden">
+                    <h3 className="text-xl font-bold mb-4">Precision & Quality</h3>
+                    <ul className="space-y-4">
+                      <li className="flex gap-3">
+                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                        <span className="text-sm leading-relaxed">Zero-compromise quality with multi-layer QC validation</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                        <span className="text-sm leading-relaxed">Expert-driven execution across every workflow</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                        <span className="text-sm leading-relaxed">Errors prevented before they reach payers</span>
+                      </li>
+                    </ul>
+                  </Card>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-brand-orange">Precision & Quality</h3>
-                <ul className="space-y-4 text-white/85">
-                  <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-orange mt-1" />
-                    Zero-compromise quality with multi-layer QC validation
-                  </li>
-                  <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-orange mt-1" />
-                    Expert-driven execution across every workflow
-                  </li>
-                  <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-orange mt-1" />
-                    Errors prevented before they reach payers
-                  </li>
-                </ul>
               </div>
 
               {/* Pillar 2 */}
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:bg-white/15 transition">
-                <div className="w-14 h-14 bg-brand-orange/20 rounded-full flex items-center justify-center mb-6">
-                  <Eye className="w-8 h-8 text-brand-orange" />
+              <div className="relative h-[320px] perspective-[500px] group">
+                <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                  {/* FRONT */}
+                  <Card className="absolute inset-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-md flex flex-col justify-center p-8 backface-hidden">
+                    <div className="w-14 h-14 mb-4 bg-brand-orange/20 rounded-full flex items-center justify-center">
+                      <Eye className="w-8 h-8 text-brand-orange" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3 text-brand-orange">Accountability & Transparency</h3>
+                    <p className="text-sm text-white/70 leading-relaxed">
+                      Dedicated teams that own outcomes with full visibility into workflows, KPIs, and real-time reporting.
+                    </p>
+                  </Card>
+                  {/* BACK */}
+                  <Card className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-600 to-cyan-500 text-white shadow-xl p-6 flex flex-col justify-center rotate-x-180 backface-hidden">
+                    <h3 className="text-xl font-bold mb-4">Accountability & Transparency</h3>
+                    <ul className="space-y-4">
+                      <li className="flex gap-3">
+                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                        <span className="text-sm leading-relaxed">Dedicated teams that own outcomes, not just tasks</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                        <span className="text-sm leading-relaxed">Full visibility into workflows, KPIs, and reporting</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                        <span className="text-sm leading-relaxed">No hidden gaps, no excuses—only results</span>
+                      </li>
+                    </ul>
+                  </Card>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-brand-orange">Accountability & Transparency</h3>
-                <ul className="space-y-4 text-white/85">
-                  <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-orange mt-1" />
-                    Dedicated teams that own outcomes, not just tasks
-                  </li>
-                  <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-orange mt-1" />
-                    Full visibility into workflows, KPIs, and reporting
-                  </li>
-                  <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-orange mt-1" />
-                    No hidden gaps, no excuses—only results
-                  </li>
-                </ul>
               </div>
 
               {/* Pillar 3 */}
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:bg-white/15 transition">
-                <div className="w-14 h-14 bg-brand-orange/20 rounded-full flex items-center justify-center mb-6">
-                  <Wallet className="w-8 h-8 text-brand-orange" />
+              <div className="relative h-[320px] perspective-[500px] group">
+                <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                  {/* FRONT */}
+                  <Card className="absolute inset-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-md flex flex-col justify-center p-8 backface-hidden">
+                    <div className="w-14 h-14 mb-4 bg-brand-orange/20 rounded-full flex items-center justify-center">
+                      <Wallet className="w-8 h-8 text-brand-orange" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3 text-brand-orange">Financial Impact</h3>
+                    <p className="text-sm text-white/70 leading-relaxed">
+                      Cost-efficient delivery with measurable improvements in collections, cash flow, and revenue growth engineered into every process.
+                    </p>
+                  </Card>
+                  {/* BACK */}
+                  <Card className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 text-white shadow-xl p-6 flex flex-col justify-center rotate-x-180 backface-hidden">
+                    <h3 className="text-xl font-bold mb-4">Financial Impact</h3>
+                    <ul className="space-y-4">
+                      <li className="flex gap-3">
+                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                        <span className="text-sm leading-relaxed">Cost-efficient delivery without sacrificing performance</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                        <span className="text-sm leading-relaxed">Measurable improvements in collections and cash flow</span>
+                      </li>
+                      <li className="flex gap-3">
+                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                        <span className="text-sm leading-relaxed">Revenue growth engineered into every process</span>
+                      </li>
+                    </ul>
+                  </Card>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-brand-orange">Financial Impact</h3>
-                <ul className="space-y-4 text-white/85">
-                  <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-orange mt-1" />
-                    Cost-efficient delivery without sacrificing performance
-                  </li>
-                  <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-orange mt-1" />
-                    Measurable improvements in collections and cash flow
-                  </li>
-                  <li className="flex gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-orange mt-1" />
-                    Revenue growth engineered into every process
-                  </li>
-                </ul>
               </div>
             </div>
 
@@ -929,7 +1079,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-5 text-white">
-                  <p className="text-sm font-semibold">Revenue Leakage Analysis</p>
+                  <p className="text-sm font-semibold">Revenue Leakage</p>
                 </div>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg relative group">
@@ -940,7 +1090,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-5 text-white">
-                  <p className="text-sm font-semibold">Data-Driven Insights</p>
+                  <p className="text-sm font-semibold">The Transparency Crisis</p>
                 </div>
               </div>
             </motion.div>
@@ -1146,13 +1296,18 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              <div className="rounded-2xl overflow-hidden shadow-xl group relative">
-                <img
-                  src="/images2/upgrading-concept-always-keep-system-up-date-developing-ai.jpg"
-                  alt="Advanced AI system upgrading concept for healthcare revenue optimization"
-                  className="w-full h-[260px] object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-orange/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative group/img">
+                {/* Outer glow */}
+                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-brand-orange/0 via-brand-blue/0 to-brand-orange/0 group-hover/img:from-brand-orange/25 group-hover/img:via-brand-blue/15 group-hover/img:to-brand-orange/25 blur-xl transition-all duration-700 pointer-events-none" />
+                <div className="absolute -inset-1.5 rounded-[1.1rem] border-2 border-white/0 group-hover/img:border-brand-orange/25 transition-all duration-500 pointer-events-none" />
+                <div className="relative rounded-2xl overflow-hidden shadow-xl group-hover/img:shadow-[0_20px_60px_-10px_rgba(249,115,22,0.35)] transition-shadow duration-700">
+                  <img
+                    src="/images2/upgrading-concept-always-keep-system-up-date-developing-ai.jpg"
+                    alt="Advanced AI system upgrading concept for healthcare revenue optimization"
+                    className="w-full h-[260px] object-cover group-hover/img:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-orange/40 via-brand-orange/10 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500"></div>
+                </div>
               </div>
             </motion.div>
 
@@ -1510,8 +1665,8 @@ export default function Home() {
               >
                 {/* Background Image */}
                 <img
-                  src="/hero-ai-brain.jpg"
-                  alt="AI-powered healthcare intelligence - Imperial Healthcare Systems"
+                  src="/images2/ai-robot-healthcare.jpg"
+                  alt="AI-Powered Healthcare Intelligence"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
 
@@ -1533,17 +1688,17 @@ export default function Home() {
                     </p>
 
                     {/* Button */}
-                    <Link href="/solutions">
+                    <Link href="/irrf">
                       <button
                         className="
-                  bg-white 
-                  text-black 
-                  px-7 py-3 
-                  rounded-full 
-                  text-sm 
-                  font-medium 
+                  bg-white
+                  text-black
+                  px-7 py-3
+                  rounded-full
+                  text-sm
+                  font-medium
                   tracking-wider
-                  hover:bg-gray-200 
+                  hover:bg-gray-200
                   transition
                   shadow-lg
                 "
@@ -3129,7 +3284,7 @@ export default function Home() {
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-7xl mx-auto">
-              {/* Header */}
+              {/* Header - always visible */}
               <div className="text-center mb-16">
                 {/* Journey header image - enhanced */}
                 <motion.div
@@ -3164,8 +3319,30 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Progressive Journey Map */}
-              <ImperialJourneyMap />
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: journeyExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
+                  <ImperialJourneyMap />
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!journeyExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setJourneyExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -3183,24 +3360,24 @@ export default function Home() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-1.5 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-semibold mb-4">
-                Trusted by Leading Physicians
+                Trusted by Healthcare Professionals
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                What <span className="bg-gradient-to-r from-brand-blue to-brand-orange bg-clip-text text-transparent">Doctors</span> Say
+                What Our <span className="bg-gradient-to-r from-brand-blue to-brand-orange bg-clip-text text-transparent">Partners</span> Say
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Hear from board-certified specialists who trust Imperial Healthcare Systems to power their practice.
+                Hear from the physicians, nurses, and staff who trust Imperial Healthcare Systems to power their practice.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {[
+          {(() => {
+            const testimonials = [
               {
                 name: "Dr. Elena Rodriguez, MD, FACC",
                 specialty: "Interventional Cardiology",
                 location: "Miami, Florida",
-                certification: "American Board of Internal Medicine (Cardiovascular Disease)",
+                certification: "Board Certified: American Board of Internal Medicine (Cardiovascular Disease)",
                 quote:
                   "As a cardiologist, every second counts—not just in the OR, but in how we manage patient data. Since transitioning to Imperial Healthcare Systems, the efficiency of our practice has skyrocketed. Their cutting-edge technology integrates seamlessly with our diagnostic imaging, but what truly sets them apart is the human element. My dedicated account manager is practically an extension of our team; they are always available to troubleshoot or optimize our workflow, ensuring our practice runs flawlessly. IHS doesn't just provide software; they provide peace of mind.",
                 gradient: "from-brand-blue to-cyan-500",
@@ -3210,7 +3387,7 @@ export default function Home() {
                 name: "Dr. Marcus Thorne, MD, FAOS",
                 specialty: "Orthopedic Surgery",
                 location: "Denver, Colorado",
-                certification: "American Board of Orthopaedic Surgery",
+                certification: "Board Certified: American Board of Orthopaedic Surgery",
                 quote:
                   "Managing a high-volume orthopedic clinic requires a system that can keep up with a grueling pace. IHS is incredibly quick and responsive, which was the primary reason we made the switch. Their platform handles our complex scheduling and billing with ease, utilizing top-tier tech that I haven't seen elsewhere in the market. Beyond the tech, the support is unmatched. Having a dedicated account manager who understands the specific nuances of a surgical practice has allowed us to focus entirely on patient outcomes rather than administrative bottlenecks.",
                 gradient: "from-brand-orange to-amber-500",
@@ -3220,57 +3397,128 @@ export default function Home() {
                 name: "Dr. Sarah Jenkins, MD, FAAP",
                 specialty: "Pediatric Medicine",
                 location: "Austin, Texas",
-                certification: "American Board of Pediatrics",
+                certification: "Board Certified: American Board of Pediatrics",
                 quote:
                   "In pediatrics, we need a management system that is as intuitive as it is powerful. Imperial Healthcare Systems has exceeded our expectations on both fronts. Their interface is modern and fast, but it's their commitment to service that impresses me most. Whenever we have a unique request or need a workflow adjustment, our account manager responds almost instantly. It is rare to find a company that balances cutting-edge innovation with such a high level of personal dedication. They have truly helped us manage our practice flawlessly.",
                 gradient: "from-teal-500 to-brand-blue",
                 accent: "teal-500",
               },
-            ].map((testimonial, index) => (
-              <ScrollReveal key={testimonial.name}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className="h-full"
+              {
+                name: "Dr. Kevin Pham, DPM, FACFAS",
+                specialty: "Podiatric Medicine & Surgery",
+                location: "Charlotte, North Carolina",
+                certification: "Board Certified: American Board of Foot and Ankle Surgery",
+                quote:
+                  "Running a podiatry practice means navigating complex billing codes and payer-specific rules that most systems simply aren't built for. Imperial Healthcare Systems changed the game for us. Their AI-powered claim scrubbing catches coding inconsistencies we used to miss entirely, and our denial rate has dropped dramatically since onboarding. What really stands out is the level of expertise their team brings—they understand podiatric-specific workflows and have tailored their platform to fit our exact needs. IHS has been instrumental in recovering revenue we didn't even know we were losing.",
+                gradient: "from-emerald-500 to-teal-500",
+                accent: "emerald-500",
+              },
+              {
+                name: "Maria Gonzalez",
+                specialty: "Front Office Manager",
+                location: "Phoenix, Arizona",
+                certification: "Certified Medical Office Manager (CMOM)",
+                quote:
+                  "Before Imperial Healthcare Systems, our front desk was drowning in eligibility checks, prior authorizations, and follow-up calls. Now, the bulk of that work is automated, and what used to take our team hours is handled in minutes. The platform is incredibly user-friendly—even our newest staff members picked it up within days. But the real difference-maker is the support. Our dedicated account manager is always just a call away and resolves issues before they ever become problems. IHS has transformed our front office from a bottleneck into a well-oiled machine.",
+                gradient: "from-violet-500 to-purple-500",
+                accent: "violet-500",
+              },
+              {
+                name: "Jessica Thornton, RN, BSN",
+                specialty: "Registered Nurse — Clinical Operations",
+                location: "Nashville, Tennessee",
+                certification: "Tennessee Board of Nursing",
+                quote:
+                  "As a nurse coordinating patient care across multiple providers, I need quick, accurate answers when billing or documentation questions come up. Imperial Healthcare Systems has been a revelation. Every time I reach out to our dedicated client account manager, I get a response that is not only fast but incredibly thorough and precise. They understand the clinical side just as well as the administrative side, which is rare. I no longer have to wait days for answers or chase down information—IHS gives me confidence that every detail is handled correctly the first time.",
+                gradient: "from-rose-500 to-pink-500",
+                accent: "rose-500",
+              },
+            ]
+
+            return (
+              <div className="relative max-w-4xl mx-auto">
+                {/* Prev / Next Buttons */}
+                <button
+                  onClick={() => setTestimonialSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="relative h-full rounded-2xl bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group">
-                    {/* Top gradient bar */}
-                    <div className={`h-1.5 bg-gradient-to-r ${testimonial.gradient}`} />
+                  <ChevronLeft className="w-5 h-5 text-slate-600" />
+                </button>
+                <button
+                  onClick={() => setTestimonialSlide((prev) => (prev + 1) % testimonials.length)}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:shadow-xl transition-all duration-300"
+                >
+                  <ChevronRight className="w-5 h-5 text-slate-600" />
+                </button>
 
-                    <div className="p-6">
-                      {/* Quote icon */}
-                      <svg className={`w-10 h-10 text-${testimonial.accent}/20 mb-4`} fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                      </svg>
+                {/* Carousel Container */}
+                <div className="overflow-hidden rounded-2xl">
+                  <motion.div
+                    className="flex"
+                    animate={{ x: `-${testimonialSlide * 100}%` }}
+                    transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                  >
+                    {testimonials.map((testimonial, index) => (
+                      <div key={testimonial.name} className="w-full flex-shrink-0 px-2">
+                        <div className="relative rounded-2xl bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group">
+                          {/* Top gradient bar */}
+                          <div className={`h-1.5 bg-gradient-to-r ${testimonial.gradient}`} />
 
-                      {/* Quote text */}
-                      <p className="text-sm text-slate-600 leading-relaxed mb-6 text-justify">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </p>
+                          <div className="p-8 md:p-10">
+                            {/* Quote icon */}
+                            <svg className={`w-12 h-12 text-${testimonial.accent}/20 mb-6`} fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
 
-                      {/* Divider */}
-                      <div className={`h-px bg-gradient-to-r ${testimonial.gradient} opacity-20 mb-5`} />
+                            {/* Quote text */}
+                            <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 text-justify">
+                              &ldquo;{testimonial.quote}&rdquo;
+                            </p>
 
-                      {/* Doctor info */}
-                      <div>
-                        <h3 className="text-base font-bold text-slate-900">{testimonial.name}</h3>
-                        <p className={`text-sm font-semibold text-${testimonial.accent} mt-1`}>{testimonial.specialty}</p>
-                        <div className="flex items-center gap-1.5 mt-2">
-                          <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                          <span className="text-xs text-slate-500">{testimonial.location}</span>
+                            {/* Divider */}
+                            <div className={`h-px bg-gradient-to-r ${testimonial.gradient} opacity-20 mb-6`} />
+
+                            {/* Person info */}
+                            <div className="flex items-center gap-4">
+                              <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg`}>
+                                {testimonial.name.charAt(0)}
+                              </div>
+                              <div>
+                                <h3 className="text-base font-bold text-slate-900">{testimonial.name}</h3>
+                                <p className={`text-sm font-semibold text-${testimonial.accent} mt-0.5`}>{testimonial.specialty}</p>
+                                <div className="flex items-center gap-1.5 mt-1">
+                                  <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                                  <span className="text-xs text-slate-500">{testimonial.location}</span>
+                                </div>
+                                <p className="text-xs text-slate-400 mt-1">
+                                  {testimonial.certification}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <p className="text-xs text-slate-400 mt-1.5">
-                          Board Certified: {testimonial.certification}
-                        </p>
                       </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </ScrollReveal>
-            ))}
-          </div>
+                    ))}
+                  </motion.div>
+                </div>
+
+                {/* Dot Indicators */}
+                <div className="flex justify-center gap-2 mt-8">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setTestimonialSlide(index)}
+                      className={`h-2.5 rounded-full transition-all duration-300 ${
+                        testimonialSlide === index
+                          ? "w-8 bg-brand-blue"
+                          : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            )
+          })()}
         </div>
       </section>
 
@@ -3474,13 +3722,6 @@ export default function Home() {
           </div>
         </section>
       </ScrollReveal>
-
-      {/* Wave divider before footer */}
-      <div className="relative">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px] md:h-[80px]" fill="none">
-          <path d="M0,60 C200,20 400,100 600,60 C800,20 1000,100 1200,60 L1200,120 L0,120 Z" fill="#0a2540" />
-        </svg>
-      </div>
 
       <SiteFooter />
 

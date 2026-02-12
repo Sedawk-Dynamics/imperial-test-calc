@@ -227,7 +227,7 @@ export function ImperialJourneyMap() {
                       handlePhaseClick(phase.id)
                     }
                   }}
-                  className={`w-full text-left group transition-all duration-300 rounded-lg p-6 focus:outline-none focus:ring-4 focus:ring-brand-orange/50 ${
+                  className={`w-full text-left group transition-all duration-300 rounded-2xl p-6 focus:outline-none focus:ring-4 focus:ring-brand-orange/50 ${
                     isActive
                       ? "bg-gradient-to-r from-brand-orange/10 to-transparent shadow-lg ring-4 ring-brand-orange/30"
                       : "hover:bg-muted/30 opacity-60 hover:opacity-100" // Inactive phases are muted but visible
