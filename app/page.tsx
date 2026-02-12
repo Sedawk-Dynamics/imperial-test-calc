@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import {
   ArrowRight,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   DollarSign,
@@ -88,6 +89,8 @@ export default function Home() {
 
   const [testimonialSlide, setTestimonialSlide] = useState(5)
   const [testimonialDirection, setTestimonialDirection] = useState(-1)
+
+  const [journeyExpanded, setJourneyExpanded] = useState(false)
 
   // Added contact modal state for pricing buttons
   const [contactModalOpen, setContactModalOpen] = useState(false)
@@ -3281,7 +3284,7 @@ export default function Home() {
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-7xl mx-auto">
-              {/* Header */}
+              {/* Header - always visible */}
               <div className="text-center mb-16">
                 {/* Journey header image - enhanced */}
                 <motion.div
@@ -3316,8 +3319,30 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Progressive Journey Map */}
-              <ImperialJourneyMap />
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: journeyExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
+                  <ImperialJourneyMap />
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!journeyExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setJourneyExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -3697,13 +3722,6 @@ export default function Home() {
           </div>
         </section>
       </ScrollReveal>
-
-      {/* Wave divider before footer */}
-      <div className="relative">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px] md:h-[80px]" fill="none">
-          <path d="M0,60 C200,20 400,100 600,60 C800,20 1000,100 1200,60 L1200,120 L0,120 Z" fill="#0a2540" />
-        </svg>
-      </div>
 
       <SiteFooter />
 
