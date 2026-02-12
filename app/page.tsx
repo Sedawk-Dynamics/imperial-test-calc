@@ -5,6 +5,8 @@ import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import {
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   DollarSign,
   TrendingDown,
   TrendingUp,
@@ -84,6 +86,9 @@ export default function Home() {
     { src: "/images2/upgrading-concept-always-keep-system-up-date-developing-ai.jpg", alt: "Advanced AI System for Healthcare Revenue Optimization" },
   ]
 
+  const [testimonialSlide, setTestimonialSlide] = useState(5)
+  const [testimonialDirection, setTestimonialDirection] = useState(-1)
+
   // Added contact modal state for pricing buttons
   const [contactModalOpen, setContactModalOpen] = useState(false)
 
@@ -154,6 +159,19 @@ export default function Home() {
     }, 4000)
     return () => clearInterval(timer)
   }, [heroImages.length])
+
+  // Testimonial carousel auto-play (ping-pong)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTestimonialSlide((prev) => {
+        const next = prev + testimonialDirection
+        if (next >= 5) setTestimonialDirection(-1)
+        if (next <= 0) setTestimonialDirection(1)
+        return next
+      })
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [testimonialDirection])
 
   const isCalculatorComplete = () => {
     return (
@@ -3328,8 +3346,8 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {[
+          {(() => {
+            const testimonials = [
               {
                 name: "Dr. Elena Rodriguez, MD, FACC",
                 specialty: "Interventional Cardiology",
@@ -3390,51 +3408,92 @@ export default function Home() {
                 gradient: "from-rose-500 to-pink-500",
                 accent: "rose-500",
               },
-            ].map((testimonial, index) => (
-              <ScrollReveal key={testimonial.name}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className="h-full"
+            ]
+
+            return (
+              <div className="relative max-w-4xl mx-auto">
+                {/* Prev / Next Buttons */}
+                <button
+                  onClick={() => setTestimonialSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="relative h-full rounded-2xl bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group">
-                    {/* Top gradient bar */}
-                    <div className={`h-1.5 bg-gradient-to-r ${testimonial.gradient}`} />
+                  <ChevronLeft className="w-5 h-5 text-slate-600" />
+                </button>
+                <button
+                  onClick={() => setTestimonialSlide((prev) => (prev + 1) % testimonials.length)}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-20 w-11 h-11 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center hover:bg-slate-50 hover:shadow-xl transition-all duration-300"
+                >
+                  <ChevronRight className="w-5 h-5 text-slate-600" />
+                </button>
 
-                    <div className="p-6">
-                      {/* Quote icon */}
-                      <svg className={`w-10 h-10 text-${testimonial.accent}/20 mb-4`} fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                      </svg>
+                {/* Carousel Container */}
+                <div className="overflow-hidden rounded-2xl">
+                  <motion.div
+                    className="flex"
+                    animate={{ x: `-${testimonialSlide * 100}%` }}
+                    transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                  >
+                    {testimonials.map((testimonial, index) => (
+                      <div key={testimonial.name} className="w-full flex-shrink-0 px-2">
+                        <div className="relative rounded-2xl bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group">
+                          {/* Top gradient bar */}
+                          <div className={`h-1.5 bg-gradient-to-r ${testimonial.gradient}`} />
 
-                      {/* Quote text */}
-                      <p className="text-sm text-slate-600 leading-relaxed mb-6 text-justify">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </p>
+                          <div className="p-8 md:p-10">
+                            {/* Quote icon */}
+                            <svg className={`w-12 h-12 text-${testimonial.accent}/20 mb-6`} fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                            </svg>
 
-                      {/* Divider */}
-                      <div className={`h-px bg-gradient-to-r ${testimonial.gradient} opacity-20 mb-5`} />
+                            {/* Quote text */}
+                            <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 text-justify">
+                              &ldquo;{testimonial.quote}&rdquo;
+                            </p>
 
-                      {/* Doctor info */}
-                      <div>
-                        <h3 className="text-base font-bold text-slate-900">{testimonial.name}</h3>
-                        <p className={`text-sm font-semibold text-${testimonial.accent} mt-1`}>{testimonial.specialty}</p>
-                        <div className="flex items-center gap-1.5 mt-2">
-                          <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                          <span className="text-xs text-slate-500">{testimonial.location}</span>
+                            {/* Divider */}
+                            <div className={`h-px bg-gradient-to-r ${testimonial.gradient} opacity-20 mb-6`} />
+
+                            {/* Person info */}
+                            <div className="flex items-center gap-4">
+                              <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg`}>
+                                {testimonial.name.charAt(0)}
+                              </div>
+                              <div>
+                                <h3 className="text-base font-bold text-slate-900">{testimonial.name}</h3>
+                                <p className={`text-sm font-semibold text-${testimonial.accent} mt-0.5`}>{testimonial.specialty}</p>
+                                <div className="flex items-center gap-1.5 mt-1">
+                                  <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                                  <span className="text-xs text-slate-500">{testimonial.location}</span>
+                                </div>
+                                <p className="text-xs text-slate-400 mt-1">
+                                  {testimonial.certification}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <p className="text-xs text-slate-400 mt-1.5">
-                          {testimonial.certification}
-                        </p>
                       </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </ScrollReveal>
-            ))}
-          </div>
+                    ))}
+                  </motion.div>
+                </div>
+
+                {/* Dot Indicators */}
+                <div className="flex justify-center gap-2 mt-8">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setTestimonialSlide(index)}
+                      className={`h-2.5 rounded-full transition-all duration-300 ${
+                        testimonialSlide === index
+                          ? "w-8 bg-brand-blue"
+                          : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            )
+          })()}
         </div>
       </section>
 
