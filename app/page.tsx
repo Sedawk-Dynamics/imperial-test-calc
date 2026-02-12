@@ -82,7 +82,7 @@ export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [heroSlide, setHeroSlide] = useState(0)
   const heroImages = [
-    { src: "https://cdn.pixabay.com/photo/2024/05/18/07/49/robot-8769782_1280.jpg", alt: "AI-Powered Healthcare Intelligence" },
+    { src: "/images2/ai-robot-healthcare.jpg", alt: "AI-Powered Healthcare Intelligence" },
     { src: "/images2/doctor-presenting-digital-healthcare-network-futuristic-medical-technology-concept.jpg", alt: "Digital Healthcare Network and Futuristic Medical Technology" },
     { src: "/images2/upgrading-concept-always-keep-system-up-date-developing-ai.jpg", alt: "Advanced AI System for Healthcare Revenue Optimization" },
   ]
@@ -1665,8 +1665,8 @@ export default function Home() {
               >
                 {/* Background Image */}
                 <img
-                  src="/hero-ai-brain.jpg"
-                  alt="AI-powered healthcare intelligence - Imperial Healthcare Systems"
+                  src="/images2/ai-robot-healthcare.jpg"
+                  alt="AI-Powered Healthcare Intelligence"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
 
