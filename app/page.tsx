@@ -91,6 +91,10 @@ export default function Home() {
   const [testimonialDirection, setTestimonialDirection] = useState(-1)
 
   const [journeyExpanded, setJourneyExpanded] = useState(false)
+  const [ledgerExpanded, setLedgerExpanded] = useState(false)
+  const [successStoriesExpanded, setSuccessStoriesExpanded] = useState(false)
+  const [techSecurityExpanded, setTechSecurityExpanded] = useState(false)
+  const [ihsAdvantageExpanded, setIhsAdvantageExpanded] = useState(false)
 
   // Added contact modal state for pricing buttons
   const [contactModalOpen, setContactModalOpen] = useState(false)
@@ -759,37 +763,24 @@ export default function Home() {
                   className="relative h-[220px] perspective-[500px] group"
                 >
                   <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
-                    {/* FRONT */}
-                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden p-4">
+                    {/* FRONT - Header only */}
+                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden flex flex-col items-center justify-center text-center p-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-orange/5" />
-                      <div className="relative">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange shadow-lg">
-                            <Brain className="w-4 h-4 text-white" />
-                          </div>
-                          <h3 className="text-sm font-bold text-slate-900">AI-Powered EHR</h3>
+                      <div className="relative flex flex-col items-center">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-brand-blue to-brand-orange shadow-lg mb-3">
+                          <Brain className="w-5 h-5 text-white" />
                         </div>
-                        <p className="text-xs text-slate-600 leading-relaxed mb-3">
-                          Intelligent electronic health records with automated documentation and real-time clinical analytics.
-                        </p>
-                        <div className="space-y-1.5">
-                          {["Smart Scheduling", "Auto-Coding", "Real-Time Dashboards"].map((feature) => (
-                            <div key={feature} className="flex items-center gap-1.5">
-                              <CheckCircle className="w-3.5 h-3.5 text-brand-blue flex-shrink-0" />
-                              <span className="text-[11px] font-medium text-slate-700">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
+                        <h3 className="text-base font-bold text-slate-900 mb-1">AI-Powered EHR</h3>
                       </div>
                     </div>
-                    {/* BACK */}
+                    {/* BACK - Details */}
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-600 to-brand-orange text-white shadow-xl overflow-hidden rotate-x-180 backface-hidden flex flex-col justify-center p-5">
                       <h3 className="text-sm font-bold mb-2">AI-Powered EHR</h3>
                       <p className="text-xs leading-relaxed mb-3 opacity-90">
-                        Our AI engine automates clinical documentation, predicts scheduling conflicts, and delivers real-time analytics — so your team spends less time on paperwork and more time on patients.
+                        Intelligent electronic health records with automated documentation and real-time clinical analytics.
                       </p>
                       <div className="space-y-1.5">
-                        {["95% documentation time saved", "Predictive scheduling optimization", "Live performance dashboards"].map((feature) => (
+                        {["Smart Scheduling", "Auto-Coding", "Real-Time Dashboards"].map((feature) => (
                           <div key={feature} className="flex items-center gap-1.5">
                             <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
                             <span className="text-[11px] font-medium">{feature}</span>
@@ -808,37 +799,24 @@ export default function Home() {
                   className="relative h-[220px] perspective-[500px] group"
                 >
                   <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
-                    {/* FRONT */}
-                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden p-4">
+                    {/* FRONT - Header only */}
+                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden flex flex-col items-center justify-center text-center p-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 via-transparent to-brand-blue/5" />
-                      <div className="relative">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-orange to-brand-blue shadow-lg">
-                            <Settings className="w-4 h-4 text-white" />
-                          </div>
-                          <h3 className="text-sm font-bold text-slate-900">Practice Management</h3>
+                      <div className="relative flex flex-col items-center">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-brand-orange to-brand-blue shadow-lg mb-3">
+                          <Settings className="w-5 h-5 text-white" />
                         </div>
-                        <p className="text-xs text-slate-600 leading-relaxed mb-3">
-                          End-to-end practice operations powered by AI — from patient intake to revenue optimization.
-                        </p>
-                        <div className="space-y-1.5">
-                          {["Patient Intake Automation", "Billing & Collections", "Seamless RCM Integration"].map((feature) => (
-                            <div key={feature} className="flex items-center gap-1.5">
-                              <CheckCircle className="w-3.5 h-3.5 text-brand-orange flex-shrink-0" />
-                              <span className="text-[11px] font-medium text-slate-700">{feature}</span>
-                            </div>
-                          ))}
-                        </div>
+                        <h3 className="text-base font-bold text-slate-900 mb-1">Practice Management</h3>
                       </div>
                     </div>
-                    {/* BACK */}
+                    {/* BACK - Details */}
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-orange via-orange-500 to-brand-blue text-white shadow-xl overflow-hidden rotate-x-180 backface-hidden flex flex-col justify-center p-5">
                       <h3 className="text-sm font-bold mb-2">Practice Management</h3>
                       <p className="text-xs leading-relaxed mb-3 opacity-90">
-                        From the moment a patient walks in to the final payment posting, our platform automates every administrative touchpoint — eliminating bottlenecks and maximizing revenue capture.
+                        End-to-end practice operations powered by AI — from patient intake to revenue optimization.
                       </p>
                       <div className="space-y-1.5">
-                        {["70% reduction in manual tasks", "Automated eligibility verification", "End-to-end revenue tracking"].map((feature) => (
+                        {["Patient Intake Automation", "Billing & Collections", "Seamless RCM Integration"].map((feature) => (
                           <div key={feature} className="flex items-center gap-1.5">
                             <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
                             <span className="text-[11px] font-medium">{feature}</span>
@@ -1326,7 +1304,7 @@ export default function Home() {
             </div>
 
             {/* SECTION 1: IRRF CORE CARDS */}
-            <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-0 mb-20 max-w-7xl mx-auto">
 
               {/* ================= CARD 1 ================= */}
               <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] group">
@@ -2006,6 +1984,14 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: ihsAdvantageExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
                 {/* Card 1: Full-Stake Accountability */}
                 <div className="relative h-[320px] perspective-[500px] group">
@@ -2098,6 +2084,21 @@ export default function Home() {
                   <span className="text-brand-orange text-2xl">→</span>
                   <span className="text-lg font-semibold text-brand-orange">Enterprise Valuation Impact</span>
                 </div>
+              </div>
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!ihsAdvantageExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setIhsAdvantageExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -2423,41 +2424,35 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <Card className="border-2 border-gradient-to-r from-brand-blue to-brand-orange bg-gradient-to-br from-blue-50/30 to-orange-50/30">
-                    <CardContent className="p-6 text-center space-y-4">
-                      <Button
-                        size="lg"
-                        onClick={generatePDFReport}
-                        disabled={!isCalculatorComplete() || isGeneratingPDF}
-                        className={`w-full max-w-md mx-auto px-8 py-6 text-base font-semibold rounded-full transition-all duration-300 ${isCalculatorComplete() && !isGeneratingPDF
-                          ? "bg-gradient-to-r from-brand-blue to-brand-orange hover:from-brand-blue/90 hover:to-brand-orange/90 text-white shadow-xl hover:shadow-2xl hover:scale-105"
-                          : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                          }`}
-                      >
-                        <span className="flex items-center justify-center gap-3">
-                          {isGeneratingPDF ? (
-                            <>
-                              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                              Preparing your report...
-                            </>
-                          ) : (
-                            <>
-                              <Download className="h-5 w-5" />
-                              Download Full ROI & Leakage Report (PDF)
-                            </>
-                          )}
-                        </span>
-                      </Button>
+                  <div className="text-center space-y-2 mt-6">
+                    <Button
+                      size="lg"
+                      onClick={generatePDFReport}
+                      disabled={!isCalculatorComplete() || isGeneratingPDF}
+                      className={`w-full max-w-md mx-auto px-8 py-6 text-base font-semibold rounded-full transition-all duration-300 ${isCalculatorComplete() && !isGeneratingPDF
+                        ? "bg-gradient-to-r from-brand-blue to-brand-orange hover:from-brand-blue/90 hover:to-brand-orange/90 text-white shadow-xl hover:shadow-2xl hover:scale-105"
+                        : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        }`}
+                    >
+                      <span className="flex items-center justify-center gap-3">
+                        {isGeneratingPDF ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            Preparing your report...
+                          </>
+                        ) : (
+                          <>
+                            <Download className="h-5 w-5" />
+                            Download Full ROI & Leakage Report (PDF)
+                          </>
+                        )}
+                      </span>
+                    </Button>
 
-                      {!isCalculatorComplete() && (
-                        <p className="text-xs text-gray-500">Please fill in all required fields to download the report</p>
-                      )}
-
-                      {isCalculatorComplete() && !isGeneratingPDF && (
-                        <p className="text-xs text-gray-600 font-medium"></p>
-                      )}
-                    </CardContent>
-                  </Card>
+                    {!isCalculatorComplete() && (
+                      <p className="text-xs text-gray-500">Please fill in all required fields to download the report</p>
+                    )}
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -2515,7 +2510,30 @@ export default function Home() {
                 </p>
               </div>
 
-              <PerformanceLedgerCarousel />
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: ledgerExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
+                  <PerformanceLedgerCarousel />
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!ledgerExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setLedgerExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -2829,6 +2847,14 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: successStoriesExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
               <div className="grid md:grid-cols-2 gap-8">
                 {[
                   {
@@ -2953,6 +2979,21 @@ export default function Home() {
                   </motion.div>
                 ))}
               </div>
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!successStoriesExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setSuccessStoriesExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
@@ -2999,51 +3040,74 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
-                <Card className="border-2 border-brand-blue/20 hover:border-brand-blue/40 transition-all duration-300">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-blue/80 rounded-lg flex items-center justify-center mb-4">
-                      <Brain className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-2xl">Advanced Capabilities</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    {[
-                      "Predictive Denial Analytics: Identify at-risk claims before submission",
-                      "Automated Claim Accuracy Checker: Real-time validation against payer rules",
-                      "Smart Workflow Automation: Reduce manual tasks by 70%",
-                      "Revenue Leakage Detection: Our expert team flags missed charges and underpayments",
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
+              {/* Collapsible content */}
+              <div className="relative">
+                <motion.div
+                  className="overflow-hidden"
+                  initial={false}
+                  animate={{ height: techSecurityExpanded ? "auto" : 200 }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                >
+                  <div className="grid md:grid-cols-2 gap-8 mb-12">
+                    <Card className="border-2 border-brand-blue/20 hover:border-brand-blue/40 transition-all duration-300">
+                      <CardHeader>
+                        <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-blue/80 rounded-lg flex items-center justify-center mb-4">
+                          <Brain className="w-6 h-6 text-white" />
+                        </div>
+                        <CardTitle className="text-2xl">Advanced Capabilities</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-3">
+                        {[
+                          "Predictive Denial Analytics: Identify at-risk claims before submission",
+                          "Automated Claim Accuracy Checker: Real-time validation against payer rules",
+                          "Smart Workflow Automation: Reduce manual tasks by 70%",
+                          "Revenue Leakage Detection: Our expert team flags missed charges and underpayments",
+                        ].map((item, idx) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{item}</span>
+                          </div>
+                        ))}
+                      </CardContent>
+                    </Card>
 
-                <Card className="border-2 border-brand-orange/20 hover:border-brand-orange/40 transition-all duration-300">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-orange/80 rounded-lg flex items-center justify-center mb-4">
-                      <ShieldCheck className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-2xl">Security & Compliance</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    {[
-                      "HIPAA Compliant Infrastructure",
-                      "ISO 27001",
-                      "256-bit End-to-End Encryption",
-                      "Multi-Factor Authentication (MFA)",
-                      "Regular Third-Party Security Audits",
-                    ].map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
+                    <Card className="border-2 border-brand-orange/20 hover:border-brand-orange/40 transition-all duration-300">
+                      <CardHeader>
+                        <div className="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-orange/80 rounded-lg flex items-center justify-center mb-4">
+                          <ShieldCheck className="w-6 h-6 text-white" />
+                        </div>
+                        <CardTitle className="text-2xl">Security & Compliance</CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-3">
+                        {[
+                          "HIPAA Compliant Infrastructure",
+                          "ISO 27001",
+                          "256-bit End-to-End Encryption",
+                          "Multi-Factor Authentication (MFA)",
+                          "Regular Third-Party Security Audits",
+                        ].map((item, idx) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-brand-blue flex-shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{item}</span>
+                          </div>
+                        ))}
+                      </CardContent>
+                    </Card>
+                  </div>
+                </motion.div>
+
+                {/* Fade overlay + Read More button (hidden when expanded) */}
+                {!techSecurityExpanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/95 to-transparent flex items-end justify-center pb-4 pointer-events-none">
+                    <button
+                      onClick={() => setTechSecurityExpanded(true)}
+                      className="pointer-events-auto inline-flex items-center gap-2 px-8 py-3 bg-brand-blue text-white rounded-full font-semibold text-sm shadow-lg hover:bg-brand-blue/90 hover:shadow-xl transition-all duration-300"
+                    >
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -3109,7 +3173,7 @@ export default function Home() {
           <img
             src="/images2/asian-businesswoman-running-from-virtual-money.jpg"
             alt="Asian businesswoman running from virtual money - escaping revenue loss"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[center_25%]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540]/85 via-brand-blue/70 to-brand-orange/50"></div>
         </div>

@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Briefcase, MapPin, Clock, DollarSign, Users, TrendingUp } from "lucide-react"
+import { Briefcase, MapPin, Clock, Users, TrendingUp, Target, BarChart3, FileText, Code, Phone, UserCheck } from "lucide-react"
 import ContactFormModal from "@/components/contact-form-modal"
 import SiteHeader from "@/components/site-header"
 import SiteFooter from "@/components/site-footer"
@@ -15,100 +15,134 @@ export default function CareersPage() {
 
   const jobOpenings = [
     {
-      title: "Medical Billing Specialist",
-      department: "Revenue Cycle Management",
-      location: "Remote (US)",
-      type: "Full-Time",
-      experience: "2-4 years",
-      salary: "$45,000 - $65,000",
-      description:
-        "We're seeking an experienced Medical Billing Specialist to join our RCM team. You'll be responsible for claim submissions, payment posting, and denial management for various healthcare specialties.",
-      requirements: [
-        "2+ years of medical billing experience",
-        "Knowledge of CPT, ICD-10, and HCPCS codes",
-        "Experience with major payers (Medicare, Medicaid, commercial insurance)",
-        "Strong attention to detail and problem-solving skills",
+      title: "Business Development Executive (BDE)",
+      focus: "Top-of-funnel velocity for US Market",
+      icon: Target,
+      location: "Gurgaon",
+      shift: "8:00 PM – 5:00 AM IST (Night Shift)",
+      experience: "0–2 years",
+      mission:
+        "Drive outbound prospecting (Cold Calling, Email, LinkedIn) to secure qualified meetings with US healthcare decision-makers (CXOs, Practice Managers).",
+      responsibilities: [
+        "Identify ICP-fit leads",
+        "Execute high-volume outreach",
+        "Qualify opportunities via BANT",
+        "Maintain CRM hygiene (HubSpot/Salesforce)",
+        "Optimize conversion scripts",
       ],
+      requirements: [
+        "0–2 years in B2B sales/lead gen",
+        "Exceptional English fluency",
+        '"Hunter" mindset',
+      ],
+      kpis: ["Dials/day", "Meetings booked", "MQL-to-SQL conversion"],
     },
     {
-      title: "RCM Team Lead",
-      department: "Revenue Cycle Management",
-      location: "Hybrid - Gurugram, India",
-      type: "Full-Time",
-      experience: "5-7 years",
-      salary: "$70,000 - $90,000",
-      description:
-        "Lead a team of RCM specialists to optimize revenue cycle operations for US healthcare providers. You'll manage workflows, train team members, and ensure quality metrics are met.",
-      requirements: [
-        "5+ years in healthcare RCM with 2+ years in leadership",
-        "Deep knowledge of US healthcare billing and coding",
-        "Experience with RCM software (Epic, Cerner, Athenahealth)",
-        "Strong leadership and communication skills",
+      title: "Client Account Manager (US Operations)",
+      focus: "Strategic retention and revenue growth",
+      icon: UserCheck,
+      location: "Richmond, Kentucky (On-site/Hybrid)",
+      shift: "US Business Hours",
+      experience: "2–6 years",
+      mission:
+        "Own the end-to-end relationship and P&L for a portfolio of US clients, ensuring high CSAT and identifying upsell/expansion opportunities.",
+      responsibilities: [
+        "Lead QBRs/MBRs",
+        "Monitor operational KPIs (AR aging, Net Collections)",
+        "Manage escalations with RCA/CAPA",
+        "Oversee client onboarding",
       ],
+      requirements: [
+        "2–6 years in Client Success/Account Management",
+        "RCM/Healthcare experience preferred",
+        "Strong executive presence",
+      ],
+      kpis: ["Gross Revenue Retention (GRR)", "Net Revenue Retention (NRR)", "SLA adherence"],
     },
     {
-      title: "Healthcare Data Analyst",
-      department: "Advanced Analytics",
-      location: "Remote (US/India)",
-      type: "Full-Time",
-      experience: "3-5 years",
-      salary: "$60,000 - $85,000",
-      description:
-        "Analyze healthcare data to identify revenue opportunities, denial patterns, and operational inefficiencies. Create dashboards and reports for clients to improve their financial performance.",
-      requirements: [
-        "3+ years in healthcare analytics or data science",
-        "Proficiency in SQL, Python, and BI tools (Tableau, Power BI)",
-        "Understanding of healthcare KPIs (AR days, denial rates, collection rates)",
-        "Strong analytical and visualization skills",
+      title: "Operations Executive (RCM)",
+      focus: "Process governance and delivery excellence",
+      icon: BarChart3,
+      location: "Gurgaon",
+      shift: "US Shift",
+      experience: "1–4 years",
+      mission:
+        "Ensure day-to-day execution across the RCM value chain (Eligibility, Coding, AR, Payment Posting) meets client SLAs.",
+      responsibilities: [
+        "Track daily backlogs",
+        "Identify process gaps",
+        "Coordinate with QA/Training teams",
+        "Ensure 100% HIPAA compliance",
       ],
+      requirements: [
+        "1–4 years in RCM operations",
+        "Proficiency in Excel and data-driven reporting",
+      ],
+      kpis: ["SLA/TAT compliance", "Quality scores", "Backlog reduction"],
     },
     {
-      title: "Prior Authorization Specialist",
-      department: "Healthcare Operations",
-      location: "Remote (India)",
-      type: "Full-Time",
-      experience: "1-3 years",
-      salary: "$35,000 - $50,000",
-      description:
-        "Handle prior authorization requests for medical procedures, ensuring timely approvals and minimizing claim denials. Work directly with US payers and provider offices.",
-      requirements: [
-        "1+ years of prior authorization experience",
-        "Knowledge of insurance verification and medical necessity",
-        "Excellent communication skills (verbal and written)",
-        "Ability to work US hours",
+      title: "Medical Coder",
+      focus: "Clinical accuracy and compliance",
+      icon: FileText,
+      location: "Gurgaon",
+      shift: "Day Shift",
+      experience: "0–3 years",
+      mission:
+        "Translate clinical documentation into accurate CPT, ICD-10, and HCPCS codes to maximize reimbursement and minimize audits.",
+      responsibilities: [
+        "Chart review",
+        "Modifier application",
+        "Provider queries",
+        "Stay updated on CMS/Payer guidelines",
       ],
+      requirements: [
+        "0–3 years in Medical Coding",
+        "Deep knowledge of anatomy/terminology",
+        "CPC/CCS certification preferred",
+      ],
+      kpis: ["Coding Accuracy (99.5%+)", "Charts per day", "Coding-related denial rate"],
     },
     {
-      title: "Denial Management Specialist",
-      department: "Revenue Cycle Management",
-      location: "Remote (US/India)",
-      type: "Full-Time",
-      experience: "2-4 years",
-      salary: "$50,000 - $70,000",
-      description:
-        "Focus on analyzing and appealing denied claims to maximize reimbursements. Work with a dedicated team to reduce denial rates and improve clean claim rates.",
-      requirements: [
-        "2+ years in denial management or appeals",
-        "Strong understanding of payer policies and denial codes",
-        "Excellent written communication for appeal letters",
-        "Experience with EHR/PM systems",
+      title: "Claims Processor / AR Caller / Analyst",
+      focus: 'Submission velocity and "Clean Claim" rate',
+      icon: Phone,
+      location: "Gurgaon",
+      shift: "US Shift",
+      experience: "0–3 years",
+      mission:
+        "Execute end-to-end claim submission and clearinghouse error resolution to ensure rapid payer acceptance.",
+      responsibilities: [
+        "Demographics/Insurance validation",
+        "Pre-submission error correction",
+        "Working rejections",
+        "Coordinating with the AR team",
       ],
+      requirements: [
+        "0–3 years in US Healthcare RCM",
+        "High attention to detail",
+      ],
+      kpis: ["First-pass Clean Claim Rate", "Submission TAT", "Rejection rate"],
     },
     {
-      title: "Credentialing Coordinator",
-      department: "Provider Services",
-      location: "Remote (US)",
-      type: "Full-Time",
-      experience: "2-3 years",
-      salary: "$45,000 - $60,000",
-      description:
-        "Manage provider credentialing and enrollment with insurance payers. Ensure timely renewals, maintain CAQH profiles, and track credentialing status.",
-      requirements: [
-        "2+ years in medical credentialing",
-        "Knowledge of CAQH, NPDB, and payer enrollment processes",
-        "Strong organizational and follow-up skills",
-        "CPCS or CPMSM certification preferred",
+      title: "IT Developer (Healthcare/RCM)",
+      focus: "Scaling through automation and proprietary tech",
+      icon: Code,
+      location: "Gurgaon",
+      shift: "Day Shift",
+      experience: "1–5 years",
+      mission:
+        "Build and maintain the technical infrastructure (automations, APIs, and BI dashboards) that gives the firm a competitive edge over legacy RCM players.",
+      responsibilities: [
+        "Develop workflow automation tools",
+        "Integrate EMR/PM systems via APIs",
+        "Build real-time performance dashboards",
       ],
+      requirements: [
+        "1–5 years in Python, Node.js, or .NET",
+        "Experience with SQL and Git",
+        "Healthcare data (HIPAA) knowledge is a plus",
+      ],
+      kpis: ["System uptime", "Automation % of manual tasks", "Sprint delivery speed"],
     },
   ]
 
@@ -128,7 +162,7 @@ export default function CareersPage() {
               Join Our <span className="text-brand-orange">Team</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Build your career in healthcare technology with Imperial Healthcare Systems. We're transforming revenue
+              Build your career in healthcare technology with Imperial Healthcare Systems. We&apos;re transforming revenue
               cycle management with innovation, integrity, and excellence.
             </p>
             <div className="flex flex-wrap justify-center gap-8 text-sm">
@@ -159,56 +193,81 @@ export default function CareersPage() {
               Current <span className="text-brand-orange">Openings</span>
             </h2>
             <div className="grid gap-6">
-              {jobOpenings.map((job, idx) => (
-                <Card key={idx} className="border-2 border-brand-blue/20 hover:border-brand-orange/40 transition-all">
-                  <CardHeader>
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                      <div>
-                        <CardTitle className="text-2xl mb-2">{job.title}</CardTitle>
-                        <CardDescription className="text-base">{job.department}</CardDescription>
+              {jobOpenings.map((job, idx) => {
+                const IconComponent = job.icon
+                return (
+                  <Card key={idx} className="border-2 border-brand-blue/20 hover:border-brand-orange/40 transition-all">
+                    <CardHeader>
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-blue to-brand-orange flex items-center justify-center flex-shrink-0">
+                            <IconComponent className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <CardTitle className="text-2xl mb-1">{job.title}</CardTitle>
+                            <p className="text-sm font-semibold text-brand-orange">{job.focus}</p>
+                          </div>
+                        </div>
+                        <Button onClick={() => handleApply(job.title)} className="whitespace-nowrap bg-black text-white hover:bg-black/85">
+                          Apply Now
+                        </Button>
                       </div>
-                      <Button onClick={() => handleApply(job.title)} className="whitespace-nowrap">
-                        Apply Now
-                      </Button>
-                    </div>
-                    <div className="flex flex-wrap gap-3 mt-4">
-                      <Badge variant="outline" className="flex items-center gap-1">
-                        <MapPin className="h-3 w-3" />
-                        {job.location}
-                      </Badge>
-                      <Badge variant="outline" className="flex items-center gap-1">
-                        <Briefcase className="h-3 w-3" />
-                        {job.type}
-                      </Badge>
-                      <Badge variant="outline" className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        {job.experience}
-                      </Badge>
-                      <Badge variant="outline" className="flex items-center gap-1">
-                        <DollarSign className="h-3 w-3" />
-                        {job.salary}
-                      </Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold mb-2">About the Role</h4>
-                      <p className="text-muted-foreground">{job.description}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Requirements</h4>
-                      <ul className="space-y-1">
-                        {job.requirements.map((req, ridx) => (
-                          <li key={ridx} className="flex items-start gap-2 text-muted-foreground">
-                            <span className="text-brand-orange mt-1">•</span>
-                            <span>{req}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                      <div className="flex flex-wrap gap-3 mt-4">
+                        <Badge variant="outline" className="flex items-center gap-1">
+                          <MapPin className="h-3 w-3" />
+                          {job.location}
+                        </Badge>
+                        <Badge variant="outline" className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          {job.shift}
+                        </Badge>
+                        <Badge variant="outline" className="flex items-center gap-1">
+                          <Briefcase className="h-3 w-3" />
+                          {job.experience}
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-5">
+                      <div>
+                        <h4 className="font-semibold mb-2 text-brand-blue">The Mission</h4>
+                        <p className="text-muted-foreground">{job.mission}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Core Responsibilities</h4>
+                        <ul className="space-y-1">
+                          {job.responsibilities.map((item, ridx) => (
+                            <li key={ridx} className="flex items-start gap-2 text-muted-foreground">
+                              <span className="text-brand-orange mt-1">&#x2022;</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Requirements</h4>
+                        <ul className="space-y-1">
+                          {job.requirements.map((item, ridx) => (
+                            <li key={ridx} className="flex items-start gap-2 text-muted-foreground">
+                              <span className="text-brand-blue mt-1">&#x2022;</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">KPIs</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {job.kpis.map((kpi, kidx) => (
+                            <Badge key={kidx} className="bg-brand-blue/10 text-brand-blue border-brand-blue/20 hover:bg-brand-blue/20">
+                              {kpi}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )
+              })}
             </div>
           </div>
 
