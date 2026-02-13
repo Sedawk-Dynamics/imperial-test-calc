@@ -760,13 +760,13 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.8 }}
-                  className="relative h-[220px] perspective-[500px] group"
+                  className="relative h-[220px] perspective-[400px] flip-card-3d group"
                 >
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
                     {/* FRONT - Header only */}
-                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden flex flex-col items-center justify-center text-center p-4">
+                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white shadow-xl backface-hidden flip-front flex flex-col items-center justify-center text-center p-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-orange/5" />
-                      <div className="relative flex flex-col items-center">
+                      <div className="flip-front-content relative flex flex-col items-center">
                         <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-brand-blue to-brand-orange shadow-lg mb-3">
                           <Brain className="w-5 h-5 text-white" />
                         </div>
@@ -774,18 +774,20 @@ export default function Home() {
                       </div>
                     </div>
                     {/* BACK - Details */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-600 to-brand-orange text-white shadow-xl overflow-hidden rotate-x-180 backface-hidden flex flex-col justify-center p-5">
-                      <h3 className="text-sm font-bold mb-2">AI-Powered EHR</h3>
-                      <p className="text-xs leading-relaxed mb-3 opacity-90">
-                        Intelligent electronic health records with automated documentation and real-time clinical analytics.
-                      </p>
-                      <div className="space-y-1.5">
-                        {["Smart Scheduling", "Auto-Coding", "Real-Time Dashboards"].map((feature) => (
-                          <div key={feature} className="flex items-center gap-1.5">
-                            <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
-                            <span className="text-[11px] font-medium">{feature}</span>
-                          </div>
-                        ))}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-600 to-brand-orange text-white shadow-xl backface-hidden flip-back flex flex-col justify-center p-5">
+                      <div className="flip-back-content">
+                        <h3 className="text-sm font-bold mb-2">AI-Powered EHR</h3>
+                        <p className="text-xs leading-relaxed mb-3 opacity-90">
+                          Intelligent electronic health records with automated documentation and real-time clinical analytics.
+                        </p>
+                        <div className="space-y-1.5">
+                          {["Smart Scheduling", "Auto-Coding", "Real-Time Dashboards"].map((feature) => (
+                            <div key={feature} className="flex items-center gap-1.5">
+                              <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
+                              <span className="text-[11px] font-medium">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -796,13 +798,13 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 1.0 }}
-                  className="relative h-[220px] perspective-[500px] group"
+                  className="relative h-[220px] perspective-[400px] flip-card-3d group"
                 >
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
                     {/* FRONT - Header only */}
-                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden flex flex-col items-center justify-center text-center p-4">
+                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white shadow-xl backface-hidden flip-front flex flex-col items-center justify-center text-center p-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 via-transparent to-brand-blue/5" />
-                      <div className="relative flex flex-col items-center">
+                      <div className="flip-front-content relative flex flex-col items-center">
                         <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-brand-orange to-brand-blue shadow-lg mb-3">
                           <Settings className="w-5 h-5 text-white" />
                         </div>
@@ -810,18 +812,20 @@ export default function Home() {
                       </div>
                     </div>
                     {/* BACK - Details */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-orange via-orange-500 to-brand-blue text-white shadow-xl overflow-hidden rotate-x-180 backface-hidden flex flex-col justify-center p-5">
-                      <h3 className="text-sm font-bold mb-2">Practice Management</h3>
-                      <p className="text-xs leading-relaxed mb-3 opacity-90">
-                        End-to-end practice operations powered by AI — from patient intake to revenue optimization.
-                      </p>
-                      <div className="space-y-1.5">
-                        {["Patient Intake Automation", "Billing & Collections", "Seamless RCM Integration"].map((feature) => (
-                          <div key={feature} className="flex items-center gap-1.5">
-                            <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
-                            <span className="text-[11px] font-medium">{feature}</span>
-                          </div>
-                        ))}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-orange via-orange-500 to-brand-blue text-white shadow-xl backface-hidden flip-back flex flex-col justify-center p-5">
+                      <div className="flip-back-content">
+                        <h3 className="text-sm font-bold mb-2">Practice Management</h3>
+                        <p className="text-xs leading-relaxed mb-3 opacity-90">
+                          End-to-end practice operations powered by AI — from patient intake to revenue optimization.
+                        </p>
+                        <div className="space-y-1.5">
+                          {["Patient Intake Automation", "Billing & Collections", "Seamless RCM Integration"].map((feature) => (
+                            <div key={feature} className="flex items-center gap-1.5">
+                              <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
+                              <span className="text-[11px] font-medium">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -916,103 +920,115 @@ export default function Home() {
 
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Pillar 1 */}
-              <div className="relative h-[320px] perspective-[500px] group">
-                <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+              <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
                   {/* FRONT */}
-                  <Card className="absolute inset-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-md flex flex-col justify-center p-8 backface-hidden">
-                    <div className="w-14 h-14 mb-4 bg-brand-orange/20 rounded-full flex items-center justify-center">
-                      <Award className="w-8 h-8 text-brand-orange" />
+                  <Card className="absolute inset-0 bg-brand-blue/80 backdrop-blur-md border border-white/15 rounded-2xl shadow-xl flex flex-col justify-center p-8 backface-hidden flip-front">
+                    <div className="flip-front-content">
+                      <div className="w-14 h-14 mb-4 bg-brand-orange/20 rounded-full flex items-center justify-center">
+                        <Award className="w-8 h-8 text-brand-orange" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-3 text-brand-orange">Precision & Quality</h3>
+                      <p className="text-sm text-white/70 leading-relaxed">
+                        Zero-compromise quality with multi-layer QC validation and expert-driven execution across every workflow.
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold mb-3 text-brand-orange">Precision & Quality</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">
-                      Zero-compromise quality with multi-layer QC validation and expert-driven execution across every workflow.
-                    </p>
                   </Card>
                   {/* BACK */}
-                  <Card className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-orange via-orange-500 to-amber-500 text-white shadow-xl p-6 flex flex-col justify-center rotate-x-180 backface-hidden">
-                    <h3 className="text-xl font-bold mb-4">Precision & Quality</h3>
-                    <ul className="space-y-4">
-                      <li className="flex gap-3">
-                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
-                        <span className="text-sm leading-relaxed">Zero-compromise quality with multi-layer QC validation</span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
-                        <span className="text-sm leading-relaxed">Expert-driven execution across every workflow</span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
-                        <span className="text-sm leading-relaxed">Errors prevented before they reach payers</span>
-                      </li>
-                    </ul>
+                  <Card className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-orange via-orange-500 to-amber-500 text-white shadow-xl p-6 flex flex-col justify-center backface-hidden flip-back-x">
+                    <div className="flip-back-content">
+                      <h3 className="text-xl font-bold mb-4">Precision & Quality</h3>
+                      <ul className="space-y-4">
+                        <li className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">Zero-compromise quality with multi-layer QC validation</span>
+                        </li>
+                        <li className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">Expert-driven execution across every workflow</span>
+                        </li>
+                        <li className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">Errors prevented before they reach payers</span>
+                        </li>
+                      </ul>
+                    </div>
                   </Card>
                 </div>
               </div>
 
               {/* Pillar 2 */}
-              <div className="relative h-[320px] perspective-[500px] group">
-                <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+              <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
                   {/* FRONT */}
-                  <Card className="absolute inset-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-md flex flex-col justify-center p-8 backface-hidden">
-                    <div className="w-14 h-14 mb-4 bg-brand-orange/20 rounded-full flex items-center justify-center">
-                      <Eye className="w-8 h-8 text-brand-orange" />
+                  <Card className="absolute inset-0 bg-brand-blue/80 backdrop-blur-md border border-white/15 rounded-2xl shadow-xl flex flex-col justify-center p-8 backface-hidden flip-front">
+                    <div className="flip-front-content">
+                      <div className="w-14 h-14 mb-4 bg-brand-orange/20 rounded-full flex items-center justify-center">
+                        <Eye className="w-8 h-8 text-brand-orange" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-3 text-brand-orange">Accountability & Transparency</h3>
+                      <p className="text-sm text-white/70 leading-relaxed">
+                        Dedicated teams that own outcomes with full visibility into workflows, KPIs, and real-time reporting.
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold mb-3 text-brand-orange">Accountability & Transparency</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">
-                      Dedicated teams that own outcomes with full visibility into workflows, KPIs, and real-time reporting.
-                    </p>
                   </Card>
                   {/* BACK */}
-                  <Card className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-600 to-cyan-500 text-white shadow-xl p-6 flex flex-col justify-center rotate-x-180 backface-hidden">
-                    <h3 className="text-xl font-bold mb-4">Accountability & Transparency</h3>
-                    <ul className="space-y-4">
-                      <li className="flex gap-3">
-                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
-                        <span className="text-sm leading-relaxed">Dedicated teams that own outcomes, not just tasks</span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
-                        <span className="text-sm leading-relaxed">Full visibility into workflows, KPIs, and reporting</span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
-                        <span className="text-sm leading-relaxed">No hidden gaps, no excuses—only results</span>
-                      </li>
-                    </ul>
+                  <Card className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-600 to-cyan-500 text-white shadow-xl p-6 flex flex-col justify-center backface-hidden flip-back-x">
+                    <div className="flip-back-content">
+                      <h3 className="text-xl font-bold mb-4">Accountability & Transparency</h3>
+                      <ul className="space-y-4">
+                        <li className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">Dedicated teams that own outcomes, not just tasks</span>
+                        </li>
+                        <li className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">Full visibility into workflows, KPIs, and reporting</span>
+                        </li>
+                        <li className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">No hidden gaps, no excuses—only results</span>
+                        </li>
+                      </ul>
+                    </div>
                   </Card>
                 </div>
               </div>
 
               {/* Pillar 3 */}
-              <div className="relative h-[320px] perspective-[500px] group">
-                <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+              <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
                   {/* FRONT */}
-                  <Card className="absolute inset-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-md flex flex-col justify-center p-8 backface-hidden">
-                    <div className="w-14 h-14 mb-4 bg-brand-orange/20 rounded-full flex items-center justify-center">
-                      <Wallet className="w-8 h-8 text-brand-orange" />
+                  <Card className="absolute inset-0 bg-brand-blue/80 backdrop-blur-md border border-white/15 rounded-2xl shadow-xl flex flex-col justify-center p-8 backface-hidden flip-front">
+                    <div className="flip-front-content">
+                      <div className="w-14 h-14 mb-4 bg-brand-orange/20 rounded-full flex items-center justify-center">
+                        <Wallet className="w-8 h-8 text-brand-orange" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-3 text-brand-orange">Financial Impact</h3>
+                      <p className="text-sm text-white/70 leading-relaxed">
+                        Cost-efficient delivery with measurable improvements in collections, cash flow, and revenue growth engineered into every process.
+                      </p>
                     </div>
-                    <h3 className="text-2xl font-bold mb-3 text-brand-orange">Financial Impact</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">
-                      Cost-efficient delivery with measurable improvements in collections, cash flow, and revenue growth engineered into every process.
-                    </p>
                   </Card>
                   {/* BACK */}
-                  <Card className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 text-white shadow-xl p-6 flex flex-col justify-center rotate-x-180 backface-hidden">
-                    <h3 className="text-xl font-bold mb-4">Financial Impact</h3>
-                    <ul className="space-y-4">
-                      <li className="flex gap-3">
-                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
-                        <span className="text-sm leading-relaxed">Cost-efficient delivery without sacrificing performance</span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
-                        <span className="text-sm leading-relaxed">Measurable improvements in collections and cash flow</span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
-                        <span className="text-sm leading-relaxed">Revenue growth engineered into every process</span>
-                      </li>
-                    </ul>
+                  <Card className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 text-white shadow-xl p-6 flex flex-col justify-center backface-hidden flip-back-x">
+                    <div className="flip-back-content">
+                      <h3 className="text-xl font-bold mb-4">Financial Impact</h3>
+                      <ul className="space-y-4">
+                        <li className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">Cost-efficient delivery without sacrificing performance</span>
+                        </li>
+                        <li className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">Measurable improvements in collections and cash flow</span>
+                        </li>
+                        <li className="flex gap-3">
+                          <CheckCircle className="w-5 h-5 text-white/80 mt-0.5 shrink-0" />
+                          <span className="text-sm leading-relaxed">Revenue growth engineered into every process</span>
+                        </li>
+                      </ul>
+                    </div>
                   </Card>
                 </div>
               </div>
@@ -1307,8 +1323,8 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-0 mb-20 max-w-7xl mx-auto">
 
               {/* ================= CARD 1 ================= */}
-              <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] group">
-                <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+              <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
 
                   {/* FRONT */}
                   <Card
@@ -1318,23 +1334,25 @@ export default function Home() {
                    shadow-md hover:shadow-orange-200/40
                    transition-all duration-300
                    flex flex-col items-center justify-center text-center p-8
-                   backface-hidden"
+                   backface-hidden flip-front"
                   >
-                    <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 flex items-center justify-center">
-                      <Target className="w-7 h-7 text-white" strokeWidth={2.5} />
+                    <div className="flip-front-content">
+                      <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 flex items-center justify-center">
+                        <Target className="w-7 h-7 text-white" strokeWidth={2.5} />
+                      </div>
+
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">
+                        THE CORE PROPOSITION
+                      </h3>
+
+                      <p className="text-base font-semibold text-brand-orange mb-2">
+                        Where Algorithmic Precision Meets Human Advocacy
+                      </p>
+
+                      <p className="text-sm text-slate-500">
+                        (Hover to learn more)
+                      </p>
                     </div>
-
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">
-                      THE CORE PROPOSITION
-                    </h3>
-
-                    <p className="text-base font-semibold text-brand-orange mb-2">
-                      Where Algorithmic Precision Meets Human Advocacy
-                    </p>
-
-                    <p className="text-sm text-slate-500">
-                      (Hover to learn more)
-                    </p>
                   </Card>
 
                   {/* BACK */}
@@ -1343,29 +1361,31 @@ export default function Home() {
                    bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500
                    text-white shadow-xl p-6
                    flex flex-col justify-center
-                   rotate-x-180 backface-hidden"
+                   backface-hidden flip-back-x"
                   >
-                    <h3 className="text-xl font-bold mb-3">
-                      THE CORE PROPOSITION
-                    </h3>
+                    <div className="flip-back-content">
+                      <h3 className="text-xl font-bold mb-3">
+                        THE CORE PROPOSITION
+                      </h3>
 
-                    <p className="text-sm leading-relaxed mb-3">
-                      The Imperial Revenue Recovery Framework (IRRF) replaces reactive legacy
-                      processes with a proactive intelligence layer.
-                    </p>
+                      <p className="text-sm leading-relaxed mb-3">
+                        The Imperial Revenue Recovery Framework (IRRF) replaces reactive legacy
+                        processes with a proactive intelligence layer.
+                      </p>
 
-                    <p className="text-sm leading-relaxed mb-4">
-                      Our AI-enhanced architecture engineers revenue to secure the Clinical EBITDA
-                      your practice deserves.
-                    </p>
+                      <p className="text-sm leading-relaxed mb-4">
+                        Our AI-enhanced architecture engineers revenue to secure the Clinical EBITDA
+                        your practice deserves.
+                      </p>
+                    </div>
                   </Card>
 
                 </div>
               </div>
 
               {/* ================= CARD 2 ================= */}
-              <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] group">
-                <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+              <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
 
                   {/* FRONT */}
                   <Card
@@ -1375,23 +1395,25 @@ export default function Home() {
                    shadow-md hover:shadow-orange-200/40
                    transition-all duration-300
                    flex flex-col items-center justify-center text-center p-8
-                   backface-hidden"
+                   backface-hidden flip-front"
                   >
-                    <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
-                      <Network className="w-7 h-7 text-white" strokeWidth={2.5} />
+                    <div className="flip-front-content">
+                      <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                        <Network className="w-7 h-7 text-white" strokeWidth={2.5} />
+                      </div>
+
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">
+                        THE IHS INTELLIGENCE ENGINE
+                      </h3>
+
+                      <p className="text-base font-semibold text-brand-orange mb-2">
+                        Engineering Enterprise Resilience
+                      </p>
+
+                      <p className="text-sm text-slate-500">
+                        (Hover to learn more)
+                      </p>
                     </div>
-
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">
-                      THE IHS INTELLIGENCE ENGINE
-                    </h3>
-
-                    <p className="text-base font-semibold text-brand-orange mb-2">
-                      Engineering Enterprise Resilience
-                    </p>
-
-                    <p className="text-sm text-slate-500">
-                      (Hover to learn more)
-                    </p>
                   </Card>
 
                   {/* BACK */}
@@ -1400,21 +1422,23 @@ export default function Home() {
                    bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500
                    text-white shadow-xl p-6
                    flex flex-col justify-center
-                   rotate-x-180 backface-hidden"
+                   backface-hidden flip-back-x"
                   >
-                    <h3 className="text-xl font-bold mb-3">
-                      THE IHS INTELLIGENCE ENGINE
-                    </h3>
+                    <div className="flip-back-content">
+                      <h3 className="text-xl font-bold mb-3">
+                        THE IHS INTELLIGENCE ENGINE
+                      </h3>
 
-                    <p className="text-sm leading-relaxed mb-3">
-                      IHS orchestrates high-velocity revenue cycles through a proprietary fusion
-                      of specialized intelligence and AI-driven infrastructure.
-                    </p>
+                      <p className="text-sm leading-relaxed mb-3">
+                        IHS orchestrates high-velocity revenue cycles through a proprietary fusion
+                        of specialized intelligence and AI-driven infrastructure.
+                      </p>
 
-                    <p className="text-sm leading-relaxed mb-4">
-                      Technology serves as the sentry, while our Revenue Architects guide
-                      high-value decisions.
-                    </p>
+                      <p className="text-sm leading-relaxed mb-4">
+                        Technology serves as the sentry, while our Revenue Architects guide
+                        high-value decisions.
+                      </p>
+                    </div>
                   </Card>
 
                 </div>
@@ -1476,11 +1500,11 @@ export default function Home() {
                     return (
                       <div
                         key={i}
-                        className="relative h-[320px] w-full max-w-[320px] perspective-[1200px] group"
+                        className="relative h-[320px] w-full max-w-[320px] perspective-[1200px] flip-card-3d group"
                       >
 
                         {/* FLIP CONTAINER */}
-                        <div className="absolute inset-0 h-full w-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+                        <div className="absolute inset-0 h-full w-full transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
 
                           {/* ================= FRONT CARD ================= */}
                           <Card
@@ -1493,7 +1517,7 @@ export default function Home() {
                   shadow-[0_20px_50px_rgba(2,6,23,0.7)]
                   flex flex-col items-center justify-center text-center
                   p-6
-                  backface-hidden
+                  backface-hidden flip-front
                   transition-all duration-500
                   group-hover:-translate-y-1
                 "
@@ -1502,38 +1526,26 @@ export default function Home() {
                             {/* Navy sheen */}
                             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
 
-                            {/* ICON */}
-                            <div className="
-                  relative z-10
-                  w-12 h-12 mb-4
-                  rounded-xl
-                  bg-white/10
-                  backdrop-blur-md
-                  flex items-center justify-center
-                  transition-all duration-500
-                ">
-                              <Icon
-                                className="
-                      w-6 h-6
-                      text-white
-                      transition-colors duration-500
-                      group-hover:text-[#C6A85A]
-                    "
-                                strokeWidth={2.5}
-                              />
+                            <div className="flip-front-content relative z-10 flex flex-col items-center">
+                              <div className="w-12 h-12 mb-4 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center transition-all duration-500">
+                                <Icon
+                                  className="w-6 h-6 text-white transition-colors duration-500 group-hover:text-[#C6A85A]"
+                                  strokeWidth={2.5}
+                                />
+                              </div>
+
+                              <h3 className="text-base font-bold mb-1 tracking-wide">
+                                {card.title}
+                              </h3>
+
+                              <p className="text-sm opacity-80">
+                                {card.subtitle}
+                              </p>
+
+                              <p className="text-xs opacity-60 mt-2">
+                                Hover to explore
+                              </p>
                             </div>
-
-                            <h3 className="relative z-10 text-base font-bold mb-1 tracking-wide">
-                              {card.title}
-                            </h3>
-
-                            <p className="relative z-10 text-sm opacity-80">
-                              {card.subtitle}
-                            </p>
-
-                            <p className="relative z-10 text-xs opacity-60 mt-2">
-                              Hover to explore
-                            </p>
 
                           </Card>
 
@@ -1548,8 +1560,7 @@ export default function Home() {
                   shadow-[0_20px_60px_rgba(20,184,166,0.45)]
                   flex flex-col justify-between
                   p-6
-                  rotate-y-180
-                  backface-hidden
+                  backface-hidden flip-back
                   overflow-hidden
                 "
                           >
@@ -1558,23 +1569,11 @@ export default function Home() {
                             <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-white/20 via-transparent to-white/20 animate-pulse" />
 
                             {/* CONTENT */}
-                            <div className="relative z-10">
+                            <div className="flip-back-content relative z-10">
 
-                              {/* ICON */}
-                              <div className="
-                    w-12 h-12 mb-4
-                    rounded-xl
-                    bg-white/10
-                    backdrop-blur-md
-                    flex items-center justify-center
-                  ">
+                              <div className="w-12 h-12 mb-4 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center">
                                 <Icon
-                                  className="
-                        w-6 h-6
-                        text-white
-                        transition-colors duration-500
-                        group-hover:text-[#C6A85A]
-                      "
+                                  className="w-6 h-6 text-white transition-colors duration-500 group-hover:text-[#C6A85A]"
                                   strokeWidth={2.5}
                                 />
                               </div>
@@ -1593,25 +1592,6 @@ export default function Home() {
 
                             </div>
 
-                            {/* CTA */}
-                            <button
-                              className="
-                    relative z-10
-                    mt-4
-                    bg-[#5EEAD4]
-                    text-[#0B1C3D]
-                    font-semibold
-                    text-sm
-                    px-4 py-2
-                    rounded-lg
-                    transition-all duration-300
-                    hover:bg-white
-                    hover:scale-105
-                  "
-                            >
-                              Learn More
-                            </button>
-
                           </Card>
 
                         </div>
@@ -1624,6 +1604,163 @@ export default function Home() {
             </div>
 
 
+
+
+            {/* SECTION 2: IRRF THREE-PILLAR ARCHITECTURE */}
+            <div>
+              <div className="text-center mb-10">
+                <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+                  THE IRRF THREE-PILLAR ARCHITECTURE
+                </h3>
+                <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
+                  The Zero-Leakage Architecture: Accountability at Scale
+                </p>
+                <p className="text-base text-muted-foreground max-w-3xl mx-auto">
+                  The IRRF operates on a foundational Three-Pillar Architecture designed to ensure no dollar is left
+                  behind.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                {/* Pillar 1 */}
+                <div className="relative h-[420px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+                    {/* FRONT */}
+                    <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden flip-front">
+                      <div className="flip-front-content">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40" />
+                        <CardHeader className="relative p-8 pb-4 space-y-5">
+                          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 w-fit">
+                            <span className="text-xs font-bold text-brand-blue tracking-wider">PILLAR 1</span>
+                          </div>
+                          <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg">
+                            <Shield className="w-8 h-8 text-white" strokeWidth={2.5} />
+                          </div>
+                          <CardTitle className="text-lg font-bold text-slate-800 leading-tight">
+                            THE PREDICTIVE DEFENSE LAYER (THE AI SHIELD)
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="relative px-8 pb-8">
+                          <p className="text-sm text-slate-600 leading-relaxed">AI-enhanced pre-submission forensic scanning with 99% First-Pass Clean Claim Rate.</p>
+                        </CardContent>
+                      </div>
+                    </Card>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
+                      <div className="flip-back-content">
+                        <h3 className="text-lg font-bold mb-5">THE PREDICTIVE DEFENSE LAYER</h3>
+                        <div className="space-y-4">
+                          <div>
+                            <p className="text-sm font-bold mb-1">• Technology:</p>
+                            <p className="text-sm leading-relaxed opacity-90">AI-enhanced pre-submission forensic scanning across millions of payer denial patterns.</p>
+                          </div>
+                          <div>
+                            <p className="text-sm font-bold mb-1">• Human Edge:</p>
+                            <p className="text-sm leading-relaxed opacity-90">Senior Coding Auditors recalibrate logic weekly.</p>
+                          </div>
+                          <div>
+                            <p className="text-sm font-bold mb-1">• Strategic Outcome:</p>
+                            <p className="text-sm font-bold"><CountUp end={99} suffix="%" duration={2000} /> First-Pass Clean Claim Rate.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pillar 2 */}
+                <div className="relative h-[420px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+                    {/* FRONT */}
+                    <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden flip-front">
+                      <div className="flip-front-content">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/30 via-pink-400/30 to-purple-400/30 rounded-bl-[80px] opacity-40" />
+                        <CardHeader className="relative p-8 pb-4 space-y-5">
+                          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-orange/15 border border-brand-orange/30 w-fit">
+                            <span className="text-xs font-bold text-brand-orange tracking-wider">PILLAR 2</span>
+                          </div>
+                          <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
+                            <Crosshair className="w-8 h-8 text-white" strokeWidth={2.5} />
+                          </div>
+                          <CardTitle className="text-lg font-bold text-slate-800 leading-tight">
+                            THE TACTICAL RESOLUTION WAR ROOM (THE HUMAN STRIKE FORCE)
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="relative px-8 pb-8">
+                          <p className="text-sm text-slate-600 leading-relaxed">AI-driven work-queue prioritization with Zero Blind Write-Off Policy.</p>
+                        </CardContent>
+                      </div>
+                    </Card>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
+                      <div className="flip-back-content">
+                        <h3 className="text-lg font-bold mb-5">THE TACTICAL RESOLUTION WAR ROOM</h3>
+                        <div className="space-y-4">
+                          <div>
+                            <p className="text-sm font-bold mb-1">• Technology:</p>
+                            <p className="text-sm leading-relaxed opacity-90">AI-driven work-queue prioritization by recovery velocity.</p>
+                          </div>
+                          <div>
+                            <p className="text-sm font-bold mb-1">• Human Edge:</p>
+                            <p className="text-sm leading-relaxed opacity-90">Elite Human Advocates manage appeals and negotiations.</p>
+                          </div>
+                          <div>
+                            <p className="text-sm font-bold mb-1">• Strategic Outcome:</p>
+                            <p className="text-sm font-bold">Zero Blind Write-Off Policy.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pillar 3 */}
+                <div className="relative h-[420px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+                    {/* FRONT */}
+                    <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden flip-front">
+                      <div className="flip-front-content">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-400/30 via-blue-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40" />
+                        <CardHeader className="relative p-8 pb-4 space-y-5">
+                          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 w-fit">
+                            <span className="text-xs font-bold text-brand-blue tracking-wider">PILLAR 3</span>
+                          </div>
+                          <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 flex items-center justify-center shadow-lg">
+                            <RotateCw className="w-8 h-8 text-white" strokeWidth={2.5} />
+                          </div>
+                          <CardTitle className="text-lg font-bold text-slate-800 leading-tight">
+                            THE FORENSIC WEALTH RECOVERY LOOP (THE INTELLIGENCE CYCLE)
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="relative px-8 pb-8">
+                          <p className="text-sm text-slate-600 leading-relaxed">Continuous audit algorithms with up to 30% Revenue Lift.</p>
+                        </CardContent>
+                      </div>
+                    </Card>
+                    {/* BACK */}
+                    <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
+                      <div className="flip-back-content">
+                        <h3 className="text-lg font-bold mb-5">THE FORENSIC WEALTH RECOVERY LOOP</h3>
+                        <div className="space-y-4">
+                          <div>
+                            <p className="text-sm font-bold mb-1">• Technology:</p>
+                            <p className="text-sm leading-relaxed opacity-90">Continuous audit algorithms scanning historical revenue data.</p>
+                          </div>
+                          <div>
+                            <p className="text-sm font-bold mb-1">• Human Edge:</p>
+                            <p className="text-sm leading-relaxed opacity-90">Forensic audit teams conduct deep clinical reviews.</p>
+                          </div>
+                          <div>
+                            <p className="text-sm font-bold mb-1">• Strategic Outcome:</p>
+                            <p className="text-sm font-bold">Up to <CountUp end={30} suffix="%" duration={2000} /> Revenue Lift.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <section className="w-full px-4 md:px-10 py-12">
               <motion.div
@@ -1690,153 +1827,6 @@ export default function Home() {
               </motion.div>
             </section>
 
-
-
-
-
-            {/* SECTION 2: IRRF THREE-PILLAR ARCHITECTURE */}
-            <div>
-              <div className="text-center mb-10">
-                <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-                  THE IRRF THREE-PILLAR ARCHITECTURE
-                </h3>
-                <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
-                  The Zero-Leakage Architecture: Accountability at Scale
-                </p>
-                <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-                  The IRRF operates on a foundational Three-Pillar Architecture designed to ensure no dollar is left
-                  behind.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                {/* Pillar 1 */}
-                <div className="relative h-[420px] perspective-[500px] group">
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
-                    {/* FRONT */}
-                    <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40" />
-                      <CardHeader className="relative p-8 pb-4 space-y-5">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 w-fit">
-                          <span className="text-xs font-bold text-brand-blue tracking-wider">PILLAR 1</span>
-                        </div>
-                        <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg">
-                          <Shield className="w-8 h-8 text-white" strokeWidth={2.5} />
-                        </div>
-                        <CardTitle className="text-lg font-bold text-slate-800 leading-tight">
-                          THE PREDICTIVE DEFENSE LAYER (THE AI SHIELD)
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="relative px-8 pb-8">
-                        <p className="text-sm text-slate-600 leading-relaxed">AI-enhanced pre-submission forensic scanning with 99% First-Pass Clean Claim Rate.</p>
-                      </CardContent>
-                    </Card>
-                    {/* BACK */}
-                    <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
-                      <h3 className="text-lg font-bold mb-5">THE PREDICTIVE DEFENSE LAYER</h3>
-                      <div className="space-y-4">
-                        <div>
-                          <p className="text-sm font-bold mb-1">• Technology:</p>
-                          <p className="text-sm leading-relaxed opacity-90">AI-enhanced pre-submission forensic scanning across millions of payer denial patterns.</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold mb-1">• Human Edge:</p>
-                          <p className="text-sm leading-relaxed opacity-90">Senior Coding Auditors recalibrate logic weekly.</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold mb-1">• Strategic Outcome:</p>
-                          <p className="text-sm font-bold"><CountUp end={99} suffix="%" duration={2000} /> First-Pass Clean Claim Rate.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Pillar 2 */}
-                <div className="relative h-[420px] perspective-[500px] group">
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
-                    {/* FRONT */}
-                    <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/30 via-pink-400/30 to-purple-400/30 rounded-bl-[80px] opacity-40" />
-                      <CardHeader className="relative p-8 pb-4 space-y-5">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-orange/15 border border-brand-orange/30 w-fit">
-                          <span className="text-xs font-bold text-brand-orange tracking-wider">PILLAR 2</span>
-                        </div>
-                        <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 flex items-center justify-center shadow-lg">
-                          <Crosshair className="w-8 h-8 text-white" strokeWidth={2.5} />
-                        </div>
-                        <CardTitle className="text-lg font-bold text-slate-800 leading-tight">
-                          THE TACTICAL RESOLUTION WAR ROOM (THE HUMAN STRIKE FORCE)
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="relative px-8 pb-8">
-                        <p className="text-sm text-slate-600 leading-relaxed">AI-driven work-queue prioritization with Zero Blind Write-Off Policy.</p>
-                      </CardContent>
-                    </Card>
-                    {/* BACK */}
-                    <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-orange-500 via-pink-500 to-purple-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
-                      <h3 className="text-lg font-bold mb-5">THE TACTICAL RESOLUTION WAR ROOM</h3>
-                      <div className="space-y-4">
-                        <div>
-                          <p className="text-sm font-bold mb-1">• Technology:</p>
-                          <p className="text-sm leading-relaxed opacity-90">AI-driven work-queue prioritization by recovery velocity.</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold mb-1">• Human Edge:</p>
-                          <p className="text-sm leading-relaxed opacity-90">Elite Human Advocates manage appeals and negotiations.</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold mb-1">• Strategic Outcome:</p>
-                          <p className="text-sm font-bold">Zero Blind Write-Off Policy.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Pillar 3 */}
-                <div className="relative h-[420px] perspective-[500px] group">
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
-                    {/* FRONT */}
-                    <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-400/30 via-blue-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40" />
-                      <CardHeader className="relative p-8 pb-4 space-y-5">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 w-fit">
-                          <span className="text-xs font-bold text-brand-blue tracking-wider">PILLAR 3</span>
-                        </div>
-                        <div className="w-16 h-16 rounded-[14px] bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 flex items-center justify-center shadow-lg">
-                          <RotateCw className="w-8 h-8 text-white" strokeWidth={2.5} />
-                        </div>
-                        <CardTitle className="text-lg font-bold text-slate-800 leading-tight">
-                          THE FORENSIC WEALTH RECOVERY LOOP (THE INTELLIGENCE CYCLE)
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="relative px-8 pb-8">
-                        <p className="text-sm text-slate-600 leading-relaxed">Continuous audit algorithms with up to 30% Revenue Lift.</p>
-                      </CardContent>
-                    </Card>
-                    {/* BACK */}
-                    <div className="absolute inset-0 rounded-[20px] bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
-                      <h3 className="text-lg font-bold mb-5">THE FORENSIC WEALTH RECOVERY LOOP</h3>
-                      <div className="space-y-4">
-                        <div>
-                          <p className="text-sm font-bold mb-1">• Technology:</p>
-                          <p className="text-sm leading-relaxed opacity-90">Continuous audit algorithms scanning historical revenue data.</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold mb-1">• Human Edge:</p>
-                          <p className="text-sm leading-relaxed opacity-90">Forensic audit teams conduct deep clinical reviews.</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold mb-1">• Strategic Outcome:</p>
-                          <p className="text-sm font-bold">Up to <CountUp end={30} suffix="%" duration={2000} /> Revenue Lift.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
       </ScrollReveal>
@@ -1982,6 +1972,17 @@ export default function Home() {
                   Imperial Healthcare Systems was built to beat the &apos;Mass Billing&apos; giants by offering a level of
                   surgical precision they cannot match.
                 </p>
+                <div className="mt-8 text-center">
+                  <div className="inline-flex items-center justify-center gap-3 flex-wrap px-6 py-4 bg-white rounded-lg shadow-md border border-gray-200">
+                    <span className="text-lg font-semibold text-foreground">Clean Claim</span>
+                    <span className="text-brand-orange text-2xl">→</span>
+                    <span className="text-lg font-semibold text-foreground">Net Collection</span>
+                    <span className="text-brand-orange text-2xl">→</span>
+                    <span className="text-lg font-semibold text-foreground">EBITDA</span>
+                    <span className="text-brand-orange text-2xl">→</span>
+                    <span className="text-lg font-semibold text-brand-orange">Enterprise Valuation Impact</span>
+                  </div>
+                </div>
               </div>
 
               {/* Collapsible content */}
@@ -1994,95 +1995,96 @@ export default function Home() {
                 >
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
                 {/* Card 1: Full-Stake Accountability */}
-                <div className="relative h-[320px] perspective-[500px] group">
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
                     {/* FRONT */}
-                    <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flex flex-col justify-center p-8"
+                    <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flip-front flex flex-col justify-center p-8"
                       style={{
                         backgroundImage: "linear-gradient(white, white), linear-gradient(to bottom right, rgb(249, 115, 22), rgb(251, 146, 60), rgb(249, 115, 22))",
                         backgroundOrigin: "border-box",
                         backgroundClip: "padding-box, border-box",
                       }}
                     >
-                      <div className="mb-4">
-                        <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
-                          <ShieldCheck className="w-7 h-7 text-white" />
+                      <div className="flip-front-content">
+                        <div className="mb-4">
+                          <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
+                            <ShieldCheck className="w-7 h-7 text-white" />
+                          </div>
                         </div>
+                        <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">FULL-STAKE ACCOUNTABILITY</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">We take ownership of the &apos;Lost Claim&apos; — denials are challenges, not stopping points.</p>
                       </div>
-                      <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">FULL-STAKE ACCOUNTABILITY</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">We take ownership of the &apos;Lost Claim&apos; — denials are challenges, not stopping points.</p>
                     </div>
                     {/* BACK */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-orange via-orange-500 to-amber-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
-                      <h3 className="text-xl font-bold mb-4">FULL-STAKE ACCOUNTABILITY</h3>
-                      <p className="text-sm leading-relaxed">
-                        Unlike our competitors, our staff is trained to see a denial not as a stopping point, but as a challenge. We apply Human Verification at every stage, ensuring no claim is ever abandoned to the Timely Filing clock.
-                      </p>
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-orange via-orange-500 to-amber-500 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
+                      <div className="flip-back-content">
+                        <h3 className="text-xl font-bold mb-4">FULL-STAKE ACCOUNTABILITY</h3>
+                        <p className="text-sm leading-relaxed">
+                          Unlike our competitors, our staff is trained to see a denial not as a stopping point, but as a challenge. We apply Human Verification at every stage, ensuring no claim is ever abandoned to the Timely Filing clock.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Card 2: Efficiency Re-Invested in People */}
-                <div className="relative h-[320px] perspective-[500px] group">
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
                     {/* FRONT */}
-                    <div className="absolute inset-0 bg-white rounded-xl border border-gray-200 shadow-md backface-hidden flex flex-col justify-center p-8">
-                      <div className="mb-4">
-                        <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
-                          <Users className="w-7 h-7 text-white" />
+                    <div className="absolute inset-0 bg-white rounded-xl border border-gray-200 shadow-md backface-hidden flip-front flex flex-col justify-center p-8">
+                      <div className="flip-front-content">
+                        <div className="mb-4">
+                          <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
+                            <Users className="w-7 h-7 text-white" />
+                          </div>
                         </div>
+                        <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">Advanced technology eliminates noise — recovered time is reinvested into deeper human expertise.</p>
                       </div>
-                      <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">Advanced technology eliminates noise — recovered time is reinvested into deeper human expertise.</p>
                     </div>
                     {/* BACK */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-blue via-blue-600 to-cyan-500 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
-                      <h3 className="text-xl font-bold mb-4">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
-                      <p className="text-sm leading-relaxed">
-                        We use advanced technology to eliminate operational noise—but we never reduce staff. Instead, we reinvest that recovered time into deeper human expertise across your AR. This allows us to scale without ever diluting quality for existing providers.
-                      </p>
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-blue via-blue-600 to-cyan-500 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
+                      <div className="flip-back-content">
+                        <h3 className="text-xl font-bold mb-4">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
+                        <p className="text-sm leading-relaxed">
+                          We use advanced technology to eliminate operational noise—but we never reduce staff. Instead, we reinvest that recovered time into deeper human expertise across your AR. This allows us to scale without ever diluting quality for existing providers.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Card 3: Resolution-Driven Follow-Up */}
-                <div className="relative h-[320px] perspective-[500px] group">
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
                     {/* FRONT */}
-                    <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flex flex-col justify-center p-8"
+                    <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flip-front flex flex-col justify-center p-8"
                       style={{
                         backgroundImage: "linear-gradient(white, white), linear-gradient(to bottom right, rgb(37, 99, 235), rgb(59, 130, 246), rgb(37, 99, 235))",
                         backgroundOrigin: "border-box",
                         backgroundClip: "padding-box, border-box",
                       }}
                     >
-                      <div className="mb-4">
-                        <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
-                          <RefreshCw className="w-7 h-7 text-white" />
+                      <div className="flip-front-content">
+                        <div className="mb-4">
+                          <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
+                            <RefreshCw className="w-7 h-7 text-white" />
+                          </div>
                         </div>
+                        <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">RESOLUTION-DRIVEN FOLLOW-UP</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">We optimize for <span className="text-brand-orange font-semibold">Net Collection Rate</span>, not vanity metrics.</p>
                       </div>
-                      <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">RESOLUTION-DRIVEN FOLLOW-UP</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">We optimize for <span className="text-brand-orange font-semibold">Net Collection Rate</span>, not vanity metrics.</p>
                     </div>
                     {/* BACK */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-600 via-brand-blue to-cyan-600 text-white shadow-xl p-8 flex flex-col justify-center rotate-x-180 backface-hidden">
-                      <h3 className="text-xl font-bold mb-4">RESOLUTION-DRIVEN FOLLOW-UP</h3>
-                      <p className="text-sm leading-relaxed">
-                        While the industry celebrates &apos;First Pass Rate&apos; as a vanity metric, we optimize for Net Collection Rate. Our experienced human specialists actively challenge payer denials—often knowing payer policy nuances better than the payers themselves.
-                      </p>
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-600 via-brand-blue to-cyan-600 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
+                      <div className="flip-back-content">
+                        <h3 className="text-xl font-bold mb-4">RESOLUTION-DRIVEN FOLLOW-UP</h3>
+                        <p className="text-sm leading-relaxed">
+                          While the industry celebrates &apos;First Pass Rate&apos; as a vanity metric, we optimize for Net Collection Rate. Our experienced human specialists actively challenge payer denials—often knowing payer policy nuances better than the payers themselves.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="mt-16 text-center">
-                <div className="inline-flex items-center justify-center gap-3 flex-wrap px-6 py-4 bg-white rounded-lg shadow-md border border-gray-200">
-                  <span className="text-lg font-semibold text-foreground">Clean Claim</span>
-                  <span className="text-brand-orange text-2xl">→</span>
-                  <span className="text-lg font-semibold text-foreground">Net Collection</span>
-                  <span className="text-brand-orange text-2xl">→</span>
-                  <span className="text-lg font-semibold text-foreground">EBITDA</span>
-                  <span className="text-brand-orange text-2xl">→</span>
-                  <span className="text-lg font-semibold text-brand-orange">Enterprise Valuation Impact</span>
                 </div>
               </div>
                 </motion.div>
