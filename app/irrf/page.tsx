@@ -82,8 +82,8 @@ export default function IRRFPage() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-7xl mx-auto">
             {/* ================= CARD 1 ================= */}
-            <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] group">
-              <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+            <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+              <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
                 {/* FRONT */}
                 <Card
                   className="absolute inset-0 bg-white rounded-[20px]
@@ -92,16 +92,18 @@ export default function IRRFPage() {
                    shadow-md hover:shadow-orange-200/40
                    transition-all duration-300
                    flex flex-col items-center justify-center text-center p-8
-                   backface-hidden"
+                   backface-hidden flip-front"
                 >
-                  <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 flex items-center justify-center">
-                    <Target className="w-7 h-7 text-white" strokeWidth={2.5} />
+                  <div className="flip-front-content">
+                    <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 flex items-center justify-center">
+                      <Target className="w-7 h-7 text-white" strokeWidth={2.5} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800 mb-2">THE CORE PROPOSITION</h3>
+                    <p className="text-base font-semibold text-brand-orange mb-2">
+                      Where Algorithmic Precision Meets Human Advocacy
+                    </p>
+                    <p className="text-sm text-slate-500">(Hover to learn more)</p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">THE CORE PROPOSITION</h3>
-                  <p className="text-base font-semibold text-brand-orange mb-2">
-                    Where Algorithmic Precision Meets Human Advocacy
-                  </p>
-                  <p className="text-sm text-slate-500">(Hover to learn more)</p>
                 </Card>
 
                 {/* BACK */}
@@ -110,24 +112,26 @@ export default function IRRFPage() {
                    bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500
                    text-white shadow-xl p-6
                    flex flex-col justify-center
-                   rotate-x-180 backface-hidden"
+                   backface-hidden flip-back-x"
                 >
-                  <h3 className="text-xl font-bold mb-3">THE CORE PROPOSITION</h3>
-                  <p className="text-sm leading-relaxed mb-3">
-                    The Imperial Revenue Recovery Framework (IRRF) replaces reactive legacy processes
-                    with a proactive intelligence layer.
-                  </p>
-                  <p className="text-sm leading-relaxed mb-4">
-                    Our AI-enhanced architecture engineers revenue to secure the Clinical EBITDA your
-                    practice deserves.
-                  </p>
+                  <div className="flip-back-content">
+                    <h3 className="text-xl font-bold mb-3">THE CORE PROPOSITION</h3>
+                    <p className="text-sm leading-relaxed mb-3">
+                      The Imperial Revenue Recovery Framework (IRRF) replaces reactive legacy processes
+                      with a proactive intelligence layer.
+                    </p>
+                    <p className="text-sm leading-relaxed mb-4">
+                      Our AI-enhanced architecture engineers revenue to secure the Clinical EBITDA your
+                      practice deserves.
+                    </p>
+                  </div>
                 </Card>
               </div>
             </div>
 
             {/* ================= CARD 2 ================= */}
-            <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] group">
-              <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+            <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+              <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
                 {/* FRONT */}
                 <Card
                   className="absolute inset-0 bg-white rounded-[20px]
@@ -136,18 +140,20 @@ export default function IRRFPage() {
                    shadow-md hover:shadow-orange-200/40
                    transition-all duration-300
                    flex flex-col items-center justify-center text-center p-8
-                   backface-hidden"
+                   backface-hidden flip-front"
                 >
-                  <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
-                    <Network className="w-7 h-7 text-white" strokeWidth={2.5} />
+                  <div className="flip-front-content">
+                    <div className="w-14 h-14 mb-4 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                      <Network className="w-7 h-7 text-white" strokeWidth={2.5} />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-800 mb-2">
+                      THE IHS INTELLIGENCE ENGINE
+                    </h3>
+                    <p className="text-base font-semibold text-brand-orange mb-2">
+                      Engineering Enterprise Resilience
+                    </p>
+                    <p className="text-sm text-slate-500">(Hover to learn more)</p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">
-                    THE IHS INTELLIGENCE ENGINE
-                  </h3>
-                  <p className="text-base font-semibold text-brand-orange mb-2">
-                    Engineering Enterprise Resilience
-                  </p>
-                  <p className="text-sm text-slate-500">(Hover to learn more)</p>
                 </Card>
 
                 {/* BACK */}
@@ -156,17 +162,19 @@ export default function IRRFPage() {
                    bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500
                    text-white shadow-xl p-6
                    flex flex-col justify-center
-                   rotate-x-180 backface-hidden"
+                   backface-hidden flip-back-x"
                 >
-                  <h3 className="text-xl font-bold mb-3">THE IHS INTELLIGENCE ENGINE</h3>
-                  <p className="text-sm leading-relaxed mb-3">
-                    IHS orchestrates high-velocity revenue cycles through a proprietary fusion of
-                    specialized intelligence and AI-driven infrastructure.
-                  </p>
-                  <p className="text-sm leading-relaxed mb-4">
-                    Technology serves as the sentry, while our Revenue Architects guide high-value
-                    decisions.
-                  </p>
+                  <div className="flip-back-content">
+                    <h3 className="text-xl font-bold mb-3">THE IHS INTELLIGENCE ENGINE</h3>
+                    <p className="text-sm leading-relaxed mb-3">
+                      IHS orchestrates high-velocity revenue cycles through a proprietary fusion of
+                      specialized intelligence and AI-driven infrastructure.
+                    </p>
+                    <p className="text-sm leading-relaxed mb-4">
+                      Technology serves as the sentry, while our Revenue Architects guide high-value
+                      decisions.
+                    </p>
+                  </div>
                 </Card>
               </div>
             </div>
@@ -220,9 +228,9 @@ export default function IRRFPage() {
                   return (
                     <div
                       key={i}
-                      className="relative h-[320px] w-full max-w-[320px] perspective-[1200px] group"
+                      className="relative h-[320px] w-full max-w-[320px] perspective-[1200px] flip-card-3d group"
                     >
-                      <div className="absolute inset-0 h-full w-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+                      <div className="absolute inset-0 h-full w-full transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
                         {/* FRONT CARD */}
                         <Card
                           className="
@@ -234,23 +242,25 @@ export default function IRRFPage() {
                             shadow-[0_20px_50px_rgba(2,6,23,0.7)]
                             flex flex-col items-center justify-center text-center
                             p-6
-                            backface-hidden
+                            backface-hidden flip-front
                             transition-all duration-500
                             group-hover:-translate-y-1
                           "
                         >
                           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
-                          <div className="relative z-10 w-12 h-12 mb-4 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center transition-all duration-500">
-                            <Icon
-                              className="w-6 h-6 text-white transition-colors duration-500 group-hover:text-[#C6A85A]"
-                              strokeWidth={2.5}
-                            />
+                          <div className="flip-front-content relative z-10 flex flex-col items-center">
+                            <div className="w-12 h-12 mb-4 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center transition-all duration-500">
+                              <Icon
+                                className="w-6 h-6 text-white transition-colors duration-500 group-hover:text-[#C6A85A]"
+                                strokeWidth={2.5}
+                              />
+                            </div>
+                            <h3 className="text-base font-bold mb-1 tracking-wide">
+                              {card.title}
+                            </h3>
+                            <p className="text-sm opacity-80">{card.subtitle}</p>
+                            <p className="text-xs opacity-60 mt-2">Hover to explore</p>
                           </div>
-                          <h3 className="relative z-10 text-base font-bold mb-1 tracking-wide">
-                            {card.title}
-                          </h3>
-                          <p className="relative z-10 text-sm opacity-80">{card.subtitle}</p>
-                          <p className="relative z-10 text-xs opacity-60 mt-2">Hover to explore</p>
                         </Card>
 
                         {/* BACK CARD */}
@@ -263,13 +273,12 @@ export default function IRRFPage() {
                             shadow-[0_20px_60px_rgba(20,184,166,0.45)]
                             flex flex-col justify-between
                             p-6
-                            rotate-y-180
-                            backface-hidden
+                            backface-hidden flip-back
                             overflow-hidden
                           "
                         >
                           <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-white/20 via-transparent to-white/20 animate-pulse" />
-                          <div className="relative z-10">
+                          <div className="flip-back-content relative z-10">
                             <div className="w-12 h-12 mb-4 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center">
                               <Icon
                                 className="w-6 h-6 text-white transition-colors duration-500 group-hover:text-[#C6A85A]"
@@ -280,23 +289,6 @@ export default function IRRFPage() {
                             <p className="text-sm leading-relaxed mb-3 opacity-95">{card.desc}</p>
                             <p className="text-sm font-medium opacity-90">{card.why}</p>
                           </div>
-                          <button
-                            className="
-                              relative z-10
-                              mt-4
-                              bg-[#5EEAD4]
-                              text-[#0B1C3D]
-                              font-semibold
-                              text-sm
-                              px-4 py-2
-                              rounded-lg
-                              transition-all duration-300
-                              hover:bg-white
-                              hover:scale-105
-                            "
-                          >
-                            Learn More
-                          </button>
                         </Card>
                       </div>
                     </div>

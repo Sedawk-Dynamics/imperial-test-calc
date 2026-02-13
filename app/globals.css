@@ -239,7 +239,7 @@
 
 /* Override transition for smoother flip */
 .flip-card-3d .flip-inner {
-  transition: transform 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+  transition: transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
 }
 
 
@@ -260,6 +260,12 @@
   transform-style: preserve-3d;
 }
 
+/* X-axis flip variant (top-to-bottom) */
+.flip-card-3d .flip-back-x {
+  transform: rotateX(180deg);
+  transform-style: preserve-3d;
+}
+
 /* Back content wrapper — pull back by Z so it's flat when fully flipped, but floats at mid-flip */
 .flip-card-3d .flip-back-content {
   transform: translateZ(35px);
@@ -267,7 +273,8 @@
 }
 
 /* Shadow on back face */
-.flip-card-3d:hover .flip-back {
+.flip-card-3d:hover .flip-back,
+.flip-card-3d:hover .flip-back-x {
   box-shadow:
     0 40px 80px rgba(0,0,0,0.35),
     0 20px 40px rgba(0,0,0,0.25);
