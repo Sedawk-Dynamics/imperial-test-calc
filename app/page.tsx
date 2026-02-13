@@ -760,13 +760,13 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.8 }}
-                  className="relative h-[220px] perspective-[500px] group"
+                  className="relative h-[220px] perspective-[400px] flip-card-3d group"
                 >
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
                     {/* FRONT - Header only */}
-                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden flex flex-col items-center justify-center text-center p-4">
+                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white shadow-xl backface-hidden flip-front flex flex-col items-center justify-center text-center p-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-orange/5" />
-                      <div className="relative flex flex-col items-center">
+                      <div className="flip-front-content relative flex flex-col items-center">
                         <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-brand-blue to-brand-orange shadow-lg mb-3">
                           <Brain className="w-5 h-5 text-white" />
                         </div>
@@ -774,18 +774,20 @@ export default function Home() {
                       </div>
                     </div>
                     {/* BACK - Details */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-600 to-brand-orange text-white shadow-xl overflow-hidden rotate-x-180 backface-hidden flex flex-col justify-center p-5">
-                      <h3 className="text-sm font-bold mb-2">AI-Powered EHR</h3>
-                      <p className="text-xs leading-relaxed mb-3 opacity-90">
-                        Intelligent electronic health records with automated documentation and real-time clinical analytics.
-                      </p>
-                      <div className="space-y-1.5">
-                        {["Smart Scheduling", "Auto-Coding", "Real-Time Dashboards"].map((feature) => (
-                          <div key={feature} className="flex items-center gap-1.5">
-                            <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
-                            <span className="text-[11px] font-medium">{feature}</span>
-                          </div>
-                        ))}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue via-blue-600 to-brand-orange text-white shadow-xl backface-hidden flip-back flex flex-col justify-center p-5">
+                      <div className="flip-back-content">
+                        <h3 className="text-sm font-bold mb-2">AI-Powered EHR</h3>
+                        <p className="text-xs leading-relaxed mb-3 opacity-90">
+                          Intelligent electronic health records with automated documentation and real-time clinical analytics.
+                        </p>
+                        <div className="space-y-1.5">
+                          {["Smart Scheduling", "Auto-Coding", "Real-Time Dashboards"].map((feature) => (
+                            <div key={feature} className="flex items-center gap-1.5">
+                              <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
+                              <span className="text-[11px] font-medium">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -796,13 +798,13 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 1.0 }}
-                  className="relative h-[220px] perspective-[500px] group"
+                  className="relative h-[220px] perspective-[400px] flip-card-3d group"
                 >
-                  <div className="absolute inset-0 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-x-180">
+                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
                     {/* FRONT - Header only */}
-                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white/80 backdrop-blur-md shadow-xl overflow-hidden backface-hidden flex flex-col items-center justify-center text-center p-4">
+                    <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white shadow-xl backface-hidden flip-front flex flex-col items-center justify-center text-center p-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 via-transparent to-brand-blue/5" />
-                      <div className="relative flex flex-col items-center">
+                      <div className="flip-front-content relative flex flex-col items-center">
                         <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-brand-orange to-brand-blue shadow-lg mb-3">
                           <Settings className="w-5 h-5 text-white" />
                         </div>
@@ -810,18 +812,20 @@ export default function Home() {
                       </div>
                     </div>
                     {/* BACK - Details */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-orange via-orange-500 to-brand-blue text-white shadow-xl overflow-hidden rotate-x-180 backface-hidden flex flex-col justify-center p-5">
-                      <h3 className="text-sm font-bold mb-2">Practice Management</h3>
-                      <p className="text-xs leading-relaxed mb-3 opacity-90">
-                        End-to-end practice operations powered by AI — from patient intake to revenue optimization.
-                      </p>
-                      <div className="space-y-1.5">
-                        {["Patient Intake Automation", "Billing & Collections", "Seamless RCM Integration"].map((feature) => (
-                          <div key={feature} className="flex items-center gap-1.5">
-                            <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
-                            <span className="text-[11px] font-medium">{feature}</span>
-                          </div>
-                        ))}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-orange via-orange-500 to-brand-blue text-white shadow-xl backface-hidden flip-back flex flex-col justify-center p-5">
+                      <div className="flip-back-content">
+                        <h3 className="text-sm font-bold mb-2">Practice Management</h3>
+                        <p className="text-xs leading-relaxed mb-3 opacity-90">
+                          End-to-end practice operations powered by AI — from patient intake to revenue optimization.
+                        </p>
+                        <div className="space-y-1.5">
+                          {["Patient Intake Automation", "Billing & Collections", "Seamless RCM Integration"].map((feature) => (
+                            <div key={feature} className="flex items-center gap-1.5">
+                              <CheckCircle className="w-3.5 h-3.5 text-white/80 flex-shrink-0" />
+                              <span className="text-[11px] font-medium">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1625,74 +1629,6 @@ export default function Home() {
 
 
 
-            <section className="w-full px-4 md:px-10 py-12">
-              <motion.div
-                className="
-          relative
-          max-w-7xl
-          mx-auto
-          rounded-2xl
-          overflow-hidden
-          min-h-[280px] md:min-h-[340px]
-          flex items-center
-        "
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-              >
-                {/* Background Image */}
-                <img
-                  src="/images2/ai-robot-healthcare.jpg"
-                  alt="AI-Powered Healthcare Intelligence"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540]/85 via-[#0a2540]/50 to-transparent"></div>
-
-                {/* Content */}
-                <div className="relative z-10 w-full flex justify-center md:justify-start">
-                  <div className="text-center md:text-left md:ml-20 max-w-xl">
-
-                    {/* Heading */}
-                    <h2 className="text-white text-3xl md:text-5xl font-light mb-4 tracking-wide">
-                      Explore Imperial
-                    </h2>
-
-                    {/* Subtitle */}
-                    <p className="text-white/90 text-sm md:text-lg mb-6">
-                      Process Automation. Machine Learning. Artificial Intelligence.
-                    </p>
-
-                    {/* Button */}
-                    <Link href="/irrf">
-                      <button
-                        className="
-                  bg-white
-                  text-black
-                  px-7 py-3
-                  rounded-full
-                  text-sm
-                  font-medium
-                  tracking-wider
-                  hover:bg-gray-200
-                  transition
-                  shadow-lg
-                "
-                      >
-                        LEARN MORE
-                      </button>
-                    </Link>
-
-                  </div>
-                </div>
-              </motion.div>
-            </section>
-
-
-
-
 
             {/* SECTION 2: IRRF THREE-PILLAR ARCHITECTURE */}
             <div>
@@ -1837,6 +1773,72 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <section className="w-full px-4 md:px-10 py-12">
+              <motion.div
+                className="
+          relative
+          max-w-7xl
+          mx-auto
+          rounded-2xl
+          overflow-hidden
+          min-h-[280px] md:min-h-[340px]
+          flex items-center
+        "
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+              >
+                {/* Background Image */}
+                <img
+                  src="/images2/ai-robot-healthcare.jpg"
+                  alt="AI-Powered Healthcare Intelligence"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540]/85 via-[#0a2540]/50 to-transparent"></div>
+
+                {/* Content */}
+                <div className="relative z-10 w-full flex justify-center md:justify-start">
+                  <div className="text-center md:text-left md:ml-20 max-w-xl">
+
+                    {/* Heading */}
+                    <h2 className="text-white text-3xl md:text-5xl font-light mb-4 tracking-wide">
+                      Explore Imperial
+                    </h2>
+
+                    {/* Subtitle */}
+                    <p className="text-white/90 text-sm md:text-lg mb-6">
+                      Process Automation. Machine Learning. Artificial Intelligence.
+                    </p>
+
+                    {/* Button */}
+                    <Link href="/irrf">
+                      <button
+                        className="
+                  bg-white
+                  text-black
+                  px-7 py-3
+                  rounded-full
+                  text-sm
+                  font-medium
+                  tracking-wider
+                  hover:bg-gray-200
+                  transition
+                  shadow-lg
+                "
+                      >
+                        LEARN MORE
+                      </button>
+                    </Link>
+
+                  </div>
+                </div>
+              </motion.div>
+            </section>
+
           </div>
         </section>
       </ScrollReveal>
