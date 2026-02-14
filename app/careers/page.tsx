@@ -154,11 +154,11 @@ export default function CareersPage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen pt-32 pb-16">
+      <main className="min-h-screen pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
         <div className="container mx-auto px-4">
           {/* Hero Section */}
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-balance">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 text-balance">
               Join Our <span className="text-brand-orange">Team</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8">

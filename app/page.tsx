@@ -159,6 +159,26 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Flip card click support: click to toggle flip on all devices
+  useEffect(() => {
+    const handleFlipCardClick = (e: Event) => {
+      const card = (e.currentTarget as HTMLElement)
+      card.classList.toggle("flipped")
+    }
+
+    const cards = document.querySelectorAll(".flip-card-3d")
+    cards.forEach((card) => {
+      card.addEventListener("click", handleFlipCardClick)
+      ;(card as HTMLElement).style.cursor = "pointer"
+    })
+
+    return () => {
+      cards.forEach((card) => {
+        card.removeEventListener("click", handleFlipCardClick)
+      })
+    }
+  }, [])
+
   // Hero image carousel auto-play
   useEffect(() => {
     const timer = setInterval(() => {
@@ -581,7 +601,7 @@ export default function Home() {
       {/* 1. Hero Banner */}
       <section
         id="home"
-        className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/60 to-slate-50 pt-[166px] pb-24"
+        className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/60 to-slate-50 pt-[120px] sm:pt-[140px] md:pt-[166px] pb-12 sm:pb-16 md:pb-24"
       >
         {/* Soft ambient glows */}
         <div className="absolute top-[-150px] right-[-100px] w-[600px] h-[600px] bg-blue-200/30 blur-[160px] rounded-full pointer-events-none"></div>
@@ -590,10 +610,10 @@ export default function Home() {
         {/* Subtle dot pattern */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #1565c0 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
           {/* HERO GRID */}
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
 
             {/* ================= LEFT CONTENT ================= */}
             <motion.div
@@ -703,16 +723,16 @@ export default function Home() {
 
             {/* ================= RIGHT: HERO IMAGE ================= */}
             <motion.div
-              className="hidden lg:block relative"
+              className="hidden md:block relative"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               {/* Ambience Glow behind image - matching user's reference */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-400/15 blur-[120px] rounded-full -z-10 pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] md:w-[600px] lg:w-[700px] h-[500px] md:h-[600px] lg:h-[700px] bg-blue-400/15 blur-[120px] rounded-full -z-10 pointer-events-none" />
 
               {/* Hero Image Carousel */}
-              <div className="relative w-[520px] h-[380px] group/carousel">
+              <div className="relative w-full max-w-[520px] aspect-[520/380] group/carousel">
                 {/* Outer hover glow */}
                 <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-brand-blue/0 via-brand-orange/0 to-brand-blue/0 group-hover/carousel:from-brand-blue/30 group-hover/carousel:via-brand-orange/20 group-hover/carousel:to-brand-blue/30 blur-2xl transition-all duration-700 pointer-events-none" />
                 <div className="absolute -inset-2 rounded-[1.75rem] border-2 border-white/0 group-hover/carousel:border-white/20 transition-all duration-500 pointer-events-none" />
@@ -754,7 +774,7 @@ export default function Home() {
               </div>
 
               {/* EHR & Practice Management Cards */}
-              <div className="relative z-10 mt-6 w-[520px] grid grid-cols-2 gap-4">
+              <div className="relative z-10 mt-6 w-full max-w-[520px] grid grid-cols-2 gap-4">
                 {/* Card 1: AI-Powered EHR */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -762,7 +782,7 @@ export default function Home() {
                   transition={{ duration: 0.7, delay: 0.8 }}
                   className="relative h-[220px] perspective-[400px] flip-card-3d group"
                 >
-                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
+                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                     {/* FRONT - Header only */}
                     <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white shadow-xl backface-hidden flip-front flex flex-col items-center justify-center text-center p-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-orange/5" />
@@ -800,7 +820,7 @@ export default function Home() {
                   transition={{ duration: 0.7, delay: 1.0 }}
                   className="relative h-[220px] perspective-[400px] flip-card-3d group"
                 >
-                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
+                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                     {/* FRONT - Header only */}
                     <div className="absolute inset-0 rounded-2xl border border-brand-blue/20 bg-white shadow-xl backface-hidden flip-front flex flex-col items-center justify-center text-center p-4">
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/5 via-transparent to-brand-blue/5" />
@@ -894,14 +914,14 @@ export default function Home() {
                 <img
                   src="/images2/ai-driven-business-growth-digital-transformation.jpg"
                   alt="AI-driven business growth and digital transformation in healthcare"
-                  className="w-full h-[240px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[160px] sm:h-[200px] md:h-[240px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl group">
                 <img
                   src="/images2/healthcare-medicine-medical-technology-doctor-using-robots-ai-electronic-medical-record-diagnosis-medical-research-connecting-with-big-data-dna.jpg"
                   alt="Advanced medical technology integrating AI and big data for diagnosis and research"
-                  className="w-full h-[240px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[160px] sm:h-[200px] md:h-[240px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </motion.div>
@@ -912,7 +932,8 @@ export default function Home() {
                 alt="Imperial Healthcare Systems"
                 className="mx-auto h-40 w-auto object-contain brightness-0 invert -my-10"
               />
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 flex items-center justify-center gap-3">
+                <img src="/Imperial White torch logo PNG.png" alt="Imperial torch" className="h-10 md:h-14 w-auto inline-block" />
                 The <span className="text-brand-orange">Imperial</span> Promise
               </h2>
               <p className="text-xl md:text-2xl text-brand-orange font-semibold">Excellence Delivered. Trust Earned.</p>
@@ -920,8 +941,8 @@ export default function Home() {
 
             <div className="grid lg:grid-cols-3 gap-8">
               {/* Pillar 1 */}
-              <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
-                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+              <div className="relative h-[280px] sm:h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                   {/* FRONT */}
                   <Card className="absolute inset-0 bg-brand-blue/80 backdrop-blur-md border border-white/15 rounded-2xl shadow-xl flex flex-col justify-center p-8 backface-hidden flip-front">
                     <div className="flip-front-content">
@@ -958,8 +979,8 @@ export default function Home() {
               </div>
 
               {/* Pillar 2 */}
-              <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
-                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+              <div className="relative h-[280px] sm:h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                   {/* FRONT */}
                   <Card className="absolute inset-0 bg-brand-blue/80 backdrop-blur-md border border-white/15 rounded-2xl shadow-xl flex flex-col justify-center p-8 backface-hidden flip-front">
                     <div className="flip-front-content">
@@ -996,8 +1017,8 @@ export default function Home() {
               </div>
 
               {/* Pillar 3 */}
-              <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
-                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+              <div className="relative h-[280px] sm:h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                   {/* FRONT */}
                   <Card className="absolute inset-0 bg-brand-blue/80 backdrop-blur-md border border-white/15 rounded-2xl shadow-xl flex flex-col justify-center p-8 backface-hidden flip-front">
                     <div className="flip-front-content">
@@ -1069,7 +1090,7 @@ export default function Home() {
                 <img
                   src="/images2/shot-young-male-doctor-looking-stressed-while-working-his-office-created-with-generative-ai.jpg"
                   alt="Young male doctor looking stressed while working in his office"
-                  className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[160px] sm:h-[200px] md:h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-5 text-white">
@@ -1080,7 +1101,7 @@ export default function Home() {
                 <img
                   src="/images2/fail-headache-senior-doctor-with-stress-hospital-unhappy-with-healthcare-results-medical-problem-mature-mistake-sad-man-frustrated-by-grief-death-loss-clinic-with-depression.jpg"
                   alt="Senior doctor experiencing stress and frustration in a hospital setting"
-                  className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[160px] sm:h-[200px] md:h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-5 text-white">
@@ -1286,7 +1307,7 @@ export default function Home() {
                 <img
                   src="/images2/healthcare-business-medical-data-growth-graph-business-chart-doctor-work-with-professional-team.jpg"
                   alt="Healthcare business data growth graph and professional medical team analysis"
-                  className="w-full h-[260px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[180px] sm:h-[220px] md:h-[260px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
@@ -1298,7 +1319,7 @@ export default function Home() {
                   <img
                     src="/images2/upgrading-concept-always-keep-system-up-date-developing-ai.jpg"
                     alt="Advanced AI system upgrading concept for healthcare revenue optimization"
-                    className="w-full h-[260px] object-cover group-hover/img:scale-110 transition-transform duration-700"
+                    className="w-full h-[180px] sm:h-[220px] md:h-[260px] object-cover group-hover/img:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-orange/40 via-brand-orange/10 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500"></div>
                 </div>
@@ -1307,7 +1328,7 @@ export default function Home() {
 
             {/* Headline */}
             <div className="text-center mb-6">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-foreground lg:whitespace-nowrap">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-foreground text-balance">
                 THE SOLUTION: <span className="text-brand-orange">THE IMPERIAL REVENUE RECOVERY FRAMEWORK (IRRF)</span>
               </h2>
             </div>
@@ -1320,11 +1341,11 @@ export default function Home() {
             </div>
 
             {/* SECTION 1: IRRF CORE CARDS */}
-            <div className="grid md:grid-cols-2 gap-0 mb-20 max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-0 mb-20 max-w-7xl mx-auto">
 
               {/* ================= CARD 1 ================= */}
-              <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
-                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+              <div className="relative h-[280px] sm:h-[320px] w-full sm:w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
 
                   {/* FRONT */}
                   <Card
@@ -1347,10 +1368,6 @@ export default function Home() {
 
                       <p className="text-base font-semibold text-brand-orange mb-2">
                         Where Algorithmic Precision Meets Human Advocacy
-                      </p>
-
-                      <p className="text-sm text-slate-500">
-                        (Hover to learn more)
                       </p>
                     </div>
                   </Card>
@@ -1384,8 +1401,8 @@ export default function Home() {
               </div>
 
               {/* ================= CARD 2 ================= */}
-              <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
-                <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+              <div className="relative h-[280px] sm:h-[320px] w-full sm:w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+                <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
 
                   {/* FRONT */}
                   <Card
@@ -1408,10 +1425,6 @@ export default function Home() {
 
                       <p className="text-base font-semibold text-brand-orange mb-2">
                         Engineering Enterprise Resilience
-                      </p>
-
-                      <p className="text-sm text-slate-500">
-                        (Hover to learn more)
                       </p>
                     </div>
                   </Card>
@@ -1500,11 +1513,11 @@ export default function Home() {
                     return (
                       <div
                         key={i}
-                        className="relative h-[320px] w-full max-w-[320px] perspective-[1200px] flip-card-3d group"
+                        className="relative h-[280px] sm:h-[320px] w-full max-w-[280px] sm:max-w-[320px] perspective-[1200px] flip-card-3d group"
                       >
 
                         {/* FLIP CONTAINER */}
-                        <div className="absolute inset-0 h-full w-full transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
+                        <div className="absolute inset-0 h-full w-full transform-style-preserve-3d flip-inner">
 
                           {/* ================= FRONT CARD ================= */}
                           <Card
@@ -1623,8 +1636,8 @@ export default function Home() {
 
               <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 {/* Pillar 1 */}
-                <div className="relative h-[420px] perspective-[500px] flip-card-3d flip-x group">
-                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+                <div className="relative h-[360px] sm:h-[420px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                     {/* FRONT */}
                     <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden flip-front">
                       <div className="flip-front-content">
@@ -1669,8 +1682,8 @@ export default function Home() {
                 </div>
 
                 {/* Pillar 2 */}
-                <div className="relative h-[420px] perspective-[500px] flip-card-3d flip-x group">
-                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+                <div className="relative h-[360px] sm:h-[420px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                     {/* FRONT */}
                     <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden flip-front">
                       <div className="flip-front-content">
@@ -1715,8 +1728,8 @@ export default function Home() {
                 </div>
 
                 {/* Pillar 3 */}
-                <div className="relative h-[420px] perspective-[500px] flip-card-3d flip-x group">
-                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+                <div className="relative h-[360px] sm:h-[420px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                     {/* FRONT */}
                     <Card className="absolute inset-0 bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] overflow-hidden backface-hidden flip-front">
                       <div className="flip-front-content">
@@ -1950,14 +1963,14 @@ export default function Home() {
                     <img
                       src="/images2/doctor-presenting-digital-healthcare-network-futuristic-medical-technology-concept.jpg"
                       alt="Doctor presenting digital healthcare network and futuristic medical technology"
-                      className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-[150px] sm:h-[180px] md:h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-xl group">
                     <img
                       src="/images2/flat-dollar-sign-rising-arrow-isolated-white-background-concept-as-sleek-abstract-vector.jpg"
                       alt="Financial growth concept with dollar sign and rising arrow"
-                      className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-[150px] sm:h-[180px] md:h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </motion.div>
@@ -1995,8 +2008,8 @@ export default function Home() {
                 >
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
                 {/* Card 1: Full-Stake Accountability */}
-                <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
-                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+                <div className="relative h-[280px] sm:h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                     {/* FRONT */}
                     <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flip-front flex flex-col justify-center p-8"
                       style={{
@@ -2028,8 +2041,8 @@ export default function Home() {
                 </div>
 
                 {/* Card 2: Efficiency Re-Invested in People */}
-                <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
-                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+                <div className="relative h-[280px] sm:h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                     {/* FRONT */}
                     <div className="absolute inset-0 bg-white rounded-xl border border-gray-200 shadow-md backface-hidden flip-front flex flex-col justify-center p-8">
                       <div className="flip-front-content">
@@ -2055,8 +2068,8 @@ export default function Home() {
                 </div>
 
                 {/* Card 3: Resolution-Driven Follow-Up */}
-                <div className="relative h-[320px] perspective-[500px] flip-card-3d flip-x group">
-                  <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+                <div className="relative h-[280px] sm:h-[320px] perspective-[500px] flip-card-3d flip-x group">
+                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                     {/* FRONT */}
                     <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flip-front flex flex-col justify-center p-8"
                       style={{
@@ -2342,8 +2355,8 @@ export default function Home() {
 
                 {/* Results Section */}
                 <div className="mt-6 pt-6 border-t-2">
-                  <h3 className="text-xl font-bold mb-4 text-center">Your First-Year Financial Benefit with IHS</h3>
-                  <div className="grid md:grid-cols-4 gap-4">
+                  <h3 className="text-lg sm:text-xl font-bold mb-4 text-center">Your First-Year Financial Benefit with IHS</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                     {/* Revenue Leakage */}
                     <Card className="border-2 border-red-200 bg-red-50/50 hover:shadow-lg transition-all duration-300 hover:scale-105">
                       <CardHeader className="pb-2">
@@ -2489,7 +2502,7 @@ export default function Home() {
                 <img
                   src="/images2/business-visual-data-analysing-technology-by-creative-computer-software.jpg"
                   alt="Advanced business data visualization and analysis technology"
-                  className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[150px] sm:h-[180px] md:h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/60 to-transparent flex items-center">
                   <div className="pl-8 text-white">
@@ -2713,19 +2726,19 @@ export default function Home() {
             <div className="max-w-6xl mx-auto">
               {/* Section image collage - improved with hover effects */}
               <motion.div
-                className="grid grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto"
+                className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-4xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
               >
-                <div className="rounded-xl overflow-hidden shadow-md h-[180px] group">
+                <div className="rounded-xl overflow-hidden shadow-md h-[140px] sm:h-[180px] group">
                   <img src="/images2/healthcare-provider-consulting-male-patient-reviewing-x-ray-test-results.jpg" alt="Healthcare provider consulting male patient and reviewing x-ray test results" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
-                <div className="rounded-xl overflow-hidden shadow-md h-[180px] group">
+                <div className="rounded-xl overflow-hidden shadow-md h-[140px] sm:h-[180px] group">
                   <img src="/images2/modern-hospital-building-exterior.jpg" alt="Modern hospital building exterior" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
-                <div className="rounded-xl overflow-hidden shadow-md h-[180px] group">
+                <div className="rounded-xl overflow-hidden shadow-md h-[140px] sm:h-[180px] group">
                   <img src="/images2/medical-icon_24908-47332.avif" alt="Medical technology and research icon" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
               </motion.div>
@@ -2740,7 +2753,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
                 {[
                   { name: "Clinics", icon: "🏥", desc: "Primary care & family medicine" },
                   { name: "Hospitals", icon: "🏛️", desc: "Acute care & multi-specialty" },
@@ -2816,7 +2829,7 @@ export default function Home() {
                   <img
                     src="/images2/roi-return-investment-finance-profit-success.jpg"
                     alt="ROI and financial profit success metrics for healthcare"
-                    className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-[160px] sm:h-[200px] md:h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-transparent flex items-center">
                     <div className="pl-8 md:pl-12 text-white">
@@ -2829,7 +2842,7 @@ export default function Home() {
                   <img
                     src="/images2/happy-people-confident-portrait-doctors-with-smile-hospital-services-about-us-healthcare-proud-medical-professional-group-nurses-with-support-teamwork-wellness-clinic.jpg"
                     alt="Confident and happy medical professionals team at Imperial Healthcare Systems"
-                    className="w-full h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-[160px] sm:h-[200px] md:h-[220px] object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent flex items-end">
                     <div className="p-5 text-white">
@@ -3023,7 +3036,7 @@ export default function Home() {
                 <img
                   src="/section-cybersecurity.jpg"
                   alt="Enterprise-grade cybersecurity and data protection at Imperial Healthcare Systems"
-                  className="w-full h-[260px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[180px] sm:h-[220px] md:h-[260px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a2540]/70 via-[#0a2540]/30 to-transparent flex items-end">
                   <div className="p-6 md:p-8 text-white">
@@ -3141,14 +3154,14 @@ export default function Home() {
                     <img
                       src="/images2/private-agents-reading-classified-records-uncover-new-case-clues.jpg"
                       alt="Private agents uncovering case clues by reading classified records"
-                      className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-[150px] sm:h-[180px] md:h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                   <div className="rounded-2xl overflow-hidden shadow-lg group">
                     <img
                       src="/images2/business-intelligence-analyst-use-bi-software-laptop-with-stack-coin-shrewd.jpg"
                       alt="Business intelligence analyst using BI software on laptop with data-driven insights"
-                      className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-[150px] sm:h-[180px] md:h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </motion.div>
@@ -3371,7 +3384,7 @@ export default function Home() {
                   <img
                     src="/images2/businessman-using-tablet-with-digital-graph-overlay.jpg"
                     alt="Businessman using tablet with digital graph overlay for financial transformation"
-                    className="w-full h-[240px] object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-[160px] sm:h-[200px] md:h-[240px] object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540]/50 to-transparent flex items-center">
                     <div className="pl-8 text-white">
@@ -3618,7 +3631,7 @@ export default function Home() {
                 <img
                   src="/images2/businessmen-doctors-shake-hands-medical-building-partnership-pharmaceutical-sales.jpg"
                   alt="Businessmen and doctors shaking hands in front of a medical building - pharmaceutical partnership"
-                  className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[150px] sm:h-[180px] md:h-[200px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/60 to-brand-orange/30 flex items-center justify-center">
                   <div className="text-center text-white">

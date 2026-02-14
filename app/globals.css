@@ -475,4 +475,65 @@
   animation: section-enter 0.7s ease-out forwards;
 }
 
+/* ============ RESPONSIVE / MOBILE UTILITIES ============ */
+
+/* ============ FLIP CARD CLICK/TAP SUPPORT (ALL DEVICES) ============ */
+
+/* Hover-based flip for pointer devices (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  .flip-card-3d:hover .flip-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-3d.flip-x:hover .flip-inner {
+    transform: rotateX(180deg);
+  }
+}
+
+/* Click/tap-based flip — works on ALL devices */
+.flip-card-3d.flipped .flip-inner {
+  transform: rotateY(180deg) !important;
+}
+
+.flip-card-3d.flip-x.flipped .flip-inner {
+  transform: rotateX(180deg) !important;
+}
+
+/* On touch devices, disable hover-based flip and rely on click only */
+@media (hover: none) and (pointer: coarse) {
+  .flip-card-3d:hover .flip-inner {
+    transform: none !important;
+  }
+
+  .flip-card-3d.flipped .flip-inner {
+    transform: rotateY(180deg) !important;
+  }
+
+  .flip-card-3d.flip-x.flipped .flip-inner {
+    transform: rotateX(180deg) !important;
+  }
+
+  /* Shadow on flipped state for touch */
+  .flip-card-3d.flipped::after {
+    opacity: 1;
+    transform: translateY(14px) scaleX(1.3);
+  }
+
+  /* Disable parallax on mobile (causes janky scrolling) */
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* Prevent horizontal overflow globally */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Better mobile touch targets */
+@media (max-width: 640px) {
+  .min-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
 

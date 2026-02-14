@@ -16,7 +16,7 @@ export default function ServicesPage() {
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 bg-gradient-to-br from-brand-blue/5 via-background to-brand-orange/5">
+      <section className="pt-28 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-br from-brand-blue/5 via-background to-brand-orange/5">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-block mb-6 px-6 py-2 bg-gradient-to-r from-brand-blue/20 to-brand-orange/20 rounded-full backdrop-blur-sm border border-brand-blue/30 animate-fade-in-up">
@@ -24,10 +24,10 @@ export default function ServicesPage() {
                 Comprehensive Healthcare Solutions
               </span>
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 text-balance animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-balance animate-fade-in-up">
               Transform Your <span className="text-brand-orange">Healthcare Operations</span>
             </h1>
-            <p className="text-2xl text-muted-foreground mb-8 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
               End-to-end revenue cycle management, operations support, and advanced analytics solutions designed to
               maximize efficiency and revenue.
             </p>
@@ -54,7 +54,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
                 Comprehensive <span className="text-brand-orange">Healthcare Solutions</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -75,7 +75,7 @@ export default function ServicesPage() {
                   <CardDescription>Complete RCM solutions from eligibility to collections</CardDescription>
                 </CardHeader>
                 <CardContent className="pt-6">
-                  <div className="grid md:grid-cols-3 gap-4">
+                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                     {[
                       "Charge Entry",
                       "Coding & Auditing",
@@ -118,7 +118,7 @@ export default function ServicesPage() {
                   <CardDescription>Virtual staffing and administrative support solutions</CardDescription>
                 </CardHeader>
                 <CardContent className="pt-6">
-                  <div className="grid md:grid-cols-3 gap-4">
+                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                     {[
                       "Virtual Staffing",
                       "Pre-Authorization",
@@ -185,7 +185,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
                 Why Choose <span className="text-brand-orange">Our Services</span>?
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -194,7 +194,7 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               {[
                 {
                   icon: "💰",
@@ -259,7 +259,7 @@ export default function ServicesPage() {
       <section className="py-24 bg-gradient-to-r from-brand-blue to-brand-blue/90">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Operations?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to Transform Your Operations?</h2>
             <p className="text-xl mb-8 opacity-90">
               Let's discuss how Imperial Healthcare Systems can help you achieve your goals.
             </p>
