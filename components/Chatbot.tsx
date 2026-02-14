@@ -114,8 +114,8 @@ export default function Chatbot() {
 <button
   onClick={() => setIsOpen(!isOpen)}
   className="
-    fixed bottom-6 right-6 z-50
-    flex h-14 w-14 items-center justify-center
+    fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50
+    flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center
     rounded-full text-white
     bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900
     shadow-xl
@@ -132,7 +132,7 @@ export default function Chatbot() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[95vw] rounded-2xl bg-white shadow-2xl overflow-hidden animate-in fade-in zoom-in">
+        <div className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[360px] max-w-[95vw] rounded-2xl bg-white shadow-2xl overflow-hidden animate-in fade-in zoom-in">
           
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -174,7 +174,7 @@ export default function Chatbot() {
 
     {/* Message bubble */}
     <div
-      className={`max-w-[85% rounded-xl px-4 py-2 text-sm leading-relaxed ${
+      className={`max-w-[85%] rounded-xl px-4 py-2 text-sm leading-relaxed ${
         msg.role === "user"
           ? "ml-auto bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-900 text-white shadow-md"
           : "bg-white border shadow-sm text-slate-700"

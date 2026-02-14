@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import {
   Target,
@@ -24,12 +24,32 @@ import { motion } from "framer-motion"
 export default function IRRFPage() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
 
+  // Touch-device flip card support
+  useEffect(() => {
+    const handleFlipCardClick = (e: Event) => {
+      const card = (e.currentTarget as HTMLElement)
+      card.classList.toggle("flipped")
+    }
+
+    const cards = document.querySelectorAll(".flip-card-3d")
+    cards.forEach((card) => {
+      card.addEventListener("click", handleFlipCardClick)
+      ;(card as HTMLElement).style.cursor = "pointer"
+    })
+
+    return () => {
+      cards.forEach((card) => {
+        card.removeEventListener("click", handleFlipCardClick)
+      })
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
 
       {/* ═══════════════════════════ HERO ═══════════════════════════ */}
-      <section className="pt-40 pb-20 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-orange relative overflow-hidden">
+      <section className="pt-28 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-orange relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float" />
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl animate-float-delayed" />
@@ -40,7 +60,7 @@ export default function IRRFPage() {
             <div className="inline-block mb-6 px-6 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20">
               <span className="text-sm font-semibold">Proprietary IRRF™ Technology</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 text-balance">
               The Imperial Revenue Recovery Framework{" "}
               <span className="text-brand-orange">(IRRF)</span>
             </h1>
@@ -82,8 +102,8 @@ export default function IRRFPage() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-7xl mx-auto">
             {/* ================= CARD 1 ================= */}
-            <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
-              <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+            <div className="relative h-[280px] sm:h-[320px] w-full sm:w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+              <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                 {/* FRONT */}
                 <Card
                   className="absolute inset-0 bg-white rounded-[20px]
@@ -102,7 +122,6 @@ export default function IRRFPage() {
                     <p className="text-base font-semibold text-brand-orange mb-2">
                       Where Algorithmic Precision Meets Human Advocacy
                     </p>
-                    <p className="text-sm text-slate-500">(Hover to learn more)</p>
                   </div>
                 </Card>
 
@@ -130,8 +149,8 @@ export default function IRRFPage() {
             </div>
 
             {/* ================= CARD 2 ================= */}
-            <div className="relative h-[320px] w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
-              <div className="absolute inset-0 transform-style-preserve-3d group-hover:rotate-x-180 flip-inner">
+            <div className="relative h-[280px] sm:h-[320px] w-full sm:w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+              <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                 {/* FRONT */}
                 <Card
                   className="absolute inset-0 bg-white rounded-[20px]
@@ -152,7 +171,6 @@ export default function IRRFPage() {
                     <p className="text-base font-semibold text-brand-orange mb-2">
                       Engineering Enterprise Resilience
                     </p>
-                    <p className="text-sm text-slate-500">(Hover to learn more)</p>
                   </div>
                 </Card>
 
@@ -183,7 +201,7 @@ export default function IRRFPage() {
           {/* ═══════════════════════════ STRATEGIC INTELLIGENCE GRID ═══════════════════════════ */}
           <div className="mb-20">
             <div className="text-center mb-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
                 THE STRATEGIC INTELLIGENCE GRID
               </h3>
               <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
@@ -228,9 +246,9 @@ export default function IRRFPage() {
                   return (
                     <div
                       key={i}
-                      className="relative h-[320px] w-full max-w-[320px] perspective-[1200px] flip-card-3d group"
+                      className="relative h-[280px] sm:h-[320px] w-full max-w-[280px] sm:max-w-[320px] perspective-[1200px] flip-card-3d group"
                     >
-                      <div className="absolute inset-0 h-full w-full transform-style-preserve-3d group-hover:rotate-y-180 flip-inner">
+                      <div className="absolute inset-0 h-full w-full transform-style-preserve-3d flip-inner">
                         {/* FRONT CARD */}
                         <Card
                           className="
@@ -301,7 +319,7 @@ export default function IRRFPage() {
           {/* ═══════════════════════════ THREE-PILLAR ARCHITECTURE ═══════════════════════════ */}
           <div>
             <div className="text-center mb-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3">
                 THE IRRF THREE-PILLAR ARCHITECTURE
               </h3>
               <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
@@ -313,7 +331,7 @@ export default function IRRFPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
               {/* Pillar 1 */}
               <Card className="relative bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40 transition-all duration-300 group-hover:opacity-60 group-hover:scale-110" />

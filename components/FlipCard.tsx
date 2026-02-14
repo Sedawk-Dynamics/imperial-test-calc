@@ -1,5 +1,7 @@
 "use client"
 
+import { useState } from "react"
+
 type FlipCardProps = {
   icon: React.ReactNode
   title: string
@@ -7,9 +9,14 @@ type FlipCardProps = {
 }
 
 export default function FlipCard({ icon, title, description }: FlipCardProps) {
+  const [flipped, setFlipped] = useState(false)
+
   return (
-    <div className="group perspective">
-      <div className="relative h-64 w-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+    <div
+      className={`group perspective cursor-pointer flip-card-3d ${flipped ? "flipped" : ""}`}
+      onClick={() => setFlipped(!flipped)}
+    >
+      <div className={`relative h-64 w-full transform-style-preserve-3d flip-inner ${flipped ? "rotate-y-180" : ""}`}>
 
         {/* FRONT */}
         <div className="absolute inset-0 rounded-2xl bg-white shadow-lg p-6 backface-hidden flex flex-col justify-center">

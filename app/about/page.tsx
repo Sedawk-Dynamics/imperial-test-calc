@@ -29,7 +29,7 @@ export default function AboutPage() {
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-blue/80 overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-blue/80 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/modern-healthcare-technology-abstract-background-b.jpg')] bg-cover bg-center opacity-10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
@@ -37,13 +37,13 @@ export default function AboutPage() {
               <img
                 src="/images/whatsapp-image-2025-12-13-at-16.png"
                 alt="Imperial Healthcare Systems"
-                className="h-64 brightness-0 invert animate-fade-in-up"
+                className="h-32 sm:h-48 md:h-64 brightness-0 invert animate-fade-in-up"
               />
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 animate-fade-in-up text-balance">
               About <span className="text-brand-orange">Imperial</span> Healthcare Systems
             </h1>
-            <p className="text-2xl md:text-3xl leading-relaxed animate-fade-in-up opacity-90">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed animate-fade-in-up opacity-90">
               Excellence Delivered. Trust Earned.
             </p>
           </div>
@@ -119,10 +119,10 @@ export default function AboutPage() {
               <img
                 src="/images/whatsapp-image-2025-12-13-at-16.png"
                 alt="Imperial Healthcare Systems"
-                className="h-64 animate-fade-in-up"
+                className="h-32 sm:h-48 md:h-64 animate-fade-in-up"
               />
             </div>
-            <h2 className="text-4xl font-bold mb-8 text-brand-blue">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-brand-blue">
               The <span className="text-brand-orange">Imperial</span> Legacy
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
@@ -130,7 +130,7 @@ export default function AboutPage() {
               unwavering excellence. It reflects our commitment to illuminate the path toward smarter, more efficient
               healthcare operations.
             </p>
-            <div className="grid md:grid-cols-4 gap-6 mt-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-12">
               {[
                 { icon: Shield, title: "Integrity", desc: "That Never Wavers" },
                 { icon: Award, title: "Leadership", desc: "Built on Knowledge" },
@@ -198,10 +198,11 @@ export default function AboutPage() {
       <section className="py-20 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-blue/80 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold mb-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center flex items-center justify-center gap-3">
+              <img src="/Imperial White torch logo PNG.png" alt="Imperial torch" className="h-8 sm:h-10 md:h-12 w-auto inline-block" />
               The <span className="text-brand-orange">Imperial</span> Promise
             </h2>
-            <p className="text-2xl text-center mb-12 text-brand-orange font-semibold">
+            <p className="text-lg sm:text-xl md:text-2xl text-center mb-12 text-brand-orange font-semibold">
               "Excellence Delivered. Trust Earned."
             </p>
             <div className="grid md:grid-cols-2 gap-6">
@@ -266,8 +267,8 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12 text-center text-brand-blue">What Makes IHS Different?</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 text-center text-brand-blue">What Makes IHS Different?</h2>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               {[
                 {
                   title: "AI-Powered Accuracy",
@@ -324,7 +325,7 @@ export default function AboutPage() {
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8 text-center text-brand-blue">Our Culture</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center text-brand-blue">Our Culture</h2>
             <p className="text-xl text-center text-muted-foreground mb-12">A culture defined by:</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
@@ -357,7 +358,7 @@ export default function AboutPage() {
       <section className="py-20 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-blue/80 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">Ready to Partner with Excellence?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">Ready to Partner with Excellence?</h2>
             <p className="text-xl mb-8 opacity-90">
               Join leading healthcare providers who trust <span className="text-brand-orange">Imperial</span> Healthcare
               Systems for their RCM needs.

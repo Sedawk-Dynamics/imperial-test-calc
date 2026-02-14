@@ -35,7 +35,7 @@ function SolutionsPageContent() {
       <SiteHeader />
 
       {/* Hero Section */}
-      <section className="pt-40 pb-20 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-orange relative overflow-hidden">
+      <section className="pt-28 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-20 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-orange relative overflow-hidden">
         {/* Floating decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float" />
@@ -47,10 +47,10 @@ function SolutionsPageContent() {
             <div className="inline-block mb-6 px-6 py-2 bg-white/10 rounded-full backdrop-blur-sm border border-white/20 animate-fade-in-up">
               <span className="text-sm font-semibold">Industry-Leading Healthcare Solutions</span>
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 text-balance animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-balance animate-fade-in-up">
               Comprehensive Solutions for Healthcare Excellence
             </h1>
-            <p className="text-2xl mb-8 opacity-90 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
               Transform your healthcare operations with our expert-driven solutions that deliver measurable results and
               sustainable growth.
             </p>
@@ -81,14 +81,14 @@ function SolutionsPageContent() {
         <div className="container mx-auto px-4">
           {/* Section Headline */}
           <div className="text-center mb-6">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold uppercase tracking-tight text-foreground">
               THE PROBLEM
             </h2>
           </div>
 
           {/* Subheadline */}
           <div className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground max-w-4xl mx-auto leading-tight">
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground max-w-4xl mx-auto leading-tight">
               <span className="text-brand-orange">The Invisible Tax</span>: Why US Healthcare Providers Lose Up to
               <span className="text-brand-orange font-bold"> 30%</span> of Contracted Revenue.
             </h3>
@@ -105,7 +105,7 @@ function SolutionsPageContent() {
           </div>
 
           {/* Problem Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {/* Card 1 */}
             <Card className="group relative border border-gray-200/40 rounded-[20px] shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-[350ms] ease-in-out hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] overflow-hidden backdrop-blur-[10px] bg-gradient-to-br from-pink-50/90 via-white/85 to-purple-50/90 hover:backdrop-blur-[16px]">
               {/* Dark translucent black layer on hover */}
@@ -259,7 +259,7 @@ function SolutionsPageContent() {
         <div className="container mx-auto px-4">
           {/* Headline */}
           <div className="text-center mb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-foreground lg:whitespace-nowrap">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-foreground text-balance">
               THE SOLUTION: <span className="text-brand-orange">THE IMPERIAL REVENUE RECOVERY FRAMEWORK (IRRF)</span>
             </h2>
           </div>
@@ -517,7 +517,7 @@ function SolutionsPageContent() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
               {/* Pillar 1 */}
               <Card className="relative bg-white rounded-[20px] border border-slate-200/60 shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/30 via-purple-400/30 to-pink-400/30 rounded-bl-[80px] opacity-40 transition-all duration-300 group-hover:opacity-60 group-hover:scale-110" />
@@ -648,11 +648,11 @@ function SolutionsPageContent() {
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
                 <span className="text-gray-900">Technology & Security: </span>
                 <span className="text-brand-blue">Infrastructure That Shields and Scales</span>
               </h2>
-              <p className="text-xl font-semibold text-brand-orange mb-6">
+              <p className="text-base sm:text-lg md:text-xl font-semibold text-brand-orange mb-6">
                 The IHS Intelligence Protocol: Engineering Enterprise Resilience
               </p>
               <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -765,7 +765,7 @@ function SolutionsPageContent() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
                 Our <span className="text-brand-orange">Core Solutions</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -773,7 +773,7 @@ function SolutionsPageContent() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
               {[
                 {
                   icon: <DollarSign className="w-8 h-8" />,
@@ -825,7 +825,7 @@ function SolutionsPageContent() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
                 Why Choose <span className="text-brand-orange">Imperial</span> Healthcare Systems?
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -834,7 +834,7 @@ function SolutionsPageContent() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
               {[
                 {
                   icon: <DollarSign className="w-8 h-8" />,
@@ -936,7 +936,7 @@ function SolutionsPageContent() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-balance">
                 Our <span className="text-brand-orange">Implementation Process</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -944,7 +944,7 @@ function SolutionsPageContent() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {[
                 {
                   step: "01",
@@ -968,7 +968,7 @@ function SolutionsPageContent() {
                 },
               ].map((phase, idx) => (
                 <div key={idx} className="relative">
-                  <div className="text-6xl font-bold text-brand-blue/30 mb-4 bg-gradient-to-br from-brand-blue/40 to-brand-orange/30 bg-clip-text text-transparent">
+                  <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-brand-blue/30 mb-4 bg-gradient-to-br from-brand-blue/40 to-brand-orange/30 bg-clip-text text-transparent">
                     {phase.step}
                   </div>
                   <h3 className="text-xl font-bold mb-3">{phase.title}</h3>
@@ -988,7 +988,7 @@ function SolutionsPageContent() {
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=800')] opacity-5 bg-cover bg-center" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Healthcare Operations?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to Transform Your Healthcare Operations?</h2>
             <p className="text-xl mb-8 opacity-90">
               Discover how our expert-driven solutions can help you achieve measurable results and sustainable growth.
             </p>

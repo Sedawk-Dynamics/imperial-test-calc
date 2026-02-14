@@ -13,7 +13,7 @@ export function SiteFooter() {
               alt="Imperial Healthcare Systems"
               width={280}
               height={80}
-              className="h-16 md:h-20 w-auto mb-3 scale-100 md:scale-150"
+              className="h-14 sm:h-16 md:h-20 w-auto mb-3"
             />
             <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
               Think Excellence. Delivering technology-enabled healthcare solutions with integrity, accountability, and

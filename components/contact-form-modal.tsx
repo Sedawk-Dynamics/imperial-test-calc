@@ -25,6 +25,7 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
 
   const [file, setFile] = useState<File | null>(null)
 
+  const [agreed, setAgreed] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
@@ -48,6 +49,7 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
         message: "",
       })
       setFile(null)
+      setAgreed(false)
       onClose()
     }, 3000)
   }
@@ -260,9 +262,26 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
                   />
                 </div>
 
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="consent"
+                    checked={agreed}
+                    onChange={(e) => setAgreed(e.target.checked)}
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-brand-blue focus:ring-brand-blue/20 cursor-pointer"
+                  />
+                  <label htmlFor="consent" className="text-xs text-gray-500 leading-relaxed cursor-pointer">
+                    By providing Submit, you authorize Imperial Healthcare Systems to collect your info and contact you via email, phone, or SMS. Message frequency may vary, Message data rates may apply, and you can opt-out by replying STOP or texting HELP. You may receive communications such as patient appointment scheduling, confirmations, patient health information, emergency/routine follow-up communications, and other healthcare-related information, but not for marketing or promotional purposes of our services. We also understand and comply with protected health information (PHI) in accordance with HIPAA regulations. See our{" "}
+                    <a href="/privacy-policy" className="text-brand-blue underline hover:text-brand-blue/80">Privacy Policy</a>{" "}
+                    and{" "}
+                    <a href="/terms-and-conditions" className="text-brand-blue underline hover:text-brand-blue/80">Terms and Conditions</a>{" "}
+                    for more details.
+                  </label>
+                </div>
+
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !agreed}
                   className="w-full bg-gradient-to-r from-brand-blue to-cyan-600 hover:from-brand-blue/90 hover:to-cyan-600/90 text-white py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-lg shadow-lg min-h-[52px]"
                   aria-label="Send contact form message"
                 >
