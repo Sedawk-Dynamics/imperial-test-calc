@@ -21,7 +21,7 @@ export function SiteHeader() {
   }, [])
 
   useEffect(() => {
-    if (isDemoModalOpen) {
+    if (isDemoModalOpen || mobileMenuOpen) {
       document.body.style.overflow = "hidden"
     } else {
       document.body.style.overflow = "unset"
@@ -29,7 +29,7 @@ export function SiteHeader() {
     return () => {
       document.body.style.overflow = "unset"
     }
-  }, [isDemoModalOpen])
+  }, [isDemoModalOpen, mobileMenuOpen])
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -43,16 +43,23 @@ export function SiteHeader() {
 
   return (
     <>
+      {/* Super Header */}
+      <div className="fixed top-0 left-0 right-0 z-[51] bg-gradient-to-r from-brand-blue via-[#1a3a6e] to-brand-orange text-white text-center py-2 px-4">
+        <p className="text-xs sm:text-sm font-semibold tracking-wide">
+          360° AI-Powered Revenue Cycle Ecosystems—Driven by our Proprietary IRRF™ Technology.
+        </p>
+      </div>
+
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          "fixed top-[36px] left-0 right-0 z-50 transition-all duration-500",
           isScrolled
             ? "bg-background/90 backdrop-blur-xl shadow-lg border-b border-brand-blue/20"
             : "bg-background/50 backdrop-blur-sm",
         )}
       >
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-20 md:h-28">
+          <div className="flex items-center justify-between h-16 sm:h-20 md:h-24 lg:h-28">
             <Link href="/" className="flex-shrink-0 group">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/20 to-brand-orange/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -144,7 +151,7 @@ export function SiteHeader() {
           </div>
 
           {mobileMenuOpen && (
-            <div className="md:hidden py-2 border-t border-brand-blue/20 animate-fade-in-up">
+            <div className="md:hidden py-2 border-t border-brand-blue/20 animate-fade-in-up max-h-[calc(100vh-120px)] overflow-y-auto bg-background/98 backdrop-blur-xl">
               {[
                 { name: "Home", href: "/" },
                 { name: "Solutions", href: "/solutions" },

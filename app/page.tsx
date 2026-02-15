@@ -3811,7 +3811,7 @@ export default function Home() {
                         By providing Submit, you authorize Imperial Healthcare Systems to collect your info and contact you via email, phone, or SMS. Message frequency may vary, Message data rates may apply, and you can opt-out by replying STOP or texting HELP. You may receive communications such as patient appointment scheduling, confirmations, patient health information, emergency/routine follow-up communications, and other healthcare-related information, but not for marketing or promotional purposes of our services. We also understand and comply with protected health information (PHI) in accordance with HIPAA regulations. See our{" "}
                         <a href="/privacy-policy" className="text-brand-blue underline hover:text-brand-blue/80">Privacy Policy</a>{" "}
                         and{" "}
-                        <a href="/terms-of-service" className="text-brand-blue underline hover:text-brand-blue/80">Terms and Conditions</a>{" "}
+                        <a href="/terms-of-service" className="text-brand-blue underline hover:text-brand-blue/80">Terms of Services</a>{" "}
                         for more details.
                       </p>
 
