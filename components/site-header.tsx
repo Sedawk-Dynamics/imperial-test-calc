@@ -83,7 +83,7 @@ export function SiteHeader() {
                 { name: "About", href: "/about" },
                 { name: "Careers", href: "/careers" },
                 { name: "Blog", href: "/blog" },
-                { name: "Contact", href: "/#contact" },
+                { name: "Contact", href: "/contact" },
               ].map((item) => (
                 <Link
                   key={item.name}
