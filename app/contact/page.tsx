@@ -16,13 +16,14 @@ import { AutoReveal } from "@/components/auto-reveal"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    fullName: "",
-    organization: "",
-    email: "",
-    phone: "",
-    inquiryType: "",
-    message: "",
-  })
+  fullName: "",
+  organization: "",
+  email: "",
+  phone: "",
+  inquiryType: "",
+  message: "",
+  consent: false,   // ✅ ADD
+})
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
@@ -31,6 +32,10 @@ export default function ContactPage() {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
+
+  const handleConsentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setFormData((prev) => ({ ...prev, consent: e.target.checked }))
+}
 
   const handleInquiryTypeChange = (value: string) => {
     setFormData((prev) => ({ ...prev, inquiryType: value }))
@@ -320,6 +325,37 @@ export default function ContactPage() {
                   Something went wrong. Please try again.
                 </div>
               )}
+
+              {/* Consent Checkbox */}
+<div className="flex items-start gap-3 p-4 rounded-lg bg-gray-50 border border-gray-200">
+  <input
+    type="checkbox"
+    id="consent"
+    checked={formData.consent}
+    onChange={handleConsentChange}
+    required
+    className="mt-1 h-4 w-4 accent-brand-blue cursor-pointer"
+  />
+
+  <label htmlFor="consent" className="text-xs md:text-sm text-gray-600 leading-relaxed cursor-pointer">
+    By providing Submit, you authorize Imperial Healthcare Systems to collect your info and contact you via
+    email, phone, or SMS. Message frequency may vary, Message data rates may apply, and you can opt-out by
+    replying STOP or texting HELP. You may receive communications such as patient appointment scheduling,
+    confirmations, patient health information, emergency/routine follow-up communications, and other
+    healthcare-related information, but not for marketing or promotional purposes of our services. We also
+    understand and comply with protected health information (PHI) in accordance with HIPAA regulations.
+    See our{" "}
+    <Link href="/privacy-policy" className="text-brand-blue underline hover:text-brand-orange">
+      Privacy Policy
+    </Link>{" "}
+    and{" "}
+    <Link href="/terms" className="text-brand-blue underline hover:text-brand-orange">
+      Terms of Service
+    </Link>{" "}
+    for more details.
+  </label>
+</div>
+
 
               {/* Submit Button */}
               <Button
