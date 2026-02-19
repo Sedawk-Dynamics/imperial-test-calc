@@ -349,7 +349,7 @@ export default function ContactPage() {
       Privacy Policy
     </Link>{" "}
     and{" "}
-    <Link href="/terms" className="text-brand-blue underline hover:text-brand-orange">
+    <Link href="/terms-of-service" className="text-brand-blue underline hover:text-brand-orange">
       Terms of Service
     </Link>{" "}
     for more details.
