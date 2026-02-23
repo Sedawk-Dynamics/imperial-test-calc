@@ -47,8 +47,23 @@ export default function ContactPage() {
     setSubmitStatus("idle")
 
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          organization: formData.organization,
+          email: formData.email,
+          phone: formData.phone,
+          inquiryType: formData.inquiryType,
+          message: formData.message,
+        }),
+      })
+
+      if (!res.ok) {
+        throw new Error("Failed to send message")
+      }
+
       setSubmitStatus("success")
       setFormData({ fullName: "", organization: "", email: "", phone: "", inquiryType: "", message: "", consent: false })
       setTimeout(() => setSubmitStatus("idle"), 3000)

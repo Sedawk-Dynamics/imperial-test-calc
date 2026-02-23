@@ -33,25 +33,48 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
     e.preventDefault()
     setIsSubmitting(true)
 
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const body = new FormData()
+      body.append("name", formData.name)
+      body.append("email", formData.email)
+      body.append("phone", formData.phone)
+      body.append("company", formData.company)
+      body.append("location", formData.location)
+      body.append("message", formData.message)
+      if (file) {
+        body.append("file", file)
+      }
 
-    setIsSubmitting(false)
-    setSubmitted(true)
-
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        location: "",
-        message: "",
+      const res = await fetch("/api/home-contact", {
+        method: "POST",
+        body,
       })
-      setFile(null)
-      setAgreed(false)
-      onClose()
-    }, 3000)
+
+      if (!res.ok) {
+        throw new Error("Failed to send message")
+      }
+
+      setIsSubmitting(false)
+      setSubmitted(true)
+
+      setTimeout(() => {
+        setSubmitted(false)
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          location: "",
+          message: "",
+        })
+        setFile(null)
+        setAgreed(false)
+        onClose()
+      }, 3000)
+    } catch (error) {
+      setIsSubmitting(false)
+      alert("Failed to send message. Please try again.")
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

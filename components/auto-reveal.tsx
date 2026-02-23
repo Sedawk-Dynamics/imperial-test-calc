@@ -3,6 +3,12 @@
 import { useRef, useEffect, useState, type ReactNode } from "react"
 import { motion, useReducedMotion } from "framer-motion"
 
+function useMounted() {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  return mounted
+}
+
 interface AutoRevealProps {
   children: ReactNode
   className?: string
@@ -27,6 +33,7 @@ export function AutoReveal({
   const ref = useRef<HTMLDivElement>(null)
   const [isInView, setIsInView] = useState(false)
   const prefersReducedMotion = useReducedMotion()
+  const mounted = useMounted()
 
   useEffect(() => {
     const element = ref.current
@@ -54,9 +61,9 @@ export function AutoReveal({
     return () => observer.disconnect()
   }, [once, threshold])
 
-  // Skip animation for users who prefer reduced motion
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>
+  // Before mount or if user prefers reduced motion, render plain div to avoid hydration mismatch
+  if (!mounted || prefersReducedMotion) {
+    return <div ref={ref} className={className}>{children}</div>
   }
 
   return (
@@ -103,6 +110,7 @@ export function StaggerContainer({
   const ref = useRef<HTMLDivElement>(null)
   const [isInView, setIsInView] = useState(false)
   const prefersReducedMotion = useReducedMotion()
+  const mounted = useMounted()
 
   useEffect(() => {
     const element = ref.current
@@ -126,8 +134,8 @@ export function StaggerContainer({
     return () => observer.disconnect()
   }, [threshold])
 
-  if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>
+  if (!mounted || prefersReducedMotion) {
+    return <div ref={ref} className={className}>{children}</div>
   }
 
   return (
@@ -164,8 +172,9 @@ export function StaggerItem({
   scale = true,
 }: StaggerItemProps) {
   const prefersReducedMotion = useReducedMotion()
+  const mounted = useMounted()
 
-  if (prefersReducedMotion) {
+  if (!mounted || prefersReducedMotion) {
     return <div className={className}>{children}</div>
   }
 
