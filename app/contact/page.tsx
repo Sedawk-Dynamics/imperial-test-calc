@@ -16,14 +16,14 @@ import { AutoReveal } from "@/components/auto-reveal"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-  fullName: "",
-  organization: "",
-  email: "",
-  phone: "",
-  inquiryType: "",
-  message: "",
-  consent: false,   // ✅ ADD
-})
+    fullName: "",
+    organization: "",
+    email: "",
+    phone: "",
+    inquiryType: "",
+    message: "",
+    consent: false,   // ✅ ADD
+  })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
@@ -34,8 +34,8 @@ export default function ContactPage() {
   }
 
   const handleConsentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  setFormData((prev) => ({ ...prev, consent: e.target.checked }))
-}
+    setFormData((prev) => ({ ...prev, consent: e.target.checked }))
+  }
 
   const handleInquiryTypeChange = (value: string) => {
     setFormData((prev) => ({ ...prev, inquiryType: value }))
@@ -50,7 +50,7 @@ export default function ContactPage() {
       // Simulate form submission
       await new Promise((resolve) => setTimeout(resolve, 1500))
       setSubmitStatus("success")
-      setFormData({ fullName: "", organization: "", email: "", phone: "", inquiryType: "", message: "" })
+      setFormData({ fullName: "", organization: "", email: "", phone: "", inquiryType: "", message: "", consent: false })
       setTimeout(() => setSubmitStatus("idle"), 3000)
     } catch (error) {
       setSubmitStatus("error")
@@ -263,7 +263,7 @@ export default function ContactPage() {
                 {/* Phone */}
                 <div>
                   <Label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
-                    Phone
+                    Phone (Optional)
                   </Label>
                   <Input
                     id="phone"
@@ -272,7 +272,6 @@ export default function ContactPage() {
                     placeholder="+1 (XXX) XXX-XXXX"
                     value={formData.phone}
                     onChange={handleChange}
-                    required
                     className="w-full h-12 px-4 rounded-lg border border-gray-300 bg-white focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition-all"
                   />
                 </div>
@@ -327,34 +326,33 @@ export default function ContactPage() {
               )}
 
               {/* Consent Checkbox */}
-<div className="flex items-start gap-3 p-4 rounded-lg bg-gray-50 border border-gray-200">
-  <input
-    type="checkbox"
-    id="consent"
-    checked={formData.consent}
-    onChange={handleConsentChange}
-    required
-    className="mt-1 h-4 w-4 accent-brand-blue cursor-pointer"
-  />
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-gray-50 border border-gray-200">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  checked={formData.consent}
+                  onChange={handleConsentChange}
+                  className="mt-1 h-4 w-4 accent-brand-blue cursor-pointer"
+                />
 
-  <label htmlFor="consent" className="text-xs md:text-sm text-gray-600 leading-relaxed cursor-pointer">
-    By providing Submit, you authorize Imperial Healthcare Systems to collect your info and contact you via
-    email, phone, or SMS. Message frequency may vary, Message data rates may apply, and you can opt-out by
-    replying STOP or texting HELP. You may receive communications such as patient appointment scheduling,
-    confirmations, patient health information, emergency/routine follow-up communications, and other
-    healthcare-related information, but not for marketing or promotional purposes of our services. We also
-    understand and comply with protected health information (PHI) in accordance with HIPAA regulations.
-    See our{" "}
-    <Link href="/privacy-policy" className="text-brand-blue underline hover:text-brand-orange">
-      Privacy Policy
-    </Link>{" "}
-    and{" "}
-    <Link href="/terms-of-service" className="text-brand-blue underline hover:text-brand-orange">
-      Terms of Service
-    </Link>{" "}
-    for more details.
-  </label>
-</div>
+                <label htmlFor="consent" className="text-xs md:text-sm text-gray-600 leading-relaxed cursor-pointer">
+                  (Optional) By providing Submit, you authorize Imperial Healthcare Systems to collect your info and contact you via
+                  email, phone, or SMS. Message frequency may vary, Message data rates may apply, and you can opt-out by
+                  replying STOP or texting HELP. You may receive communications such as patient appointment scheduling,
+                  confirmations, patient health information, emergency/routine follow-up communications, and other
+                  healthcare-related information, but not for marketing or promotional purposes of our services. We also
+                  understand and comply with protected health information (PHI) in accordance with HIPAA regulations.
+                  See our{" "}
+                  <Link href="/privacy-policy" className="text-brand-blue underline hover:text-brand-orange">
+                    Privacy Policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/terms-of-service" className="text-brand-blue underline hover:text-brand-orange">
+                    Terms of Service
+                  </Link>{" "}
+                  for more details.
+                </label>
+              </div>
 
 
               {/* Submit Button */}

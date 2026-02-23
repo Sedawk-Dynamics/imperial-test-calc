@@ -118,7 +118,7 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
                 </p>
               </div>
 
-              
+
 
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -161,7 +161,7 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-medium flex items-center gap-2">
                       <Phone className="h-4 w-4 text-brand-blue" />
-                      Phone No.
+                      Phone No. (Optional)
                     </label>
                     <input
                       type="tel"
@@ -169,7 +169,7 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      
+
                       aria-required="true"
                       className="w-full px-4 py-3 sm:py-3.5 rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-all text-base min-h-[48px]"
                       placeholder="+1 (555) 123-4567"
@@ -271,7 +271,7 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
                     className="mt-1 h-4 w-4 rounded border-gray-300 text-brand-blue focus:ring-brand-blue/20 cursor-pointer"
                   />
                   <label htmlFor="consent" className="text-xs text-gray-500 leading-relaxed cursor-pointer">
-                    By providing Submit, you authorize Imperial Healthcare Systems to collect your info and contact you via email, phone, or SMS. Message frequency may vary, Message data rates may apply, and you can opt-out by replying STOP or texting HELP. You may receive communications such as patient appointment scheduling, confirmations, patient health information, emergency/routine follow-up communications, and other healthcare-related information, but not for marketing or promotional purposes of our services. We also understand and comply with protected health information (PHI) in accordance with HIPAA regulations. See our{" "}
+                    (Optional) By providing Submit, you authorize Imperial Healthcare Systems to collect your info and contact you via email, phone, or SMS. Message frequency may vary, Message data rates may apply, and you can opt-out by replying STOP or texting HELP. You may receive communications such as patient appointment scheduling, confirmations, patient health information, emergency/routine follow-up communications, and other healthcare-related information, but not for marketing or promotional purposes of our services. We also understand and comply with protected health information (PHI) in accordance with HIPAA regulations. See our{" "}
                     <a href="/privacy-policy" className="text-brand-blue underline hover:text-brand-blue/80">Privacy Policy</a>{" "}
                     and{" "}
                     <a href="/terms-of-service" className="text-brand-blue underline hover:text-brand-blue/80">Terms of Service</a>{" "}
@@ -281,7 +281,7 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
 
                 <Button
                   type="submit"
-                  disabled={isSubmitting || !agreed}
+                  disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-brand-blue to-cyan-600 hover:from-brand-blue/90 hover:to-cyan-600/90 text-white py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-lg shadow-lg min-h-[52px]"
                   aria-label="Send contact form message"
                 >
