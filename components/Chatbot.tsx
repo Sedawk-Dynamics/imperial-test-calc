@@ -4,7 +4,7 @@ import { useState } from "react"
 import { MessageCircle, X, Send } from "lucide-react"
 
 const CONTACT_DETAILS = {
-  phone: "+1 (859) 555-0199", // replace if needed
+  phone: "+1-(859) 978-8780", // replace if needed
   email: "info@imperialhealthsystems.com",
   contactForm: "https://www.imperialhealthsystems.com/contact",
 }
