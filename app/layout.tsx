@@ -81,11 +81,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/Torch PNG.png",
-        type: "image/png",
+        url: "/imperial logo icon only.jpg",
+        type: "image/jpeg",
       },
     ],
-    apple: "/Torch PNG.png",
+    apple: "/imperial logo icon only.jpg",
   },
   verification: {
     google: "ADD_GOOGLE_SEARCH_CONSOLE_CODE",
