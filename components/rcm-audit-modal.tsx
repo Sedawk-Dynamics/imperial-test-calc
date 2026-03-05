@@ -8,9 +8,10 @@ import { Button } from "@/components/ui/button"
 interface RCMAuditModalProps {
   isOpen: boolean
   onClose: () => void
+  planType?: string
 }
 
-export default function RCMAuditModal({ isOpen, onClose }: RCMAuditModalProps) {
+export default function RCMAuditModal({ isOpen, onClose, planType = "General" }: RCMAuditModalProps) {
   const [formData, setFormData] = useState<{
     fullName: string
     companyName: string
@@ -34,24 +35,46 @@ export default function RCMAuditModal({ isOpen, onClose }: RCMAuditModalProps) {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const body = new FormData()
+      body.append("fullName", formData.fullName)
+      body.append("companyName", formData.companyName)
+      body.append("email", formData.email)
+      body.append("phone", formData.phone)
+      body.append("location", formData.location)
+      body.append("planType", planType)
+      if (formData.historicalData) {
+        body.append("file", formData.historicalData)
+      }
 
-    setIsSubmitting(false)
-    setSubmitted(true)
-
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        fullName: "",
-        companyName: "",
-        email: "",
-        phone: "",
-        location: "",
-        historicalData: null,
+      const res = await fetch("/api/pricing-contact", {
+        method: "POST",
+        body,
       })
-      onClose()
-    }, 3000)
+
+      if (!res.ok) {
+        throw new Error("Failed to send message")
+      }
+
+      setIsSubmitting(false)
+      setSubmitted(true)
+
+      setTimeout(() => {
+        setSubmitted(false)
+        setFormData({
+          fullName: "",
+          companyName: "",
+          email: "",
+          phone: "",
+          location: "",
+          historicalData: null,
+        })
+        onClose()
+      }, 3000)
+    } catch (error) {
+      setIsSubmitting(false)
+      alert("Failed to send message. Please try again.")
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

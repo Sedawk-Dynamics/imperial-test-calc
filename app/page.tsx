@@ -100,6 +100,7 @@ export default function Home() {
   const [contactModalOpen, setContactModalOpen] = useState(false)
 
   const [isRCMAuditModalOpen, setIsRCMAuditModalOpen] = useState(false)
+  const [selectedPlanType, setSelectedPlanType] = useState("General")
 
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -3321,7 +3322,7 @@ export default function Home() {
                           </Button>
                           <Button
                             className="w-full bg-brand-blue hover:bg-brand-orange"
-                            onClick={() => setIsRCMAuditModalOpen(true)}
+                            onClick={() => { setSelectedPlanType(plan.name); setIsRCMAuditModalOpen(true) }}
                           >
                             {plan.secondaryCta}
                             <ArrowRight className="ml-2 h-4 w-4" />
@@ -3335,7 +3336,7 @@ export default function Home() {
                               ? "bg-gradient-to-r from-brand-orange to-brand-blue hover:opacity-90"
                               : "bg-brand-blue hover:bg-brand-orange",
                           )}
-                          onClick={() => setIsRCMAuditModalOpen(true)}
+                          onClick={() => { setSelectedPlanType(plan.name); setIsRCMAuditModalOpen(true) }}
                         >
                           {plan.cta}
                           <ArrowRight className="ml-2 h-4 w-4" />
@@ -3827,7 +3828,7 @@ export default function Home() {
       <SiteFooter />
 
 
-      <RCMAuditModal isOpen={isRCMAuditModalOpen} onClose={() => setIsRCMAuditModalOpen(false)} />
+      <RCMAuditModal isOpen={isRCMAuditModalOpen} onClose={() => setIsRCMAuditModalOpen(false)} planType={selectedPlanType} />
       <ContactFormModal
         isOpen={contactModalOpen}
         onClose={() => setContactModalOpen(false)}
