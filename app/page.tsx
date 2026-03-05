@@ -3797,8 +3797,8 @@ export default function Home() {
                         className="w-full bg-transparent"
                         onClick={() => {
                           const link = document.createElement("a")
-                          link.href = "/Imperial-company-profile.pdf" // place PDF in /public
-                          link.download = "Imperial-company-profile.pdf"
+                          link.href = "/Imperial healthcare profile.pdf"
+                          link.download = "Imperial healthcare profile.pdf"
                           document.body.appendChild(link)
                           link.click()
                           document.body.removeChild(link)
