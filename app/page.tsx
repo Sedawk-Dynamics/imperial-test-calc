@@ -169,7 +169,7 @@ export default function Home() {
     const cards = document.querySelectorAll(".flip-card-3d")
     cards.forEach((card) => {
       card.addEventListener("click", handleFlipCardClick)
-      ;(card as HTMLElement).style.cursor = "pointer"
+        ; (card as HTMLElement).style.cursor = "pointer"
     })
 
     return () => {
@@ -738,39 +738,38 @@ export default function Home() {
                 <div className="absolute -inset-2 rounded-[1.75rem] border-2 border-white/0 group-hover/carousel:border-white/20 transition-all duration-500 pointer-events-none" />
 
                 <div className="relative z-10 w-full h-full rounded-3xl shadow-[0_40px_80px_-20px_rgba(0,0,0,0.25)] border border-white group-hover/carousel:shadow-[0_40px_100px_-10px_rgba(59,130,246,0.35)] transition-shadow duration-700 overflow-hidden">
-                {heroImages.map((image, index) => (
-                  <motion.img
-                    key={index}
-                    src={image.src}
-                    alt={image.alt}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    initial={false}
-                    animate={{
-                      opacity: heroSlide === index ? 1 : 0,
-                      scale: heroSlide === index ? 1 : 1.05,
-                    }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                  />
-                ))}
-
-                {/* Hover overlay glow */}
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/40 via-brand-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-
-                {/* Dot Indicators */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                  {heroImages.map((_, index) => (
-                    <button
+                  {heroImages.map((image, index) => (
+                    <motion.img
                       key={index}
-                      onClick={() => setHeroSlide(index)}
-                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                        heroSlide === index
-                          ? "bg-white scale-110 shadow-lg"
-                          : "bg-white/40 hover:bg-white/60"
-                      }`}
+                      src={image.src}
+                      alt={image.alt}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      initial={false}
+                      animate={{
+                        opacity: heroSlide === index ? 1 : 0,
+                        scale: heroSlide === index ? 1 : 1.05,
+                      }}
+                      transition={{ duration: 0.8, ease: "easeInOut" }}
                     />
                   ))}
+
+                  {/* Hover overlay glow */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/40 via-brand-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+
+                  {/* Dot Indicators */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                    {heroImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setHeroSlide(index)}
+                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${heroSlide === index
+                          ? "bg-white scale-110 shadow-lg"
+                          : "bg-white/40 hover:bg-white/60"
+                          }`}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
               </div>
 
               {/* EHR & Practice Management Cards */}
@@ -780,7 +779,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.8 }}
-                  className="relative h-[220px] perspective-[400px] flip-card-3d group"
+                  className="relative h-[220px] perspective-[1200px] flip-card-3d group"
                 >
                   <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                     {/* FRONT - Header only */}
@@ -928,21 +927,21 @@ export default function Home() {
 
             <div className="max-w-6xl mx-auto text-center mb-16">
 
-  <img
-    src="/images/White_torch_logo.png"
-    alt="Imperial Healthcare Systems"
-    className="mx-auto h-30 w-auto object-contain brightness-0 invert mb-6"
-  />
+              <img
+                src="/images/White_torch_logo.png"
+                alt="Imperial Healthcare Systems"
+                className="mx-auto h-30 w-auto object-contain brightness-0 invert mb-6"
+              />
 
-  <h2 className="text-4xl md:text-5xl font-bold mb-6">
-    The <span className="text-brand-orange">Imperial</span> Promise
-  </h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                The <span className="text-brand-orange">Imperial</span> Promise
+              </h2>
 
-  <p className="text-xl md:text-2xl text-brand-orange font-semibold">
-    Excellence Delivered. Trust Earned.
-  </p>
+              <p className="text-xl md:text-2xl text-brand-orange font-semibold">
+                Excellence Delivered. Trust Earned.
+              </p>
 
-</div>
+            </div>
 
 
             <div className="grid lg:grid-cols-3 gap-8">
@@ -2007,105 +2006,105 @@ export default function Home() {
               {/* Collapsible content */}
               <div className="relative">
                 <motion.div
-                  className="overflow-hidden"
+                  className={ihsAdvantageExpanded ? "" : "overflow-hidden"}
                   initial={false}
                   animate={{ height: ihsAdvantageExpanded ? "auto" : 200 }}
                   transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
                 >
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-                {/* Card 1: Full-Stake Accountability */}
-                <div className="relative h-[280px] sm:h-[320px] perspective-[500px] flip-card-3d flip-x group">
-                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
-                    {/* FRONT */}
-                    <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flip-front flex flex-col justify-center p-8"
-                      style={{
-                        backgroundImage: "linear-gradient(white, white), linear-gradient(to bottom right, rgb(249, 115, 22), rgb(251, 146, 60), rgb(249, 115, 22))",
-                        backgroundOrigin: "border-box",
-                        backgroundClip: "padding-box, border-box",
-                      }}
-                    >
-                      <div className="flip-front-content">
-                        <div className="mb-4">
-                          <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
-                            <ShieldCheck className="w-7 h-7 text-white" />
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                    {/* Card 1: Full-Stake Accountability */}
+                    <div className="relative h-[280px] sm:h-[320px] perspective-[1200px] flip-card-3d flip-x group">
+                      <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
+                        {/* FRONT */}
+                        <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flip-front flex flex-col justify-center p-8"
+                          style={{
+                            backgroundImage: "linear-gradient(white, white), linear-gradient(to bottom right, rgb(249, 115, 22), rgb(251, 146, 60), rgb(249, 115, 22))",
+                            backgroundOrigin: "border-box",
+                            backgroundClip: "padding-box, border-box",
+                          }}
+                        >
+                          <div className="flip-front-content">
+                            <div className="mb-4">
+                              <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
+                                <ShieldCheck className="w-7 h-7 text-white" />
+                              </div>
+                            </div>
+                            <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">FULL-STAKE ACCOUNTABILITY</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">We take ownership of the &apos;Lost Claim&apos; — denials are challenges, not stopping points.</p>
                           </div>
                         </div>
-                        <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">FULL-STAKE ACCOUNTABILITY</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">We take ownership of the &apos;Lost Claim&apos; — denials are challenges, not stopping points.</p>
+                        {/* BACK */}
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-orange via-orange-500 to-amber-500 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
+                          <div className="flip-back-content">
+                            <h3 className="text-xl font-bold mb-4">FULL-STAKE ACCOUNTABILITY</h3>
+                            <p className="text-sm leading-relaxed">
+                              Unlike our competitors, our staff is trained to see a denial not as a stopping point, but as a challenge. We apply Human Verification at every stage, ensuring no claim is ever abandoned to the Timely Filing clock.
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    {/* BACK */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-orange via-orange-500 to-amber-500 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
-                      <div className="flip-back-content">
-                        <h3 className="text-xl font-bold mb-4">FULL-STAKE ACCOUNTABILITY</h3>
-                        <p className="text-sm leading-relaxed">
-                          Unlike our competitors, our staff is trained to see a denial not as a stopping point, but as a challenge. We apply Human Verification at every stage, ensuring no claim is ever abandoned to the Timely Filing clock.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                {/* Card 2: Efficiency Re-Invested in People */}
-                <div className="relative h-[280px] sm:h-[320px] perspective-[500px] flip-card-3d flip-x group">
-                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
-                    {/* FRONT */}
-                    <div className="absolute inset-0 bg-white rounded-xl border border-gray-200 shadow-md backface-hidden flip-front flex flex-col justify-center p-8">
-                      <div className="flip-front-content">
-                        <div className="mb-4">
-                          <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
-                            <Users className="w-7 h-7 text-white" />
+                    {/* Card 2: Efficiency Re-Invested in People */}
+                    <div className="relative h-[280px] sm:h-[320px] perspective-[1200px] flip-card-3d flip-x group">
+                      <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
+                        {/* FRONT */}
+                        <div className="absolute inset-0 bg-white rounded-xl border border-gray-200 shadow-md backface-hidden flip-front flex flex-col justify-center p-8">
+                          <div className="flip-front-content">
+                            <div className="mb-4">
+                              <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
+                                <Users className="w-7 h-7 text-white" />
+                              </div>
+                            </div>
+                            <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">Advanced technology eliminates noise — recovered time is reinvested into deeper human expertise.</p>
                           </div>
                         </div>
-                        <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">Advanced technology eliminates noise — recovered time is reinvested into deeper human expertise.</p>
+                        {/* BACK */}
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-blue via-blue-600 to-cyan-500 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
+                          <div className="flip-back-content">
+                            <h3 className="text-xl font-bold mb-4">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
+                            <p className="text-sm leading-relaxed">
+                              We use advanced technology to eliminate operational noise—but we never reduce staff. Instead, we reinvest that recovered time into deeper human expertise across your AR. This allows us to scale without ever diluting quality for existing providers.
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    {/* BACK */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-brand-blue via-blue-600 to-cyan-500 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
-                      <div className="flip-back-content">
-                        <h3 className="text-xl font-bold mb-4">EFFICIENCY RE-INVESTED IN PEOPLE</h3>
-                        <p className="text-sm leading-relaxed">
-                          We use advanced technology to eliminate operational noise—but we never reduce staff. Instead, we reinvest that recovered time into deeper human expertise across your AR. This allows us to scale without ever diluting quality for existing providers.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                {/* Card 3: Resolution-Driven Follow-Up */}
-                <div className="relative h-[280px] sm:h-[320px] perspective-[500px] flip-card-3d flip-x group">
-                  <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
-                    {/* FRONT */}
-                    <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flip-front flex flex-col justify-center p-8"
-                      style={{
-                        backgroundImage: "linear-gradient(white, white), linear-gradient(to bottom right, rgb(37, 99, 235), rgb(59, 130, 246), rgb(37, 99, 235))",
-                        backgroundOrigin: "border-box",
-                        backgroundClip: "padding-box, border-box",
-                      }}
-                    >
-                      <div className="flip-front-content">
-                        <div className="mb-4">
-                          <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
-                            <RefreshCw className="w-7 h-7 text-white" />
+                    {/* Card 3: Resolution-Driven Follow-Up */}
+                    <div className="relative h-[280px] sm:h-[320px] perspective-[1200px] flip-card-3d flip-x group">
+                      <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
+                        {/* FRONT */}
+                        <div className="absolute inset-0 bg-white rounded-xl shadow-md border-2 border-transparent backface-hidden flip-front flex flex-col justify-center p-8"
+                          style={{
+                            backgroundImage: "linear-gradient(white, white), linear-gradient(to bottom right, rgb(37, 99, 235), rgb(59, 130, 246), rgb(37, 99, 235))",
+                            backgroundOrigin: "border-box",
+                            backgroundClip: "padding-box, border-box",
+                          }}
+                        >
+                          <div className="flip-front-content">
+                            <div className="mb-4">
+                              <div className="inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-brand-blue to-brand-orange">
+                                <RefreshCw className="w-7 h-7 text-white" />
+                              </div>
+                            </div>
+                            <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">RESOLUTION-DRIVEN FOLLOW-UP</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">We optimize for <span className="text-brand-orange font-semibold">Net Collection Rate</span>, not vanity metrics.</p>
                           </div>
                         </div>
-                        <h3 className="text-xl font-bold uppercase tracking-wide text-foreground mb-3">RESOLUTION-DRIVEN FOLLOW-UP</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">We optimize for <span className="text-brand-orange font-semibold">Net Collection Rate</span>, not vanity metrics.</p>
-                      </div>
-                    </div>
-                    {/* BACK */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-600 via-brand-blue to-cyan-600 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
-                      <div className="flip-back-content">
-                        <h3 className="text-xl font-bold mb-4">RESOLUTION-DRIVEN FOLLOW-UP</h3>
-                        <p className="text-sm leading-relaxed">
-                          While the industry celebrates &apos;First Pass Rate&apos; as a vanity metric, we optimize for Net Collection Rate. Our experienced human specialists actively challenge payer denials—often knowing payer policy nuances better than the payers themselves.
-                        </p>
+                        {/* BACK */}
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-600 via-brand-blue to-cyan-600 text-white shadow-xl p-8 flex flex-col justify-center backface-hidden flip-back-x">
+                          <div className="flip-back-content">
+                            <h3 className="text-xl font-bold mb-4">RESOLUTION-DRIVEN FOLLOW-UP</h3>
+                            <p className="text-sm leading-relaxed">
+                              While the industry celebrates &apos;First Pass Rate&apos; as a vanity metric, we optimize for Net Collection Rate. Our experienced human specialists actively challenge payer denials—often knowing payer policy nuances better than the payers themselves.
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
                 </motion.div>
 
                 {/* Fade overlay + Read More button (hidden when expanded) */}
@@ -2876,130 +2875,130 @@ export default function Home() {
                   animate={{ height: successStoriesExpanded ? "auto" : 200 }}
                   transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
                 >
-              <div className="grid md:grid-cols-2 gap-8">
-                {[
-                  {
-                    title: "Multi-Specialty Clinic Transformation",
-                    location: "Phoenix, AZ",
-                    challenge: "High denial rates (25%) and AR days exceeding 70 days",
-                    solution: "Implemented comprehensive RCM with intelligent denial prevention",
-                    results: [
-                      "Reduced AR days by 40% (70 → 42 days)",
-                      "Improved clean claim rate to 99%",
-                      "Decreased denial rate from 25% to 8%",
-                      "Increased monthly collections by 35%",
-                    ],
-                    savings: "$480,000",
-                    period: "First Year",
-                    pdfUrl: "/case-studies/Case-Study-Multi-Specialty-Clinic-Phoenix-Arizona.pdf", // Added PDF URL
-                  },
-                  {
-                    title: "Hospital System Cost Optimization",
-                    location: "Tampa, FL",
-                    challenge: "High operational costs with 15 in-house RCM staff",
-                    solution: "Transitioned to IHS dedicated staffing model with advanced analytics tools",
-                    results: [
-                      "Saved 60% in staffing costs",
-                      "Maintained 99% clean claim accuracy",
-                      "Reduced claim processing time by 45%",
-                      "Zero operational disruption during transition",
-                    ],
-                    savings: "$540,000",
-                    period: "Annual Savings",
-                    pdfUrl: "/case-studies/Hospital-System-Cost-Optimization-Tampa-FL.pdf", // Added PDF URL
-                  },
-                  {
-                    title: "DME Provider Revenue Recovery",
-                    location: "Dallas, TX",
-                    challenge: "Cash flow issues with $850K locked in aging AR",
-                    solution: "Aggressive AR follow-up with IHS specialized team",
-                    results: [
-                      "Recovered $680K from aging AR",
-                      "Improved cash flow by 45%",
-                      "Reduced AR days to industry-leading 28 days",
-                      "Ongoing collections increased 30%",
-                    ],
-                    savings: "$680,000",
-                    period: "Recovered",
-                    pdfUrl: "/case-studies/DME-Working-Capital-Optimization-Dallas-TX.pdf", // Added PDF URL
-                  },
-                  {
-                    title: "Ambulatory Surgery Center (ASC) Revenue Optimization",
-                    location: "San Diego, CA",
-                    challenge:
-                      "High claim denials and delayed reimbursements due to complex payer rules and limited billing staff",
-                    solution: "Specialized ASC RCM team + automated pre-authorization and eligibility verification",
-                    results: [
-                      "Reduced claim denial rate by 45%",
-                      "Faster reimbursements with improved cash flow",
-                      "100% real-time eligibility and authorization checks",
-                      "Improved surgeon and patient satisfaction",
-                    ],
-                    savings: "$420,000",
-                    period: "Annual Revenue Improvement",
-                    pdfUrl: "/case-studies/Ambulatory-Surgery-Center-ASC-Revenue-Optimization-San-Diego-CA.pdf", // Added PDF URL
-                  },
-                ].map((study, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  >
-                    <Card
-                      className="border-2 border-brand-blue/20 hover:border-brand-orange/40 transition-all duration-300 hover:scale-[1.02] flex flex-col h-full"
-                    >
-                      <CardHeader>
-                        <div className="flex items-start justify-between mb-2">
-                          <div>
-                            <CardTitle className="text-xl">{study.title}</CardTitle>
-                            <div className="flex items-center gap-1 mt-2 text-sm text-muted-foreground">
-                              <MapPin className="h-4 w-4 text-brand-orange" />
-                              <span>{study.location}</span>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {[
+                      {
+                        title: "Multi-Specialty Clinic Transformation",
+                        location: "Phoenix, AZ",
+                        challenge: "High denial rates (25%) and AR days exceeding 70 days",
+                        solution: "Implemented comprehensive RCM with intelligent denial prevention",
+                        results: [
+                          "Reduced AR days by 40% (70 → 42 days)",
+                          "Improved clean claim rate to 99%",
+                          "Decreased denial rate from 25% to 8%",
+                          "Increased monthly collections by 35%",
+                        ],
+                        savings: "$480,000",
+                        period: "First Year",
+                        pdfUrl: "/case-studies/Case-Study-Multi-Specialty-Clinic-Phoenix-Arizona.pdf", // Added PDF URL
+                      },
+                      {
+                        title: "Hospital System Cost Optimization",
+                        location: "Tampa, FL",
+                        challenge: "High operational costs with 15 in-house RCM staff",
+                        solution: "Transitioned to IHS dedicated staffing model with advanced analytics tools",
+                        results: [
+                          "Saved 60% in staffing costs",
+                          "Maintained 99% clean claim accuracy",
+                          "Reduced claim processing time by 45%",
+                          "Zero operational disruption during transition",
+                        ],
+                        savings: "$540,000",
+                        period: "Annual Savings",
+                        pdfUrl: "/case-studies/Hospital-System-Cost-Optimization-Tampa-FL.pdf", // Added PDF URL
+                      },
+                      {
+                        title: "DME Provider Revenue Recovery",
+                        location: "Dallas, TX",
+                        challenge: "Cash flow issues with $850K locked in aging AR",
+                        solution: "Aggressive AR follow-up with IHS specialized team",
+                        results: [
+                          "Recovered $680K from aging AR",
+                          "Improved cash flow by 45%",
+                          "Reduced AR days to industry-leading 28 days",
+                          "Ongoing collections increased 30%",
+                        ],
+                        savings: "$680,000",
+                        period: "Recovered",
+                        pdfUrl: "/case-studies/DME-Working-Capital-Optimization-Dallas-TX.pdf", // Added PDF URL
+                      },
+                      {
+                        title: "Ambulatory Surgery Center (ASC) Revenue Optimization",
+                        location: "San Diego, CA",
+                        challenge:
+                          "High claim denials and delayed reimbursements due to complex payer rules and limited billing staff",
+                        solution: "Specialized ASC RCM team + automated pre-authorization and eligibility verification",
+                        results: [
+                          "Reduced claim denial rate by 45%",
+                          "Faster reimbursements with improved cash flow",
+                          "100% real-time eligibility and authorization checks",
+                          "Improved surgeon and patient satisfaction",
+                        ],
+                        savings: "$420,000",
+                        period: "Annual Revenue Improvement",
+                        pdfUrl: "/case-studies/Ambulatory-Surgery-Center-ASC-Revenue-Optimization-San-Diego-CA.pdf", // Added PDF URL
+                      },
+                    ].map((study, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      >
+                        <Card
+                          className="border-2 border-brand-blue/20 hover:border-brand-orange/40 transition-all duration-300 hover:scale-[1.02] flex flex-col h-full"
+                        >
+                          <CardHeader>
+                            <div className="flex items-start justify-between mb-2">
+                              <div>
+                                <CardTitle className="text-xl">{study.title}</CardTitle>
+                                <div className="flex items-center gap-1 mt-2 text-sm text-muted-foreground">
+                                  <MapPin className="h-4 w-4 text-brand-orange" />
+                                  <span>{study.location}</span>
+                                </div>
+                              </div>
+                              <div className="text-right">
+                                <div className="text-2xl font-bold text-brand-orange">
+                                  $<CountUp end={parseInt(study.savings.replace(/[$,]/g, "")) / 1000} suffix=",000" duration={2000} />
+                                </div>
+                                <div className="text-xs text-muted-foreground">{study.period}</div>
+                              </div>
                             </div>
-                          </div>
-                          <div className="text-right">
-                            <div className="text-2xl font-bold text-brand-orange">
-                              $<CountUp end={parseInt(study.savings.replace(/[$,]/g, "")) / 1000} suffix=",000" duration={2000} />
+                          </CardHeader>
+                          <CardContent className="space-y-4 flex-1 flex flex-col">
+                            <div>
+                              <h4 className="font-semibold text-sm text-red-600 mb-1">Challenge:</h4>
+                              <p className="text-sm text-muted-foreground">{study.challenge}</p>
                             </div>
-                            <div className="text-xs text-muted-foreground">{study.period}</div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="space-y-4 flex-1 flex flex-col">
-                        <div>
-                          <h4 className="font-semibold text-sm text-red-600 mb-1">Challenge:</h4>
-                          <p className="text-sm text-muted-foreground">{study.challenge}</p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-sm text-brand-blue mb-1">Solution:</h4>
-                          <p className="text-sm text-muted-foreground">{study.solution}</p>
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-sm text-green-600 mb-2">Results:</h4>
-                          <ul className="space-y-1">
-                            {study.results.map((result, ridx) => (
-                              <li key={ridx} className="flex items-start gap-2 text-sm">
-                                <Check className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
-                                <span>{result}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="pt-4 border-t mt-auto">
-                          <Button asChild className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white">
-                            <a href={study.pdfUrl} download target="_blank" rel="noopener noreferrer">
-                              <Download className="mr-2 h-4 w-4" />
-                              Download PDF
-                            </a>
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
+                            <div>
+                              <h4 className="font-semibold text-sm text-brand-blue mb-1">Solution:</h4>
+                              <p className="text-sm text-muted-foreground">{study.solution}</p>
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-semibold text-sm text-green-600 mb-2">Results:</h4>
+                              <ul className="space-y-1">
+                                {study.results.map((result, ridx) => (
+                                  <li key={ridx} className="flex items-start gap-2 text-sm">
+                                    <Check className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                                    <span>{result}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div className="pt-4 border-t mt-auto">
+                              <Button asChild className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white">
+                                <a href={study.pdfUrl} download target="_blank" rel="noopener noreferrer">
+                                  <Download className="mr-2 h-4 w-4" />
+                                  Download PDF
+                                </a>
+                              </Button>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </motion.div>
+                    ))}
+                  </div>
                 </motion.div>
 
                 {/* Fade overlay + Read More button (hidden when expanded) */}
@@ -3601,11 +3600,10 @@ export default function Home() {
                     <button
                       key={index}
                       onClick={() => setTestimonialSlide(index)}
-                      className={`h-2.5 rounded-full transition-all duration-300 ${
-                        testimonialSlide === index
-                          ? "w-8 bg-brand-blue"
-                          : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                      }`}
+                      className={`h-2.5 rounded-full transition-all duration-300 ${testimonialSlide === index
+                        ? "w-8 bg-brand-blue"
+                        : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                        }`}
                     />
                   ))}
                 </div>

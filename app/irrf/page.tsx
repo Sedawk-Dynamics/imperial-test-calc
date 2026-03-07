@@ -34,7 +34,7 @@ export default function IRRFPage() {
     const cards = document.querySelectorAll(".flip-card-3d")
     cards.forEach((card) => {
       card.addEventListener("click", handleFlipCardClick)
-      ;(card as HTMLElement).style.cursor = "pointer"
+        ; (card as HTMLElement).style.cursor = "pointer"
     })
 
     return () => {
@@ -102,7 +102,7 @@ export default function IRRFPage() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-7xl mx-auto">
             {/* ================= CARD 1 ================= */}
-            <div className="relative h-[280px] sm:h-[320px] w-full sm:w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+            <div className="relative h-[280px] sm:h-[320px] w-full sm:w-4/5 mx-auto perspective-[1200px] flip-card-3d flip-x group">
               <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                 {/* FRONT */}
                 <Card
@@ -149,7 +149,7 @@ export default function IRRFPage() {
             </div>
 
             {/* ================= CARD 2 ================= */}
-            <div className="relative h-[280px] sm:h-[320px] w-full sm:w-4/5 mx-auto perspective-[500px] flip-card-3d flip-x group">
+            <div className="relative h-[280px] sm:h-[320px] w-full sm:w-4/5 mx-auto perspective-[1200px] flip-card-3d flip-x group">
               <div className="absolute inset-0 transform-style-preserve-3d flip-inner">
                 {/* FRONT */}
                 <Card
