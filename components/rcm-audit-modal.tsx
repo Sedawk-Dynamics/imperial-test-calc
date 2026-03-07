@@ -106,19 +106,19 @@ export default function RCMAuditModal({ isOpen, onClose, planType = "General" }:
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-in zoom-in-95 duration-300"
+        className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-in zoom-in-95 duration-300 max-h-[90vh] flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-2 hover:bg-gray-100 transition-colors"
+          className="absolute right-4 top-4 rounded-full p-2 hover:bg-gray-100 transition-colors z-20 bg-white/80 backdrop-blur-sm shadow-sm"
           aria-label="Close modal"
         >
           <X className="h-5 w-5 text-gray-600" />
         </button>
 
-        <div className="p-8">
+        <div className="p-8 overflow-y-auto">
           {submitted ? (
             /* Success State */
             <div className="text-center py-8">

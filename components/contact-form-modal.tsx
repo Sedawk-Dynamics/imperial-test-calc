@@ -101,18 +101,18 @@ export default function ContactFormModal({ isOpen, onClose, onOpenRCMAudit }: Co
       aria-labelledby="contact-form-title"
     >
       <Card
-        className="w-full max-w-2xl max-h-[90vh] overflow-y-auto relative shadow-2xl animate-in zoom-in-95 duration-300"
+        className="w-full max-w-2xl max-h-[90vh] relative shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute right-2 top-2 sm:right-4 sm:top-4 rounded-full p-3 hover:bg-gray-100 transition-colors z-10 min-w-[44px] min-h-[44px] flex items-center justify-center"
+          className="absolute right-2 top-2 sm:right-4 sm:top-4 rounded-full p-3 hover:bg-gray-100 transition-colors z-20 min-w-[44px] min-h-[44px] flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-sm"
           aria-label="Close contact form"
         >
           <X className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />
         </button>
 
-        <CardContent className="p-4 sm:p-6 md:p-8">
+        <CardContent className="p-4 sm:p-6 md:p-8 overflow-y-auto">
           {submitted ? (
             <div className="text-center py-8 sm:py-12">
               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">

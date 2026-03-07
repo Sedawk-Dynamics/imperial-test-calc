@@ -486,23 +486,29 @@ export default function Home() {
 
         const footerTop = pageHeight - FOOTER_HEIGHT + 10
 
+        // Draw a light slate background for the footer area
+        doc.setFillColor(248, 250, 252)
+        doc.rect(0, footerTop - 5, pageWidth, FOOTER_HEIGHT, "F")
+
+        // Accent top border line
         doc.setDrawColor(30, 111, 232)
-        doc.setLineWidth(0.8)
-        doc.line(margin, footerTop, pageWidth - margin, footerTop)
+        doc.setLineWidth(1)
+        doc.line(margin, footerTop - 5, pageWidth - margin, footerTop - 5)
 
         let y = footerTop + 7
 
-        doc.setFontSize(11)
+        // Primary Branding
+        doc.setFontSize(12)
         doc.setFont(undefined, "bold")
         doc.setTextColor(30, 111, 232)
-        doc.text("Imperial Healthcare Systems", pageWidth / 2, y, { align: "center" })
+        doc.text("IMPERIAL HEALTHCARE SYSTEMS", pageWidth / 2, y, { align: "center" })
 
         y += 5
-        doc.setFontSize(8)
-        doc.setFont(undefined, "italic")
-        doc.setTextColor(255, 122, 0)
+        doc.setFontSize(8.5)
+        doc.setFont(undefined, "bold")
+        doc.setTextColor(255, 122, 0) // Brand Orange
         doc.text(
-          "Transforming Healthcare Revenue Cycle Management",
+          "TRANSFORMING HEALTHCARE REVENUE CYCLE MANAGEMENT",
           pageWidth / 2,
           y,
           { align: "center" },
@@ -511,7 +517,7 @@ export default function Home() {
         y += 7
         doc.setFontSize(8)
         doc.setFont(undefined, "normal")
-        doc.setTextColor(60)
+        doc.setTextColor(70)
         doc.text(
           "Email: info@imperialhealthsystems.com  |  Phone: US +1-(859) 978-8780  •  India +91-99537 48055",
           pageWidth / 2,
@@ -523,38 +529,67 @@ export default function Home() {
         const leftX = margin + 5
         const rightX = pageWidth / 2 + 10
 
-        doc.setFontSize(8)
+        // Draw vertical brand-colored accent bars for each office block
+        doc.setDrawColor(30, 111, 232)
+        doc.setLineWidth(1.2)
+        doc.line(leftX - 3, y - 1, leftX - 3, y + 20) // US accent line
+        doc.line(rightX - 3, y - 1, rightX - 3, y + 20) // India accent line
+
+        // UNITED STATES OFFICE UI
+        doc.setFontSize(9)
         doc.setFont(undefined, "bold")
         doc.setTextColor(30, 111, 232)
-        doc.text("United States Office", leftX, y)
+        doc.text("UNITED STATES OFFICE", leftX, y)
 
-        doc.setFontSize(7)
+        doc.setTextColor(60)
+        doc.setFontSize(7.5)
+        doc.text("Imperial Healthcare Systems LLC", leftX, y + 4.5)
+
         doc.setFont(undefined, "normal")
-        doc.setTextColor(70)
-        doc.text("Imperial Healthcare Systems LLC", leftX, y + 4)
-        doc.text("212 N. 2nd St. STE 100", leftX, y + 8)
-        doc.text("Richmond, KY 40475, United States", leftX, y + 12)
+        doc.setTextColor(80)
+        doc.text([
+          "212 N. 2nd St. STE 100",
+          "Richmond, KY 40475, USA",
+          "Phone: +1-(859) 978-8780"
+        ], leftX, y + 9)
 
-        doc.setFontSize(8)
+        // INDIA OFFICE UI
+        doc.setFontSize(9)
         doc.setFont(undefined, "bold")
         doc.setTextColor(30, 111, 232)
-        doc.text("India Office", rightX, y)
+        doc.text("INDIA OFFICE", rightX, y)
 
-        doc.setFontSize(7)
+        doc.setTextColor(60)
+        doc.setFontSize(7.5)
+        doc.text("Imperial Healthcare Systems Pvt. Ltd.", rightX, y + 4.5)
+
         doc.setFont(undefined, "normal")
-        doc.setTextColor(70)
-        doc.text("Imperial Healthcare Systems Pvt. Ltd.", rightX, y + 4)
-        doc.text("Unit No. 219 2F, ILD Trade Centre", rightX, y + 8)
-        doc.text("Sector 47, Sohna Road", rightX, y + 12)
-        doc.text("Gurugram - 122018, Haryana, India", rightX, y + 16)
+        doc.setTextColor(80)
+        doc.text([
+          "Unit No. 219 2F, ILD Trade Centre",
+          "Sector 47, Gurugram, India",
+          "Phone: +91-99537 48055"
+        ], rightX, y + 9)
 
-        doc.setFontSize(7)
-        doc.setTextColor(120)
+        // Bottom colored bar for page number
+        const barHeight = 8
+        doc.setFillColor(30, 111, 232)
+        doc.rect(0, pageHeight - barHeight, pageWidth, barHeight, "F")
+
+        doc.setFontSize(7.5)
+        doc.setFont(undefined, "bold")
+        doc.setTextColor(255, 255, 255)
         doc.text(
-          `Page ${i} of ${totalPages}`,
+          `CONFIDENTIAL REPORT  |  Page ${i} of ${totalPages}`,
           pageWidth - margin,
-          pageHeight - 8,
+          pageHeight - 3,
           { align: "right" },
+        )
+
+        doc.text(
+          `© ${new Date().getFullYear()} Imperial Healthcare Systems. All Rights Reserved.`,
+          margin,
+          pageHeight - 3
         )
       }
 
