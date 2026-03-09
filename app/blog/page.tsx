@@ -62,7 +62,7 @@ export default function BlogPage() {
         <div className="container mx-auto px-4">
 
           {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16">
+          <div className="max-w-4xl mx-auto text-center pt-20 mb-12 sm:mb-16">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6">
               IHS <span className="text-brand-orange">Blog</span>
             </h1>
