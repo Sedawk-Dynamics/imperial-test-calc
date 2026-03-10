@@ -23,7 +23,7 @@ export function SiteFooter() {
 <div className="flex gap-4 mt-5">
 
   <a
-    href="https://www.instagram.com/imperial_health_systems/"
+    href="https://www.instagram.com/imperial_healthcare_systems"
     target="_blank"
     aria-label="Instagram"
   >
