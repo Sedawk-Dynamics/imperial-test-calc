@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Menu, X, PlayCircle } from "lucide-react"
+import { Menu, X, PlayCircle, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
@@ -11,6 +11,9 @@ export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false)
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false)
+  const aboutDropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,10 +39,23 @@ export function SiteHeader() {
       if (e.key === "Escape" && isDemoModalOpen) {
         setIsDemoModalOpen(false)
       }
+      if (e.key === "Escape") {
+        setAboutDropdownOpen(false)
+      }
     }
     window.addEventListener("keydown", handleEsc)
     return () => window.removeEventListener("keydown", handleEsc)
   }, [isDemoModalOpen])
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (aboutDropdownRef.current && !aboutDropdownRef.current.contains(e.target as Node)) {
+        setAboutDropdownOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   return (
     <>
@@ -80,7 +96,56 @@ export function SiteHeader() {
                 { name: "Home", href: "/" },
                 { name: "Solutions", href: "/solutions" },
                 { name: "Services", href: "/services" },
-                { name: "About", href: "/about" },
+              ].map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="relative text-sm font-semibold group transition-all duration-300 hover:scale-110 transform"
+                >
+                  <span className="relative z-10 group-hover:text-brand-blue transition-colors duration-300">
+                    {item.name}
+                  </span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-blue to-brand-orange group-hover:w-full transition-all duration-300 rounded-full" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-brand-blue/10 to-brand-orange/10 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300 -z-10" />
+                </Link>
+              ))}
+
+              {/* About Dropdown */}
+              <div className="relative" ref={aboutDropdownRef}>
+                <button
+                  onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                  className="relative text-sm font-semibold group transition-all duration-300 hover:scale-110 transform flex items-center gap-1"
+                >
+                  <span className="relative z-10 group-hover:text-brand-blue transition-colors duration-300">
+                    About
+                  </span>
+                  <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-300 relative z-10 group-hover:text-brand-blue", aboutDropdownOpen && "rotate-180")} />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-blue to-brand-orange group-hover:w-full transition-all duration-300 rounded-full" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-brand-blue/10 to-brand-orange/10 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300 -z-10" />
+                </button>
+                {aboutDropdownOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200 z-50">
+                    <div className="py-2">
+                      {[
+                        { name: "About Us", href: "/about" },
+                        { name: "Leadership", href: "/about/leadership" },
+                        { name: "Our Legacy", href: "/about/our-legacy" },
+                      ].map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          onClick={() => setAboutDropdownOpen(false)}
+                          className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gradient-to-r hover:from-brand-blue/5 hover:to-brand-orange/5 hover:text-brand-blue transition-all duration-200"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {[
                 { name: "Careers", href: "/careers" },
                 { name: "Blog", href: "/blog" },
                 { name: "Contact", href: "/contact" },
@@ -156,7 +221,47 @@ export function SiteHeader() {
                 { name: "Home", href: "/" },
                 { name: "Solutions", href: "/solutions" },
                 { name: "Services", href: "/services" },
-                { name: "About", href: "/about" },
+              ].map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block py-3 px-2 text-base font-semibold hover:text-brand-blue hover:bg-brand-blue/5 transition-colors rounded-md min-h-[44px] flex items-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+
+              {/* Mobile About Dropdown */}
+              <div>
+                <button
+                  onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                  className="w-full py-3 px-2 text-base font-semibold hover:text-brand-blue hover:bg-brand-blue/5 transition-colors rounded-md min-h-[44px] flex items-center justify-between"
+                >
+                  <span>About</span>
+                  <ChevronDown className={cn("w-4 h-4 transition-transform duration-300", mobileAboutOpen && "rotate-180")} />
+                </button>
+                {mobileAboutOpen && (
+                  <div className="pl-4 border-l-2 border-brand-blue/20 ml-2 mb-2">
+                    {[
+                      { name: "About Us", href: "/about" },
+                      { name: "Leadership", href: "/about/leadership" },
+                      { name: "Our Legacy", href: "/about/our-legacy" },
+                    ].map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block py-2.5 px-2 text-sm font-medium text-gray-600 hover:text-brand-blue hover:bg-brand-blue/5 transition-colors rounded-md min-h-[40px] flex items-center"
+                        onClick={() => { setMobileMenuOpen(false); setMobileAboutOpen(false); }}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {[
                 { name: "Careers", href: "/careers" },
                 { name: "Blog", href: "/blog" },
                 { name: "Contact", href: "/#contact" },
