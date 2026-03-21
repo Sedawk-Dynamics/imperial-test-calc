@@ -107,46 +107,6 @@ export default function OurLegacyPage() {
         </div>
       </section>
 
-      {/* Brand Values */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12 text-center text-brand-blue">
-              What <span className="text-brand-orange">Imperial</span> Stands For
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-blue/10 hover:border-brand-blue/30 transition-all text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-brand-blue/80 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-white">I</span>
-                </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3">Integrity</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Every process, every report, every interaction is guided by unwavering honesty and transparency.
-                </p>
-              </div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-orange/10 hover:border-brand-orange/30 transition-all text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-orange to-brand-orange/80 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-white">E</span>
-                </div>
-                <h3 className="text-xl font-bold text-brand-orange mb-3">Excellence</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  We don&apos;t settle for good enough. Every deliverable meets the highest standards of quality and precision.
-                </p>
-              </div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-blue/10 hover:border-brand-blue/30 transition-all text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-white">A</span>
-                </div>
-                <h3 className="text-xl font-bold text-brand-blue mb-3">Accountability</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  We own our commitments. Every team member takes full responsibility for the outcomes they deliver.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* The Imperial Promise */}
       <section className="py-20 bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-blue/80 text-white">
         <div className="container mx-auto px-4">

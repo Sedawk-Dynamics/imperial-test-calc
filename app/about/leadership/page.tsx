@@ -52,9 +52,9 @@ export default function LeadershipPage() {
 
             {/* Leader 1 - Er. Pabitra Ratan Dash */}
             <div className="mb-12">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border-2 border-transparent hover:border-brand-blue/30 hover:shadow-[0_8px_30px_rgba(21,101,192,0.2),0_8px_30px_rgba(255,111,0,0.1)] transition-all duration-500 group">
                 <div className="grid md:grid-cols-3">
-                  <div className="md:col-span-1 relative h-80 md:h-auto">
+                  <div className="md:col-span-1 relative h-80 md:h-auto overflow-hidden">
                     <img
                       src="/leader1.jpeg"
                       alt="Er. Pabitra Ratan Dash"
@@ -109,13 +109,13 @@ export default function LeadershipPage() {
 
             {/* Leader 2 - Milan Mala Dash */}
             <div className="mb-12">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border-2 border-transparent hover:border-brand-orange/30 hover:shadow-[0_8px_30px_rgba(255,111,0,0.2),0_8px_30px_rgba(21,101,192,0.1)] transition-all duration-500 group">
                 <div className="grid md:grid-cols-3">
-                  <div className="md:col-span-1 relative h-80 md:h-auto md:order-2">
+                  <div className="md:col-span-1 relative h-80 md:h-full md:order-2 overflow-hidden">
                     <img
                       src="/leader3.jpeg"
                       alt="Milan Mala Dash"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover absolute inset-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-transparent" />
                     <div className="absolute bottom-4 left-4 md:hidden">
@@ -163,9 +163,9 @@ export default function LeadershipPage() {
 
             {/* Leader 3 - Shivam Teria */}
             <div>
-              <div className="bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border-2 border-transparent hover:border-brand-blue/30 hover:shadow-[0_8px_30px_rgba(21,101,192,0.2),0_8px_30px_rgba(255,111,0,0.1)] transition-all duration-500 group">
                 <div className="grid md:grid-cols-3">
-                  <div className="md:col-span-1 relative h-80 md:h-auto">
+                  <div className="md:col-span-1 relative h-80 md:h-auto overflow-hidden">
                     <img
                       src="/leader2.jpeg"
                       alt="Shivam Teria"

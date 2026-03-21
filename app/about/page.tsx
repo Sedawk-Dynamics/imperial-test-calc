@@ -10,6 +10,9 @@ import {
   Heart,
   Brain,
   TrendingUp,
+  Shield,
+  Star,
+  Handshake,
 } from "lucide-react"
 import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
@@ -195,6 +198,75 @@ export default function AboutPage() {
               Our teams reflect the <span className="text-brand-orange">Imperial</span> values in every action and
               interaction.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values - Flip Cards */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12 text-center text-brand-blue">Our Core Values</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: Shield,
+                  title: "Integrity",
+                  desc: "Every process, every report, every interaction is guided by unwavering honesty and transparency.",
+                  borderColor: "border-brand-blue/10 hover:border-brand-blue/30",
+                  gradientFrom: "from-brand-blue",
+                  gradientTo: "to-brand-blue/80",
+                  titleColor: "text-brand-blue",
+                  backBg: "bg-brand-blue",
+                },
+                {
+                  icon: Star,
+                  title: "Excellence",
+                  desc: "We don't settle for good enough. Every deliverable meets the highest standards of quality and precision.",
+                  borderColor: "border-brand-orange/10 hover:border-brand-orange/30",
+                  gradientFrom: "from-brand-orange",
+                  gradientTo: "to-brand-orange/80",
+                  titleColor: "text-brand-orange",
+                  backBg: "bg-brand-orange",
+                },
+                {
+                  icon: Handshake,
+                  title: "Accountability",
+                  desc: "We own our commitments. Every team member takes full responsibility for the outcomes they deliver.",
+                  borderColor: "border-brand-blue/10 hover:border-brand-blue/30",
+                  gradientFrom: "from-brand-blue",
+                  gradientTo: "to-brand-orange",
+                  titleColor: "text-brand-blue",
+                  backBg: "bg-gradient-to-br from-brand-blue to-brand-orange",
+                },
+              ].map((value, idx) => (
+                <div
+                  key={idx}
+                  className="flip-card-3d perspective cursor-pointer"
+                  style={{ height: "280px" }}
+                  onClick={(e) => e.currentTarget.classList.toggle("flipped")}
+                >
+                  <div className="flip-inner preserve-3d relative w-full h-full transition-transform duration-700">
+                    {/* Front - Icon + Name only */}
+                    <div className={`flip-front backface-hidden absolute inset-0 bg-white rounded-2xl p-8 shadow-lg border-2 ${value.borderColor} flex flex-col items-center justify-center text-center`}>
+                      <div className="flip-front-content">
+                        <div className={`w-16 h-16 bg-gradient-to-br ${value.gradientFrom} ${value.gradientTo} rounded-full flex items-center justify-center mx-auto mb-6`}>
+                          <value.icon className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 className={`text-xl font-bold ${value.titleColor}`}>{value.title}</h3>
+                      </div>
+                    </div>
+                    {/* Back - Description */}
+                    <div className={`flip-back backface-hidden rotate-y-180 absolute inset-0 ${value.backBg} rounded-2xl p-8 shadow-lg flex flex-col items-center justify-center text-center`}>
+                      <div className="flip-back-content">
+                        <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
+                        <p className="text-white/90 leading-relaxed">{value.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
