@@ -46,7 +46,7 @@ export default async function BlogPost({ params }: PageProps) {
       <div className="container mx-auto max-w-4xl px-4">
 
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+        <h1 className="text-4xl md:text-5xl pt-10 font-bold mb-6">
           {post.title}
         </h1>
 
