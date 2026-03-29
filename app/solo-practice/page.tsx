@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { SiteFooter } from "@/components/site-footer"
+import { SoloPracticeFooter } from "@/components/solo-practice-footer"
 import s from "./solo-practice.module.css"
 
 // ─── Ticker items (duplicated for seamless loop) ───────────────
@@ -585,7 +585,7 @@ export default function SoloPracticePage() {
         <div className={s.cpn}>Or call directly: <strong>+1 (859) 978-8780</strong></div>
       </section>
 
-      <SiteFooter />
+      <SoloPracticeFooter />
     </div>
   )
 }

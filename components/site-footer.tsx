@@ -204,7 +204,7 @@ export function SiteFooter() {
 
         <div className="border-t border-gray-300 pt-4 md:pt-5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center md:text-left">
-            <p className="text-xs text-gray-600">© 2025 Imperial Healthcare Systems. All Rights Reserved.</p>
+            <p className="text-xs text-gray-600">© 2026 Imperial Healthcare Systems. All Rights Reserved.</p>
             <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-gray-600">
               <Link href="/privacy-policy" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
                 Privacy Policy
