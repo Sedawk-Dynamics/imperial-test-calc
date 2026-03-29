@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.imperialhealthsystems.com"),
   title: {
     default:
-      "Imperial Healthcare Systems | 99% Clean Claims & Revenue Cycle Intelligence",
+      "Medical Billing & Revenue Cycle Management | Imperial Healthcare Systems",
     template: "%s | Imperial Healthcare Systems",
   },
   description:
