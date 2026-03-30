@@ -68,14 +68,10 @@
   flex-shrink: 0;
 }
 .miniNavCta:hover { background: var(--orange-dark); transform: translateY(-1px); }
-@media (max-width: 580px) {
-  .miniNavPhone { display: none; }
-  .miniNavCta { font-size: 12px; padding: 9px 16px; }
-}
 
 /* ── HERO ────────────────────────────────────────────────── */
 .hero {
-  padding: 110px 5% 72px;
+  padding: 96px 5% 72px;
   background: var(--white);
   position: relative;
   overflow: hidden;
@@ -505,6 +501,7 @@
   /* Nav */
   .miniNav { height: 64px; padding: 0 4%; }
   .heroLogo { height: 40px !important; }
+  .miniNavPhone { display: none; }
   .miniNavCta { font-size: 12px; padding: 9px 14px; border-radius: 6px; }
 
   /* Hero */
