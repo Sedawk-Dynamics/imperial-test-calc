@@ -5,77 +5,20 @@ export function SoloPracticeFooter() {
   return (
     <footer className="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800 py-8 md:py-10 border-t border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
 
-          {/* ── Logo + tagline + socials ── */}
-          <div className="sm:col-span-2 md:col-span-1">
+          {/* ── Logo + tagline ── */}
+          <div>
             <Image
               src="/images/imperial-logo-horizontal-removebg-preview.png"
               alt="Imperial Healthcare Systems"
               width={280}
               height={80}
-              className="h-14 sm:h-16 md:h-20 w-auto mb-3"
+              className="h-16 sm:h-20 md:h-24 w-auto mb-3"
             />
             <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
               Built exclusively for independent practices. Not hospital systems.
             </p>
-            <div className="flex gap-4 mt-5">
-              <a href="https://www.instagram.com/imperial_healthcare_systems" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <img src="/images/Instagram_Glyph_Gradient.png" alt="Instagram" className="w-6 h-6" />
-              </a>
-              <a href="https://www.linkedin.com/company/imperial-healthcare-systems" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <img src="/images/LI-In-Bug.png" alt="LinkedIn" className="w-7 h-6" />
-              </a>
-              <a href="https://x.com/Imperialhealth_" target="_blank" rel="noopener noreferrer" aria-label="X">
-                <img src="/images/logo-black.png" alt="X" className="w-6 h-6" />
-              </a>
-              <a href="https://www.facebook.com/Imperialhealthsystems/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <img src="/images/Facebook_Logo_Primary.png" alt="Facebook" className="w-7 h-7" />
-              </a>
-            </div>
-          </div>
-
-          {/* ── Quick Links ── */}
-          <div>
-            <h4 className="font-semibold text-base mb-3 text-brand-orange">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-gray-600">
-              {[
-                ["Home", "/"],
-                ["About Us", "/about"],
-                ["Services", "/services"],
-                ["Why IHS", "/solutions"],
-                ["Solutions", "/solutions"],
-                ["Technology & Security", "#footer1"],
-                ["Contact Us", "/#contact"],
-              ].map(([label, href]) => (
-                <li key={label}>
-                  <Link href={href} className="hover:text-brand-blue transition-colors block py-1 min-h-[32px] flex items-center">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* ── Services ── */}
-          <div>
-            <h4 className="font-semibold text-base mb-3 text-brand-orange">Services</h4>
-            <ul className="space-y-2 text-sm text-gray-600">
-              {[
-                "Revenue Cycle Management",
-                "Healthcare Operations",
-                "Advanced Analytics Solutions",
-                "Virtual Staffing",
-                "Denial Management",
-                "AR Follow UP",
-              ].map((service) => (
-                <li key={service}>
-                  <Link href="/services" className="hover:text-brand-blue transition-colors block py-1 min-h-[32px] flex items-center">
-                    {service}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* ── Contact — USA only ── */}
