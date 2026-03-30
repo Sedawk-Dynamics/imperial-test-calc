@@ -23,9 +23,59 @@
   overflow-x: hidden;
 }
 
+/* ── MINI NAV ────────────────────────────────────────────── */
+.miniNav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--ink-08);
+  padding: 0 5%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
+.miniNavInner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.miniNavPhone {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.miniNavPhone:hover { color: var(--blue-dark); }
+.miniNavCta {
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 11px 22px;
+  border-radius: 7px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.miniNavCta:hover { background: var(--orange-dark); transform: translateY(-1px); }
+@media (max-width: 580px) {
+  .miniNavPhone { display: none; }
+  .miniNavCta { font-size: 12px; padding: 9px 16px; }
+}
+
 /* ── HERO ────────────────────────────────────────────────── */
 .hero {
-  padding: 40px 5% 72px;
+  padding: 110px 5% 72px;
   background: var(--white);
   position: relative;
   overflow: hidden;
@@ -374,6 +424,16 @@
 .av { width: 46px; height: 46px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; }
 .byn { font-size: 14px; font-weight: 700; color: var(--blue-deep); }
 .byr { font-size: 12px; color: var(--ink-50); }
+.testimonialDisclaimer {
+  margin-top: 18px;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--ink-50);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
 
 /* ── BOTTOM CTA ──────────────────────────────────────────── */
 .ctabg {

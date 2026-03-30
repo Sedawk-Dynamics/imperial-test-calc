@@ -17,7 +17,7 @@ export function SoloPracticeFooter() {
               className="h-14 sm:h-16 md:h-20 w-auto mb-3"
             />
             <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
-              Think Excellence. Delivering technology-enabled healthcare solutions with integrity, accountability, and reliability.
+              Built exclusively for independent practices. Not hospital systems.
             </p>
             <div className="flex gap-4 mt-5">
               <a href="https://www.instagram.com/imperial_healthcare_systems" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

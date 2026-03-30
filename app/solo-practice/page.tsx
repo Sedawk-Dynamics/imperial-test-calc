@@ -302,9 +302,9 @@ export default function SoloPracticePage() {
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-      {/* ── HERO ────────────────────────────────────────────── */}
-      <section className={s.hero}>
-        <div className={s.logoWrap}>
+      {/* ── MINI NAV ────────────────────────────────────────── */}
+      <div className={s.miniNav}>
+        <div className={s.miniNavInner}>
           <Link href="/">
             <Image
               src="/images/imperial-logo-horizontal-removebg-preview.png"
@@ -315,7 +315,17 @@ export default function SoloPracticePage() {
               priority
             />
           </Link>
+          <a href="tel:+18599788780" className={s.miniNavPhone}>
+            📞 +1 (859) 978-8780
+          </a>
+          <a href="#audit-form" className={s.miniNavCta}>
+            Get Free Audit →
+          </a>
         </div>
+      </div>
+
+      {/* ── HERO ────────────────────────────────────────────── */}
+      <section className={s.hero}>
         <div className={s.heroInner}>
           <div>
             {/* Right-place confirmation */}
@@ -325,7 +335,7 @@ export default function SoloPracticePage() {
 
             <div className={s.eyebrow}>
               <div className={s.eyebrowDot} />
-              <span>Medical Billing for Solo &amp; Independent Practices · FL · GA · NJ · TX</span>
+              <span>Medical Billing for Solo &amp; Independent Practices · FL · GA · TX</span>
             </div>
 
             <h1 className={s.heroH1}>
@@ -571,9 +581,12 @@ export default function SoloPracticePage() {
             <div className={s.av}>KP</div>
             <div>
               <div className={s.byn}>Dr. K. Patel, MD</div>
-              <div className={s.byr}>Solo Internal Medicine Practice · New Jersey</div>
+              <div className={s.byr}>Solo Internal Medicine Practice</div>
             </div>
           </div>
+          <p className={s.testimonialDisclaimer}>
+            Representative case study based on typical solo internal medicine practice audit findings. Results vary by practice size, specialty, and payer mix.
+          </p>
         </div>
       </section>
 
