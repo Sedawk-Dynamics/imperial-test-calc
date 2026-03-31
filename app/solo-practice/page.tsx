@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import Script from "next/script"
 import { SoloPracticeFooter } from "@/components/solo-practice-footer"
 import s from "./solo-practice.module.css"
@@ -178,7 +177,6 @@ function AuditForm() {
       })
       if (!res.ok) throw new Error("Request failed")
       setStatus("success")
-      setTimeout(() => { window.location.href = "https://www.imperialhealthsystems.com/contact" }, 2200)
     } catch {
       setStatus("error")
     }
@@ -320,16 +318,14 @@ export default function SoloPracticePage() {
       {/* ── MINI NAV ────────────────────────────────────────── */}
       <div className={s.miniNav}>
         <div className={s.miniNavInner}>
-          <Link href="/">
-            <Image
-              src="/images/imperial-logo-horizontal-removebg-preview.png"
-              alt="Imperial Healthcare Systems"
-              width={760}
-              height={260}
-              className={s.heroLogo}
-              priority
-            />
-          </Link>
+          <Image
+            src="/images/imperial-logo-horizontal-removebg-preview.png"
+            alt="Imperial Healthcare Systems"
+            width={760}
+            height={260}
+            className={s.heroLogo}
+            priority
+          />
           <a href="tel:+18599788780" className={s.miniNavPhone}>
             📞 +1 (859) 978-8780
           </a>
