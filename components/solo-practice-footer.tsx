@@ -17,7 +17,7 @@ export function SoloPracticeFooter() {
               className="h-16 sm:h-20 md:h-24 w-auto mb-3"
             />
             <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
-              Built exclusively for independent practices. Not hospital systems.
+              Built exclusively for independent practices.
             </p>
           </div>
 
@@ -67,15 +67,15 @@ export function SoloPracticeFooter() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center md:text-left">
             <p className="text-xs text-gray-600">© 2026 Imperial Healthcare Systems. All Rights Reserved.</p>
             <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-gray-600">
-              <Link href="/privacy-policy" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
+              <Link href="#" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
                 Privacy Policy
               </Link>
               <span className="hidden sm:inline">|</span>
-              <Link href="/terms-of-service" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
+              <Link href="#" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
                 Terms of Service
               </Link>
               <span className="hidden sm:inline">|</span>
-              <Link href="/hipaa-soc2-ready" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
+              <Link href="#" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
                 HIPAA & SOC2 Ready
               </Link>
             </div>
