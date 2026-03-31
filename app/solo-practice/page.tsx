@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import { SoloPracticeFooter } from "@/components/solo-practice-footer"
 import s from "./solo-practice.module.css"
 
@@ -299,6 +300,20 @@ function Reveal({ children, delay = 0, className = "" }: { children: React.React
 export default function SoloPracticePage() {
   return (
     <div className={s.root}>
+      {/* ── Google Ads Tag ──────────────────────────────────── */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-18050108796"
+        strategy="afterInteractive"
+      />
+      <Script id="google-ads-tag" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-18050108796');
+        `}
+      </Script>
+
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
