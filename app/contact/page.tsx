@@ -145,7 +145,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information Cards */}
-      <section className="py-20 px-4 bg-white/50 backdrop-blur-sm">
+      <section className="py-2 px-4 bg-white/50 backdrop-blur-sm">
         <div className="container mx-auto max-w-6xl">
           <AutoReveal className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Get In Touch</h2>
