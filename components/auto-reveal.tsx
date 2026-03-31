@@ -31,13 +31,27 @@ export function AutoReveal({
   scale = true,
 }: AutoRevealProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [isInView, setIsInView] = useState(false)
+  const [isInView, setIsInView] = useState(true)
   const prefersReducedMotion = useReducedMotion()
   const mounted = useMounted()
 
   useEffect(() => {
+    if (!mounted || prefersReducedMotion) {
+      return
+    }
+
     const element = ref.current
     if (!element) return
+
+    const isElementInView = () => {
+      const rect = element.getBoundingClientRect()
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight
+
+      return rect.top < viewportHeight && rect.bottom > 0
+    }
+
+    setIsInView(isElementInView())
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -59,9 +73,8 @@ export function AutoReveal({
     observer.observe(element)
 
     return () => observer.disconnect()
-  }, [once, threshold])
+  }, [mounted, once, prefersReducedMotion, threshold])
 
-  // Before mount or if user prefers reduced motion, render plain div to avoid hydration mismatch
   if (!mounted || prefersReducedMotion) {
     return <div ref={ref} className={className}>{children}</div>
   }
@@ -70,11 +83,7 @@ export function AutoReveal({
     <motion.div
       ref={ref}
       className={className}
-      initial={{
-        opacity: 0,
-        y,
-        scale: scale ? 0.98 : 1,
-      }}
+      initial={false}
       animate={{
         opacity: isInView ? 1 : 0,
         y: isInView ? 0 : y,
