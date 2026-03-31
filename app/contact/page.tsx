@@ -118,6 +118,15 @@ export default function ContactPage() {
     },
   ]
 
+  const headquarters = {
+    country: "United States",
+    countryCode: "USA",
+    company: "Imperial Healthcare Systems LLC",
+    address: ["212 N. 2nd St. STE 100", "Richmond, KY 40475", "United States"],
+    summary:
+      "Our U.S. headquarters for enterprise consultations, strategic partnerships, and revenue cycle conversations.",
+  }
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
       {/* Hero Section */}
@@ -173,38 +182,86 @@ export default function ContactPage() {
 
           {/* Office Locations */}
           <AutoReveal className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Office Locations</h3>
+            <div className="text-center mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                Office Location
+              </h3>
+              <p className="mt-3 text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                Connect with our U.S. headquarters for enterprise support, partnerships, and strategic conversations.
+              </p>
+            </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {offices.map((office, idx) => (
-                <AutoReveal key={idx} delay={idx * 0.08}>
-                  <div className="group relative p-6 rounded-2xl bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-md hover:shadow-xl hover:border-brand-blue/40 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-brand-orange/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+            <div className="relative max-w-4xl mx-auto">
+              <div className="absolute -top-8 left-8 h-28 w-28 rounded-full bg-brand-blue/12 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-8 right-8 h-28 w-28 rounded-full bg-brand-orange/12 blur-3xl pointer-events-none" />
 
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className="text-2xl">{office.flag}</span>
-                        <h4 className="font-bold text-brand-blue text-sm">{office.country}</h4>
-                      </div>
+              <div className="relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/90 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.35)] backdrop-blur-sm">
+                <div className="h-1.5 bg-gradient-to-r from-brand-blue via-sky-500 to-brand-orange" />
 
-                      <p className="font-semibold text-gray-900 mb-3 text-sm">{office.company}</p>
+                <div className="grid md:grid-cols-[250px_1fr]">
+                  <div className="bg-gradient-to-br from-brand-blue via-[#1456a8] to-[#0d3c78] px-8 py-10 text-white">
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/70">
+                      Primary Office
+                    </p>
 
-                      <div className="space-y-1">
-                        {office.address.map((line, i) => (
-                          <p key={i} className="text-xs text-gray-600 leading-relaxed">
-                            {line}
-                          </p>
-                        ))}
-                      </div>
-
-                      <div className="mt-4 pt-4 border-t border-gray-200/50 flex items-center gap-2 text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <MapPin className="w-4 h-4" />
-                        <span className="text-xs font-semibold">View on Map</span>
+                    <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-brand-blue text-sm font-bold shadow-sm">
+                        {headquarters.countryCode}
+                      </span>
+                      <div className="text-left">
+                        <p className="text-base font-semibold">{headquarters.country}</p>
+                        <p className="text-xs text-white/75">Richmond, Kentucky</p>
                       </div>
                     </div>
+
+                    <div className="mt-8 rounded-2xl border border-white/15 bg-white/10 p-4">
+                      <p className="text-sm leading-relaxed text-white/85">
+                        {headquarters.summary}
+                      </p>
+                    </div>
                   </div>
-                </AutoReveal>
-              ))}
+
+                  <div className="px-8 py-10 md:px-10">
+                    <div className="flex items-center gap-3 text-brand-blue">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-blue/10">
+                        <MapPin className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+                          Headquarters
+                        </p>
+                        <p className="text-sm font-medium text-slate-600">
+                          Imperial Healthcare Systems
+                        </p>
+                      </div>
+                    </div>
+
+                    <h4 className="mt-6 text-2xl md:text-3xl font-bold text-slate-900">
+                      {headquarters.company}
+                    </h4>
+
+                    <div className="mt-6 space-y-3">
+                      {headquarters.address.map((line, i) => (
+                        <p
+                          key={i}
+                          className={`leading-relaxed ${i === 0 ? "text-lg font-semibold text-slate-800" : "text-base text-slate-600"}`}
+                        >
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+
+                    <div className="mt-8 flex flex-wrap gap-3">
+                      <span className="rounded-full bg-brand-blue/10 px-4 py-2 text-sm font-medium text-brand-blue">
+                        Enterprise Inquiries
+                      </span>
+                      <span className="rounded-full bg-brand-orange/10 px-4 py-2 text-sm font-medium text-brand-orange">
+                        Strategic Partnerships
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </AutoReveal>
         </div>
