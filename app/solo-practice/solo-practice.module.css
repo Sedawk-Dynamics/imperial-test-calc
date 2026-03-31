@@ -500,7 +500,7 @@
 @media (max-width: 580px) {
   /* Nav */
   .miniNav { height: 72px; padding: 0 4%; }
-  .heroLogo { height: 56px !important; }
+  .heroLogo { height: 86px !important; }
   .miniNavPhone { display: none; }
   .miniNavCta { font-size: 12px; padding: 9px 14px; border-radius: 6px; }
 
