@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 
 export function SoloPracticeFooter() {
   return (
@@ -66,19 +65,9 @@ export function SoloPracticeFooter() {
         <div className="border-t border-gray-300 pt-4 md:pt-5">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4 text-center md:text-left">
             <p className="text-xs text-gray-600">© 2026 Imperial Healthcare Systems. All Rights Reserved.</p>
-            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-gray-600">
-              <Link href="#" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
-                Privacy Policy
-              </Link>
-              <span className="hidden sm:inline">|</span>
-              <Link href="#" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
-                Terms of Service
-              </Link>
-              <span className="hidden sm:inline">|</span>
-              <Link href="#" className="hover:text-brand-blue py-1 px-2 min-h-[32px] flex items-center">
-                HIPAA & SOC2 Ready
-              </Link>
-            </div>
+            <p className="text-xs text-gray-500 font-medium">
+              HIPAA Compliant&nbsp;&nbsp;|&nbsp;&nbsp;ISO 27001 Certified&nbsp;&nbsp;|&nbsp;&nbsp;SOC 2 Ready
+            </p>
           </div>
         </div>
 
