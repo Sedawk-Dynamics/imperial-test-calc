@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { MessageCircle, X, Send } from "lucide-react"
 
 const CONTACT_DETAILS = {
@@ -20,6 +20,20 @@ export default function Chatbot() {
   ])
   const [input, setInput] = useState("")
   const [loading, setLoading] = useState(false)
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const timeoutId = window.setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      })
+    }, 50)
+
+    return () => window.clearTimeout(timeoutId)
+  }, [isOpen, loading, messages])
 
   const isContactIntent = (message: string) => {
     const keywords = [
@@ -182,6 +196,8 @@ export default function Chatbot() {
             {loading && (
               <div className="text-xs text-gray-400">Imperia.ai is typing...</div>
             )}
+
+            <div ref={messagesEndRef} />
           </div>
 
           {/* Input */}
